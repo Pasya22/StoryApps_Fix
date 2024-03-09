@@ -1,0 +1,39 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Izinkan akses jika parameter access diberikan
+    RewriteCond %{QUERY_STRING} !access=panghaha$
+    RewriteRule ^maintenance\.blade\.php$ /maintenance.blade.php [R=302,L]
+
+    # Blokir akses ke halaman maintenance jika parameter access tidak diberikan
+    RewriteRule ^maintenance\.blade\.php$ - [F]
+
+    # Izinkan akses jika alamat IP sesuai
+    # Ganti 103\.16\.198\.147 dengan alamat IP pengembang
+    RewriteCond %{REMOTE_ADDR} !^103\.16\.198\.147$
+    RewriteRule ^maintenance\.blade\.php$ /maintenance.blade.php [R=302,L]
+
+    # Blokir akses ke halaman maintenance untuk alamat IP selain yang diizinkan
+    RewriteRule ^maintenance\.blade\.php$ - [F]
+
+
+
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

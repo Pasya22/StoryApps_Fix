@@ -1,0 +1,244 @@
+.writters {
+    width: 40px;
+    color: gray;
+
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    display: none;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rated:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+.star-rating-complete {
+    color: #c59b08;
+}
+
+.rating-container .form-control:hover,
+.rating-container .form-control:focus {
+    background: #fff;
+    border: 1px solid #ced4da;
+}
+
+.rating-container textarea:focus,
+.rating-container input:focus {
+    color: #000;
+}
+
+.rated {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rated:not(:checked)>input {
+    position: absolute;
+    display: none;
+}
+
+.rated:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ffc700;
+}
+
+.rated:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rated>input:checked~label {
+    color: #ffc700;
+}
+
+.rated:not(:checked)>label:hover,
+.rated:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rated>input:checked+label:hover,
+.rated>input:checked+label:hover~label,
+.rated>input:checked~label:hover,
+.rated>input:checked~label:hover~label,
+.rated>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+
+/* Full star */
+.fa-star {
+    font-size: 18px;
+    color: #ffd700;
+    /* Yellow color, adjust as needed */
+}
+
+/* Checked star (full) */
+.checked {
+    color: #ff8c00;
+    /* Orange color, adjust as needed */
+}
+
+/* Half star */
+.fa-star-half::before {
+    content: '\2605';
+    height: 50%;
+    overflow: hidden;
+    color: #ced4da;
+}
+
+/* Checked half star */
+.checked-half::before {
+    content: '\2605';
+    height: 50%;
+    overflow: hidden;
+    color: #ffd700;
+}
+
+.fa-star {
+    font-size: 18px;
+    color: #ced4da;
+    /* warna kuning, Anda bisa menyesuaikan sesuai keinginan */
+}
+
+.checked {
+    color: #ffd700;
+    /* warna oranye, Anda bisa menyesuaikan sesuai keinginan */
+}
+
+
+
+
+
+
+
+
+
+.notification-container {
+    display: none;
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.notification-success {
+    color: #0f6848;
+    background-color: #d2f4e8;
+    border-color: #bff0de
+}
+
+.notification-error {
+    color: #78261f;
+    background-color: #fadbd8;
+    border-color: #f8ccc8
+}
+
+.heart {
+    position: relative;
+    width: 21px;
+    height: 23px;
+    margin: 0 20px 8px 20px;
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 10px;
+    /* Mengurangi dari 50px menjadi 25px */
+    top: 0;
+    width: 10px;
+    /* Mengurangi dari 50px menjadi 25px */
+    height: 16px;
+    /* Mengurangi dari 80px menjadi 40px */
+    background: #ccc;
+    border-radius: 10px 10px 0 0;
+    /* Mengurangi setengahnya dari nilai sebelumnya */
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    transition: background 0.5s;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart.checked:before,
+.heart.checked:after {
+    background: red;
+    /* Ubah warna menjadi merah saat dicentang */
+}
+
+.heart-checkbox {
+    display: none;
+    /* Sembunyikan checkbox asli */
+}
+
+label {
+    cursor: pointer;
+    /* Ubah kursor saat diarahkan ke label */
+}
+
+
+.love-icon {
+    width: 20px; /* Sesuaikan lebar dengan ukuran gambar */
+    height: 20px; /* Sesuaikan tinggi dengan ukuran gambar */
+    cursor: pointer; /* Ubah kursor saat diarahkan ke gambar */
+    background: none; /* Hilangkan latar belakang */
+    border: none; /* Hilangkan border */
+    padding: 0; /* Hilangkan padding */
+}

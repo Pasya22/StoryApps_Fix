@@ -1,0 +1,175 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    quotes: none;
+    text-decoration: unset;
+    outline: none;
+    border: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+.buttonAccount {
+    display: flex;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+}
+
+.buttonAccount a {
+    color: aliceblue;
+    margin-top: 20px;
+}
+
+.login {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 370px;
+    height: 474px;
+    backdrop-filter: blur(50px);
+    /* Efek blur */
+    border: 1px solid #fff;
+}
+
+.register {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 370px;
+    height: 550px;
+    backdrop-filter: blur(50px);
+    /* Efek blur */
+    border: 1px solid #fff;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.input {
+    margin-top: 30px;
+}
+
+label {
+    color: #fff;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #fff;
+    backdrop-filter: blur(20px);
+    /* Efek blur */
+    height: 50px;
+    font-size: 17px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(to right, rgba(0, 194, 255, 1), rgba(52, 59, 221, 1));
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to left, rgba(0, 194, 255, 1), rgba(52, 59, 221, 1));
+}
+
+::placeholder {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+}
+
+input[type="checkbox"] {
+    background-color: #4CAF50;
+    width: 13px;
+}
+
+.forget-password {
+    text-align: right;
+    color: #fff;
+}
+
+.forget-password a {
+    color: #fff;
+}
+
+.bawah {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    font-size: 11px;
+}
+
+.text {
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 16px;
+}
+
+.text a {
+    color: #f5f5f5;
+    font-weight: 600;
+}
+
+.sosmed {
+    margin: 0 12px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 100px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.sosmed-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.check {
+    display: flex;
+}
+
+label {
+    margin-left: 4px;
+}
+
+.sosmed a svg {
+    display: grid;
+    justify-content: center;
+}

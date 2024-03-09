@@ -1,0 +1,183 @@
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the header */
+    header {
+        background-color: #092a4d;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Container for flexboxes */
+    .container {
+        display: flex;
+        /* width: 100%; */
+    }
+
+    /* Style the sidebar */
+    aside {
+        background: #28394d;
+        width: 18%;
+        /* Sidebar background color */
+        color: white;
+        padding: 15px;
+        height: 90.1vh;
+    }
+
+    /* Style for the sidebar menu */
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+    }
+
+    /* Style for the sidebar menu items */
+    .sidebar-menu li {
+        padding: 15px 0;
+        transition: background-color 0.3s;
+    }
+
+    /* Style for the sidebar menu links */
+    .sidebar-menu a {
+        color: #dcdcdc;
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 400;
+        transition: background-color 0.3s;
+    }
+
+    /* Style for the sidebar menu links on hover */
+    .sidebar-menu a:hover,
+    .sidebar-menu li.active a {
+        background-color: #333333;
+    }
+
+    /* Style for the dropdown menu */
+    .treeview-menu {
+        list-style: none;
+        margin: 0;
+        padding-left: 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-out;
+    }
+
+    /* Style for the submenu items */
+    .treeview-menu li {
+        padding: 10px 0;
+        transition: background-color 0.3s;
+    }
+
+    /* Style for the dropdown menu links */
+    .treeview-menu a {
+        color: #dcdcdc;
+        text-decoration: none;
+        display: block;
+        padding: 8px 20px;
+        font-size: 13px;
+        transition: background-color 0.3s;
+    }
+
+    /* Style for the dropdown menu links on hover */
+    .treeview-menu a:hover {
+        background-color: #333333;
+    }
+
+    /* Show the submenu when the parent li is clicked */
+    .sidebar-menu li.active .treeview-menu {
+        max-height: 200px;
+        /* Adjust the value based on your content height */
+    }
+
+    /* Style for the active menu item */
+
+
+    /* Style for the menu headers */
+    .header {
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    /* Style the content */
+    main {
+        flex: 3;
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        /* berikan tabel nnya border solid */
+        border-collapse: collapse;
+        margin-top: 20px;
+
+    }
+
+    thead {
+        background-color: #092a4d;
+        color: #fff;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .action-buttons a {
+        display: inline-block;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s;
+    }
+
+    .action-buttons a:hover {
+        color: #0056b3;
+    }
+
+    .fa {
+        margin-right: 5px;
+    }
+
+    /* Responsive layout - makes the sidebar and the content stack on top of each other instead of next to each other */
+    /* Responsive layout adjustments */
+    @media (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+
+        aside {
+            width: 100%;
+            /* Sidebar full width on small screens */
+            height: auto;
+            /* Auto height for the sidebar on small screens */
+        }
+
+        main {
+            flex: 1;
+            /* Main content takes full width on small screens */
+            overflow-x: auto;
+            /* Add horizontal scrolling for small screens */
+        }
+
+        .treeview-menu {
+            padding-left: 10px;
+            /* Adjust padding for better indentation on small screens */
+        }
+    }

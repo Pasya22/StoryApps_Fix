@@ -1,0 +1,1459 @@
+.container-cerita-terbaru .container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-cerita-terbaru .cerita-terbaruNav {
+    display: flex;
+    margin-left: 46px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.container-cerita-terbaru .card {
+    /* align-self: center; */
+    display: flex;
+    margin-top: 41px;
+    width: 100%;
+    margin-left: 18%;
+    max-width: 1198px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.container-cerita-terbaru .KeranjangNav {
+    color: #005ac8;
+    font: 600 18px Poppins, sans-serif;
+}
+
+.container-cerita-terbaru .HomeNav {
+    color: #005ac8;
+    align-self: start;
+    font: 600 18px Poppins, sans-serif;
+}
+
+
+.container-cerita-terbaru .card2 {
+    align-self: stretch;
+    display: flex;
+    margin-top: 67px;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 20px;
+
+}
+
+.container-cerita-terbaru .RekomLeft {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+}
+
+.container-cerita-terbaru .TitleLeft {
+    justify-content: center;
+    color: #fff;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #06b4fc 0%, #1b81f0 100%);
+    align-items: start;
+    padding: 19px 60px 19px 28px;
+    font: 600 24px Poppins, sans-serif;
+}
+
+.container-cerita-terbaru .cardLeft1 {
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    margin-top: 8px;
+    padding: 21px 26px 21px 18px;
+}
+
+.container-cerita-terbaru .contentLeft1 {
+    gap: 0px;
+    display: flex;
+}
+
+.container-cerita-terbaru .column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 37%;
+    margin-left: 0px;
+}
+
+.container-cerita-terbaru .img-1 {
+    aspect-ratio: 0.96;
+    /* object-fit: contain; */
+    object-position: center;
+    width: 900px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    overflow: hidden;
+    max-width: 232%;
+    flex-grow: 1;
+}
+
+.container-cerita-terbaru .column-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 63%;
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+.container-cerita-terbaru .isicontentLeft1 {
+    display: flex;
+    margin-top: 0px;
+    margin-left: 48px;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: end;
+}
+
+.container-cerita-terbaru .TextcontentLeft1 {
+    justify-content: center;
+    color: #000;
+    align-self: stretch;
+    margin-top: -26px;
+    font: 600 16px Poppins, sans-serif;
+}
+
+.container-cerita-terbaru .TextcontentLeft1 span {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0px;
+}
+
+.container-cerita-terbaru .rate {
+    display: flex;
+    float: left;
+    height: 46px;
+    margin-right: 8px;
+    top: 20px;
+    position: relative;
+
+}
+
+.bin {
+    display: flex;
+    top: 3px;
+    left: 8px;
+    position: relative;
+}
+
+.bin .fa.fa-star {
+    margin-right: 5px;
+    /* Tambahkan margin-right untuk membuat renggang */
+}
+
+
+.container-cerita-terbaru .rate p {
+    margin-top: 10px;
+}
+
+.container-cerita-terbaru .rate .counts {
+    padding: 0px 3px;
+}
+
+.container-cerita-terbaru .rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.container-cerita-terbaru .rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 28px;
+    color: #ccc;
+}
+
+.container-cerita-terbaru .rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.container-cerita-terbaru .rate>input:checked~label {
+    color: #ffc700;
+}
+
+.container-cerita-terbaru .rate:not(:checked)>label:hover,
+.container-cerita-terbaru .rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.container-cerita-terbaru .rate>input:checked+label:hover,
+.container-cerita-terbaru .rate>input:checked+label:hover~label,
+.container-cerita-terbaru .rate>input:checked~label:hover,
+.container-cerita-terbaru .rate>input:checked~label:hover~label,
+.container-cerita-terbaru .rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+
+.container-cerita-terbaru .dropbtn {
+    color: white;
+    padding: 0px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 0px;
+}
+
+.container-cerita-terbaru .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.container-cerita-terbaru .dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgb(189, 189, 189);
+    z-index: 1;
+}
+
+.container-cerita-terbaru .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.container-cerita-terbaru .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.container-cerita-terbaru .dropdown-content svg {
+    width: 20px;
+
+}
+
+.container-cerita-terbaru .cardcerita {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 4px 13px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin: 8px 20px;
+}
+
+
+
+.container-cerita-terbaru .garis {
+    background-color: #005ac8;
+    width: 1px;
+    height: 1095px;
+    margin-left: 390px;
+    position: absolute;
+}
+
+.container-cerita-terbaru .ceritaterbaruRight {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+}
+
+.container-cerita-terbaru .titleright {
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    width: 730px;
+    border-radius: 10px 10px 0px 0px;
+    background: linear-gradient(90deg, #1a81ef 0%, #3243df 100%);
+    align-items: center;
+    padding: 19px 60px;
+    font: 600 24px Poppins, sans-serif;
+}
+
+.container-cerita-terbaru .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Horizontally center the items */
+    padding: 10px 10px;
+    margin-left: 50px;
+}
+
+
+
+.container-cerita-terbaru .gmbcrt {
+    width: 170px;
+    height: 160px;
+}
+
+.container-cerita-terbaru .textcerita .bagikan-cerita .dropdownshare {
+    padding: 5px 0;
+    float: right;
+}
+
+.container-cerita-terbaru .heart-card {
+    position: relative;
+    width: 18px;
+    height: 15px;
+    float: left;
+    /* Move the heart shape to the left */
+}
+
+.container-cerita-terbaru .heart-card:before,
+.container-cerita-terbaru .heart-card:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    /* Set left to 0 to align with the left edge */
+    top: 0px;
+    width: 8px;
+    /* Decrease the width to make it smaller */
+    height: 13px;
+    /* Decrease the height to make it smaller */
+    background: #ccc;
+    border-radius: 8px 8px 0 0;
+    /* Adjust border-radius accordingly */
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    transition: background 0.5s;
+}
+
+.container-cerita-terbaru .heart-card:after {
+    left: -8px;
+    /* Adjust left to overlap properly */
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.container-cerita-terbaru .heart-card.checked:before,
+.container-cerita-terbaru .heart-card.checked:after {
+    background: red;
+}
+
+.container-cerita-terbaru .heart-checkbox-card {
+    position: relative;
+    left: -5px;
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+.container-cerita-terbaru .textcerita .bagikan-cerita svg {
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-left: 13px;
+}
+
+.container-cerita-terbaru .textcerita .bagikan-cerita .list-share {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 30px;
+    height: auto;
+    background-color: #ccc;
+    padding: 10px 7px;
+    margin-left: 145px;
+    margin-top: 22px;
+    display: none;
+}
+
+.container-cerita-terbaru .storyList-share {
+    /* display: none; */
+    position: absolute;
+    width: 30px;
+    height: 0;
+    margin-left: 290px;
+    margin-top: -40px;
+    overflow: hidden;
+    background-color: #d8d5d5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    transition: height 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 4;
+}
+
+.container-cerita-terbaru .storyList-share.open {
+    height: 130px;
+    padding: 10px 6px;
+    margin-top: -125px;
+}
+
+.container-cerita-terbaru .storyList-share figure a img {
+    /* margin-bottom: 22px; */
+    width: 15px;
+    margin-top: 18px;
+}
+
+.container-cerita-terbaru .textcerita .bagikan-cerita .list-share a {
+    padding: 10px 0px;
+
+    text-decoration: none;
+}
+
+.container-cerita-terbaru .textcerita .bagikan-cerita .list-share a img {
+    width: 15px;
+}
+
+.container-cerita-terbaru .textcerita .bagikan-cerita .list-share.show {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 30px;
+    height: auto;
+    background-color: #ccc;
+    padding: 10px 7px;
+    margin-left: 145px;
+    margin-top: 22px;
+}
+
+.container-cerita-terbaru .textcerita .judul-cerita {
+    padding-top: 20px;
+}
+
+.container-cerita-terbaru .textcerita .judul-cerita h3 {
+    font-weight: bold;
+}
+
+.container-cerita-terbaru .textcerita .judul-cerita p {
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.bin2 {
+    display: flex;
+    top: 15px;
+    left: 0px;
+    position: relative;
+}
+
+.bin2 .fa.fa-star {
+    margin-right: 5px;
+    /* Tambahkan margin-right untuk membuat renggang */
+}
+
+.container-cerita-terbaru .rate-5 {
+    float: left;
+    height: 46px;
+    padding: 0;
+}
+
+.container-cerita-terbaru .rate-5 .span {
+    padding: 15px 3px;
+}
+
+.container-cerita-terbaru .rate-5 p {
+    margin-top: 10px;
+}
+
+.container-cerita-terbaru .rate-5:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.container-cerita-terbaru .rate-5:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 28px;
+    color: #ccc;
+    margin-right: 2px;
+    /* Menambahkan margin antar bintang */
+}
+
+.container-cerita-terbaru .rate-5:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.container-cerita-terbaru .rate-5>input:checked~label {
+    color: #ffc700;
+}
+
+.container-cerita-terbaru.rate-5:not(:checked)>label:hover,
+.container-cerita-terbaru.rate-5:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.container-cerita-terbaru.rate-5>input:checked+label:hover,
+.container-cerita-terbaru.rate-5>input:checked+label:hover~label,
+.container-cerita-terbaru.rate-5>input:checked~label:hover,
+.container-cerita-terbaru.rate-5>input:checked~label:hover~label,
+.container-cerita-terbaru.rate-5>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+
+.container-cerita-terbaru .heart {
+    position: relative;
+    width: 20px;
+    height: 18px;
+    top: -6px;
+}
+
+.container-cerita-terbaru .hearts {
+    position: relative;
+    width: 20px;
+    height: 18px;
+    left: -17px;
+    top: -13px;
+}
+
+.container-cerita-terbaru .heart:before,
+.container-cerita-terbaru .heart:after {
+    position: absolute;
+    content: "";
+    left: -10px;
+    /* Adjusted to 0px for shifting left */
+    top: -16px;
+    width: 10px;
+    height: 16px;
+    background: #ccc;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    transition: background 0.5s;
+}
+
+.container-cerita-terbaru .heart:after {
+    left: -20px;
+    /* Adjusted to -10px for shifting left */
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.container-cerita-terbaru .heart.checked:before,
+.container-cerita-terbaru .heart.checked:after {
+    background: red;
+}
+
+.container-cerita-terbaru .heart-checkbox {
+    display: none;
+}
+
+
+
+.container-cerita-terbaru .ddropdown {
+    display: flex;
+    margin-top: 12px;
+    margin-left: 35px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 95%;
+}
+
+label {
+    cursor: pointer;
+}
+
+.container-cerita-terbaru select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 100%;
+    height: 95%;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+
+.container-cerita-terbaru .titleright {
+    max-width: 93%;
+    margin-left: 52px;
+}
+
+
+.container-cerita-terbaru .textcerita .judul-cerita strong {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.container-cerita-terbaru .textcerita .judul-cerita p {
+    font-size: 12px;
+}
+
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .ddropdown {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .container-cerita-terbaru .ddropdown {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .container-cerita-terbaru .cardcerita {
+        background-color: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 9px 13px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        margin: 8px 9px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .cerita-terbaruNav {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .card {
+        max-width: 100%;
+
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 166px;
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 20px;
+        margin-left: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 89%;
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .TitleLeft {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .contentLeft1 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .column {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .img-1 {
+        margin-top: 10px;
+        width: 30%;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .column-2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .cardLeft1 {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -158px;
+        margin-left: 24px;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        margin-left: 134px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .ceritaterbaruRight {
+        max-width: 100%;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .titleright {
+        max-width: 95%;
+        padding: 0 20px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .ddropdown {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-left: 15px;
+        gap: 10px;
+    }
+
+    .dropdown {
+        margin-top: -61px;
+    }
+
+    .container-cerita-terbaru .dropbtn {
+        color: white;
+        padding: 0px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: -98px;
+    }
+
+    .container-cerita-terbaru .heart {
+        position: relative;
+        width: 20px;
+        height: 18px;
+        top: -13px;
+        left: -22px;
+    }
+
+    .container-cerita-terbaru .hearts {
+        position: relative;
+        width: 20px;
+        height: 18px;
+        top: -10px;
+        left: -33px
+    }
+
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru select {
+        height: 23%;
+        width: 30%;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 91%;
+        justify-content: center;
+        padding: 10px 10px;
+        margin-right: 40px;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 430px) {
+    .container-cerita-terbaru .ddropdown {
+        max-width: 130%;
+        flex-wrap: wrap;
+        margin-left: -26px;
+        gap: 0px;
+        width: 107%;
+    }
+
+    .container-cerita-terbaru .gmbcrt {
+        width: 100%;
+        height: 50%;
+
+    }
+
+    .container-cerita-terbaru .rate-5 span {
+        padding: 15px 3px;
+        font-size: 14px;
+    }
+
+    .container-cerita-terbaru .rate-5 p {
+        font-size: 14px;
+        margin-top: 11px;
+    }
+
+    .container-cerita-terbaru .rate-5:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 22px;
+        color: #ccc;
+        margin-right: 2px;
+    }
+
+
+    .container-cerita-terbaru select {
+        height: 19%;
+        width: 30%;
+        font-size: 9px;
+    }
+
+    .container-cerita-terbaru .cerita-terbaru .cardcerita {
+        background-color: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 0px 13px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        margin: 8px 9px;
+        width: 160px;
+
+    }
+
+    .container-cerita-terbaru .Cerita-Terbaru .isicontentLeft1 {
+        margin-top: -150px;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        margin-left: 134px;
+    }
+
+    .container-cerita-terbaru .cerita-terbaruNav {
+        margin-left: 38px;
+    }
+
+    .container-cerita-terbaru .card {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 135px;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 103%;
+        margin-left: -7px;
+    }
+
+    .container-cerita-terbaru .TitleLeft {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .container-cerita-terbaru .contentLeft1 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+    }
+
+    .container-cerita-terbaru .column {
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        margin-top: 10px;
+    }
+
+    .container-cerita-terbaru .column-2 {
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .cardLeft1 {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .container-cerita-terbaru .ceritaterbaruRight {
+        max-width: 100%;
+        margin-left: 10px;
+    }
+
+    .container-cerita-terbaru .titleright {
+        max-width: 105%;
+        padding: 0 20px;
+        margin-left: -20px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 4px;
+
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+
+    .container-cerita-terbaru .storyList-share {
+        /* display: none; */
+        position: fixed;
+        width: 100%;
+        height: 0;
+        bottom: 0;
+        margin-left: -48px;
+        /* margin-top: -40px; */
+        overflow: hidden;
+        background-color: #d8d5d5;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        z-index: 4;
+        transition: height 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .container-cerita-terbaru .storyList-share.open {
+        height: 100px;
+    }
+}
+
+
+
+
+@media (max-width: 414px) {
+    .container-cerita-terbaru .ddropdown {
+        max-width: 130%;
+        flex-wrap: wrap;
+        margin-left: -30px;
+        gap: 0px;
+        width: 105%;
+    }
+
+    .container-cerita-terbaru .storyList-share {
+        /* display: none; */
+        position: absolute;
+        width: 30px;
+        height: 0;
+        margin-left: 290px;
+        margin-top: -40px;
+        overflow: hidden;
+        background-color: #d8d5d5;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        transition: height 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 4;
+    }
+
+    .container-cerita-terbaru .storyList-share.open {
+        height: 130px;
+        padding: 10px 6px;
+        margin-top: -75px;
+    }
+
+    .container-cerita-terbaru .storyList-share figure a img {
+        /* margin-bottom: 22px; */
+        width: 15px;
+        margin-top: 18px;
+    }
+
+    .container-cerita-terbaru .gmbcrt {
+        width: 100%;
+        height: 50%;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 9px;
+    }
+
+    .container-cerita-terbaru .rate-5:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 20px;
+        color: #ccc;
+        margin-right: 2px;
+    }
+
+
+    .container-cerita-terbaru select {
+        height: 19%;
+        width: 32%;
+        font-size: 10px;
+    }
+
+    .container-cerita-terbaru .cardcerita {
+        background-color: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 0px 13px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        margin: 8px 9px;
+        width: 145px;
+
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -107px;
+        width: 100%;
+        margin-left: -6px;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita .list-share.show {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 30px;
+        height: auto;
+        background-color: #ccc;
+        padding: 10px 7px;
+        margin-left: 97px;
+        margin-top: 22px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        margin-left: 136px;
+    }
+
+    .container-cerita-terbaru .cerita-terbaruNav {
+        margin-left: 15px;
+    }
+
+    .container-cerita-terbaru .KeranjangNav {
+        color: #005ac8;
+        font: 600 15px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .HomeNav {
+        color: #005ac8;
+        align-self: start;
+        font: 600 15px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .iconleft {
+        width: 20px;
+    }
+
+    .container-cerita-terbaru .card {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 137px;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 25px;
+        color: #ccc;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 105%;
+        margin-left: -10px;
+        margin-bottom: 40px;
+    }
+
+    .container-cerita-terbaru .TitleLeft {
+        max-width: 100%;
+        padding: 0 20px;
+        font-size: 19px;
+    }
+
+    .container-cerita-terbaru .contentLeft1 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+    }
+
+    .container-cerita-terbaru .column {
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        margin-top: 10px;
+        width: 41%;
+        height: auto;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 9px;
+    }
+
+    .container-cerita-terbaru .column-2 {
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .cardLeft1 {
+        max-width: 100%;
+        margin-bottom: 15px;
+        margin-top: 0px;
+    }
+
+    .container-cerita-terbaru .ceritaterbaruRight {
+        max-width: 100%;
+        margin-left: 18px;
+    }
+
+    .container-cerita-terbaru .titleright {
+        max-width: 105%;
+        padding: 0 20px;
+        margin-left: -28px;
+        font-size: 17px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: grid;
+        margin-left: -20px;
+        justify-content: start;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    #heart {
+        position: relative;
+        width: 19px;
+        height: 23px;
+        /* left: -26px;
+        top: -34px; */
+    }
+
+    #hearts {
+        position: relative;
+        width: 19px;
+        height: 23px;
+        /* left: -26px;
+        top: -34px; */
+    }
+
+    .container-cerita-terbaru .Cerita-Terbaru .isicontentLeft1 {
+        margin-top: -137px;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+
+    .container-cerita-terbaru .dropbtn {
+        color: white;
+        padding: 0px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: -48px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .container-cerita-terbaru .ddropdown {
+        max-width: 130%;
+        flex-wrap: wrap;
+        margin-left: -30px;
+        gap: 0px;
+        width: 111%;
+    }
+
+    #heart {
+        position: relative;
+        width: 19px;
+        height: 23px;
+        /* left: -26px; */
+        /* top: -34px; */
+    }
+
+    #heart:before,
+    #heart:after {
+        margin-top: -2px;
+        position: absolute;
+        content: "";
+        left: 10px;
+        top: 7px;
+        width: 10px;
+        height: 16px;
+        background: #ccc;
+        border-radius: 10px 10px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        transition: background 0.5s;
+    }
+
+    #heart:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+
+    .container-cerita-terbaru .storyList-share {
+        /* display: none; */
+        position: absolute;
+        width: 30px;
+        height: 0;
+        margin-left: 290px;
+        margin-top: -40px;
+        overflow: hidden;
+        background-color: #d8d5d5;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        transition: height 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 4;
+    }
+
+    .container-cerita-terbaru .storyList-share.open {
+        height: 130px;
+        padding: 10px 6px;
+        margin-top: -75px;
+    }
+
+    .container-cerita-terbaru .storyList-share figure a img {
+        /* margin-bottom: 22px; */
+        width: 15px;
+        margin-top: 18px;
+    }
+
+    .container-cerita-terbaru .gmbcrt {
+        width: 100%;
+        height: 50%;
+
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 9px;
+    }
+
+    .container-cerita-terbaru .rate-5:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 20px;
+        color: #ccc;
+        margin-right: 2px;
+    }
+
+
+    .container-cerita-terbaru select {
+        height: 19%;
+        width: 32%;
+        font-size: 7px;
+    }
+
+    .container-cerita-terbaru .cardcerita {
+        background-color: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 0px 13px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        margin: 8px 9px;
+        width: 145px;
+
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -107px;
+        width: 100%;
+        margin-left: -6px;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita .list-share.show {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 30px;
+        height: auto;
+        background-color: #ccc;
+        padding: 10px 7px;
+        margin-left: 97px;
+        margin-top: 22px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        margin-left: 111px;
+    }
+
+    .container-cerita-terbaru .cerita-terbaruNav {
+        margin-left: 15px;
+    }
+
+    .container-cerita-terbaru .KeranjangNav {
+        color: #005ac8;
+        font: 600 15px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .HomeNav {
+        color: #005ac8;
+        align-self: start;
+        font: 600 15px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .iconleft {
+        width: 20px;
+    }
+
+    .container-cerita-terbaru .card {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 111px;
+        font-size: 17px;
+    }
+
+    .container-cerita-terbaru .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 25px;
+        color: #ccc;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 109%;
+        margin-left: -10px;
+        margin-bottom: 40px;
+    }
+
+    .container-cerita-terbaru .TitleLeft {
+        max-width: 100%;
+        padding: 0 20px;
+        font-size: 19px;
+    }
+
+    .container-cerita-terbaru .contentLeft1 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+    }
+
+    .container-cerita-terbaru .column {
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        margin-top: 10px;
+        width: 41%;
+        height: auto;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 9px;
+    }
+
+    .container-cerita-terbaru .column-2 {
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .cardLeft1 {
+        max-width: 100%;
+        margin-bottom: 15px;
+        margin-top: 0px;
+    }
+
+    .container-cerita-terbaru .ceritaterbaruRight {
+        max-width: 100%;
+        margin-left: 16px;
+    }
+
+    .container-cerita-terbaru .titleright {
+        max-width: 110%;
+        padding: 0 20px;
+        margin-left: -28px;
+        font-size: 17px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: grid;
+        margin-left: -31px;
+        justify-content: start;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-cerita-terbaru .card {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-left: 0%;
+        padding: 0 20px;
+    }
+
+    .bin {
+        display: flex;
+        top: -10px;
+        left: 41px;
+        position: relative;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 20px;
+    }
+}

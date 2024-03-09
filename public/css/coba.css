@@ -1,0 +1,245 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    margin-top: 50px;
+}
+
+ul
+{
+    display: flex;
+    justify-content: center;
+}
+
+li
+{
+    list-style: none;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+
+/* --------- Nav --------- */
+
+.nav
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #4E8975;
+    padding: 5px 10px;
+}
+
+.atas
+{
+    display: flex;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-logo
+{
+    width: 20%;
+}
+
+.nav-serch
+{
+    width: 60%;
+}
+
+.div-menu
+{
+    display: flex;
+    width: 20%;
+}
+
+.grub-menu
+{
+    display: flex;
+    margin-left: auto;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    width: 100%;
+    height: 30px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.search-input {
+    padding: 0px;
+    height: 90%;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.search-btn {
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 50px;
+}
+
+.search-btn .search
+{
+    font-size: 23px;
+}
+
+.user
+{
+    width: 40px;
+}
+
+.keranjang
+{
+    width: 40px;
+}
+
+
+/* ================= icon =================== */
+.toggle-btn .icon
+{
+    font-size: 34px;
+}
+
+.user .icon
+{
+    font-size: 24px;
+    border-radius: 50px;
+    color: #4E8975;
+    padding: 3px;
+    background: #000;
+}
+
+.keranjang .icon
+{
+    font-size: 30px;
+}
+
+.home .icon
+{
+    font-size: 42px;
+    margin-top: -3px;
+}
+
+.notif .icon
+{
+    font-size: 34px;
+    margin-top: 2px;
+}
+
+.chat .icon
+{
+    font-size: 40px;
+}
+
+.setting .icon
+{
+    font-size: 40px;
+}
+
+
+.profil .icon
+{
+    font-size: 40px;
+}
+
+
+/* ============= Mwnu =============  */
+
+.toggle-btn
+{
+    width: 40px;
+    cursor: pointer;
+    width: auto;
+}
+
+.menu
+{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 40px;
+    background: #4E8975;
+    /* padding: 5px 10px; */
+    justify-content: center;
+    overflow: hidden;
+    transition: height 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu.open
+{   
+   height: 0;
+}
+
+.link 
+{
+    margin: 0 5px;
+}
+
+/* ================ Nav Resvonsif ================== */
+.nav-resvonsif
+{
+    width: 100%;
+    height: 50px;
+    background: #4E8975;
+    position: fixed;
+    bottom: 0;
+    display: none;
+    padding: 7px 5px;
+    justify-content: center;
+}
+
+.profil, .home, .setting, .chat, .notif
+{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
+
+
+
+
+/* ========= Resvonsiv ======== */
+@media(max-width: 750px)
+{
+    .nav-logo{
+        display: none;
+    }
+    .nav-serch{
+        width: 90%;
+    }
+    .div-menu{
+        width: 10%;
+    }
+    .user{
+        display: none;
+    }
+    .toggle-btn{
+        display: none;
+    }
+    .menu{
+        display: none;
+    }
+    .nav-resvonsif{
+        display: flex;
+    }
+}
