@@ -35,7 +35,7 @@
         <div id="nav" class="navs ">
             <div class="nav-area">
                 <a class="brand" href="">
-                    <h3>Story</h3>
+                    <h3>Story Apps</h3>
                 </a>
                 <div class="nav-burger" {{-- onclick="gganjai()" --}}>
                     <span class="material-symbols-outlined ">
