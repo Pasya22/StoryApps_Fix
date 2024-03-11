@@ -5,4 +5,4 @@ public/storage
 public/default.php
 composer-setup.php
 composer.phar
-public/vendor
+# public/vendor
