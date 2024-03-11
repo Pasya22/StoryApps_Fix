@@ -1,7 +1,8 @@
 vendor/
 .env
 .env.example
-/public/storage
-/public/default.php
+public/storage
+public/default.php
 composer-setup.php
 composer.phar
+public/vendor
