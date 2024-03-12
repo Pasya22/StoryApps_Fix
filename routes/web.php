@@ -58,7 +58,7 @@ Auth::routes();
 Route::group(['middleware' => ['Auth.user']], function () {
 
     Route::get('/Auth/logout', [AuthController::class, 'logout'])->name('logoutUser');
-    Route::get('writter/writter', [writterController::class, 'writter'])->name('writter');
+    Route::get('writter/dashboard', [writterController::class, 'writter'])->name('writter');
     Route::get('/registion', [writterController::class, 'registerWriter'])->name('registerWriter');
     // Writter
     Route::get('/profile/{id}', [writterController::class, 'profile'])->name('profile');
