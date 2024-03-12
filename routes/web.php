@@ -26,20 +26,7 @@ use App\Http\Controllers\DetailStory\DetailStoryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/maintenance', function () {
-    Artisan::call('down', ['--secret' => 'panghaha']); // Sesuaikan dengan nama file halaman maintenance Anda
-    dd(Artisan::output());
-
-})->name('maintenance');
-
-Route::get(
-    '/disable-maintenance',
-    function () {
-        Artisan::call('up');
-        // dd(Artisan::output());
-    }
-);
+ 
 Route::get('/', [HomeController::class, 'index'])->name('StoryApps');
 
 
@@ -58,7 +45,7 @@ Auth::routes();
 Route::group(['middleware' => ['Auth.user']], function () {
 
     Route::get('/Auth/logout', [AuthController::class, 'logout'])->name('logoutUser');
-    Route::get('writter/dashboard', [writterController::class, 'writter'])->name('writter');
+    Route::get('writter/writter', [writterController::class, 'writter'])->name('writter');
     Route::get('/registion', [writterController::class, 'registerWriter'])->name('registerWriter');
     // Writter
     Route::get('/profile/{id}', [writterController::class, 'profile'])->name('profile');
