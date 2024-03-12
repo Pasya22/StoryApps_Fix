@@ -19,7 +19,7 @@ class writterController extends Controller
         if (Auth::user()->id_role !== 2) {
             return redirect()->route('StoryApps')->withErrors("You don't have permission to access this page");
         } else {
-            return view('home.writter.writter');
+            return view('home.writter.dashboard');
         }
     }
     public function registerWriter()
