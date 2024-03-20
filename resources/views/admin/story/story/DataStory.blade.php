@@ -23,6 +23,8 @@
                 <th scope="col" width="10%">Genre</th>
                 <th scope="col" width="13%">Title</th>
                 <th scope="col" width="10%">Image</th>
+                <th>Amount Chapters</th>
+                <th>Amount Pages</th>
                 <th scope="col">Create At</th>
                 <th scope="col">Book Status</th>
                 <th scope="col">Action</th>
@@ -32,12 +34,14 @@
             @foreach ($stories as $story)
                 <tr>
                     {{-- <td>{{ $story->category }}</td> --}}
-                    <td>{{ $story->genre }}</td>
+                    <td>{{ $story->genre_name }}</td>
 
                     <td>{{ $story->title }}</td>
                     <td>
                         <img src="/upload/{{ $story->images }}" alt="images" height="50px" width="50px" />
                     </td>
+                    <td>{{ $story->jumlah_chapter }}</td>
+                    <td>{{ $story->jumlah_halaman }}</td>
                     <td>{{ $story->created_at }}</td>
                     <td>
                         @if ($story->book_status == 1)
@@ -52,7 +56,7 @@
                     </td>
                     <td style="display: flex; ">
                         {{-- Dropdown untuk mengubah status cerita --}}
-                        
+
                         <select class="form-control" onchange="changeStatus('{{ $story->id_story }}', this)"
                             style="width: 150px;">
                             <option value="1" {{ $story->book_status == 1 ? 'selected' : '' }}>Publish</option>

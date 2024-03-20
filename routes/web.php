@@ -26,7 +26,7 @@ use App\Http\Controllers\DetailStory\DetailStoryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
- 
+
 Route::get('/', [HomeController::class, 'index'])->name('StoryApps');
 
 
@@ -40,36 +40,87 @@ Route::post('/Auth/Login', [AuthController::class, 'authentication'])->name('Log
 Route::get('/admin/', [AuthController::class, 'LoginAdmin'])->name('LoginAdmin');
 Route::post('/admin/Auth', [AuthController::class, 'authentication'])->name('LoginAdminPost');
 Route::get('/loadMore/{id}', [HomeController::class, 'loadMore'])->name('loadMore');
-
+Route::get('/genre/{genre}', [HomeController::class, 'StoryByGenre'])->name('StoryByGenre');
 Auth::routes();
+
+
+
 Route::group(['middleware' => ['Auth.user']], function () {
 
     Route::get('/Auth/logout', [AuthController::class, 'logout'])->name('logoutUser');
-    Route::get('writter/writter', [writterController::class, 'writter'])->name('writter');
-    Route::get('/registion', [writterController::class, 'registerWriter'])->name('registerWriter');
+
     // Writter
     Route::get('/profile/{id}', [writterController::class, 'profile'])->name('profile');
 
-    // user/guest
-    Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('profile');
-    // Route::get('writter/profileReader', [HomeController::class, 'profileReader'])->name('profileReader');
+    // ------------------------------------------- data master ------------------------------------------------ //
+    Route::get('writter/dataFavorites', [writterController::class, 'dataFavorites'])->name('dataFavorites');
+    Route::get('/writter/dataRates', [writterController::class, 'dataRates'])->name('dataRates');
+    Route::get('writter/dataStories', [writterController::class, 'dataStories'])->name('dataStories');
+    Route::get('writter/dataChapters', [writterController::class, 'dataChapters'])->name('dataChapters');
+    Route::get('writter/dataCharacters', [writterController::class, 'dataCharacters'])->name('dataCharacters');
+    Route::get('writter/dataDialogs', [writterController::class, 'dataDialogs'])->name('dataDialogs');
+    Route::get('writter/writter', [writterController::class, 'writter'])->name('writter');
+
+    // -------------------------------------------------- CRUD --------------------------------------------------- //
+
+    // add stories
+
+    Route::put('/writter/ubah-status/{id_story}', [writterController::class, 'updateStatus'])->name('updateStatus');
+
+    Route::get('/writter/addStoryPage', [writterController::class, 'addStoryPage'])->name('addStoryPage');
+    Route::post('/writter/addStory', [writterController::class, 'addStory'])->name('addStory');
+    Route::get('/writter/edit-story/{id_story}', [writterController::class, 'editStory'])->name('editStory');
+    Route::post('/writter/Edits-story/{id_story}', [writterController::class, 'updateStoryS'])->name('updateStoryS');
+    Route::get('/writter/delete-story/{id_story}', [writterController::class, 'deleteStories'])->name('deleteStories');
+
+    // add chapters
+
+    Route::get('/writter/addChaptersPage', [writterController::class, 'addChaptersPage'])->name('addChaptersPage');
+    Route::post('/writter/addChapters', [writterController::class, 'addChapters'])->name('addChapters');
+    Route::get('/writter/edit-chapters/{id_chapters}', [writterController::class, 'editChapters'])->name('editChapters');
+    Route::post('/writter/Edits-chapters/{id_chapters}', [writterController::class, 'updateChapters'])->name('updateChapters');
+    Route::get('/writter/delete-chapters/{id_chapters}', [writterController::class, 'deleteChapters'])->name('deleteChapters');
+
+    // add characters
+
+    Route::get('/writter/addCharactersPage', [writterController::class, 'addCharactersPage'])->name('addCharactersPage');
+    Route::post('/writter/addCharacters', [writterController::class, 'addCharacters'])->name('addCharacters');
+    Route::get('/writter/Edit-character/{id_character}', [writterController::class, 'editCharacters'])->name('editCharacters');
+    Route::post('/writter/Update-character/{id_character}', [writterController::class, 'updateCharacters'])->name('updateCharacters');
+    Route::get('/writter/delete-character/{id_character}', [writterController::class, 'deleteCharacters'])->name('deleteCharacters');
+
+    // add dialogs
+    Route::get('/writter/dialogs-characters', [writterController::class, 'GetCharacters'])->name('GetCharacters');
+    Route::get('/writter/addDialogsPage', [writterController::class, 'addDialogsPage'])->name('addDialogsPage');
+    Route::post('/writter/addDialogs', [writterController::class, 'addDialogs'])->name('addDialogs');
+    Route::get('/writter/Edit-dialogs/{id_dialog}', [writterController::class, 'editDialogs'])->name('editDialogs');
+    Route::post('/writter/Update-dialog/{id_dialog}', [writterController::class, 'updateDialogs'])->name('updateDialogs');
+    Route::get('/writter/delete-dialog/{id_dialog}', [writterController::class, 'deleteDialogs'])->name('deleteDialogs');
+
+
+    // ----------------------------------------------- user/guest ---------------------------------------------- //
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+    Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('user.profile');
     Route::post('/home/send', [HomeController::class, 'send'])->name('send');
     Route::post('/home/sendRate', [HomeController::class, 'sendRate'])->name('sendRate');
-    Route::post('/home/sendRate', [HomeController::class, 'storybygenre'])->name('storybygenre');
     Route::post('/favorite', [HomeController::class, 'favorite'])->name('favorite');
     Route::get('/listFavorite', [HomeController::class, 'listFavorite'])->name('listFavorite');
-    Route::get('/genre/{genre}', [HomeController::class, 'StoryByGenre'])->name('StoryByGenre');
-
+    Route::get('/storyFavorite/{id}', [HomeController::class, 'storyFavorite'])->name('storyFavorite');
+    Route::post('/RequestBeWriter/{id}', [HomeController::class, 'RequestBeWriter'])->name('RequestBeWriter');
     Route::post('/edit-profil/{id}', [HomeController::class, 'UpdateUser'])->name('UpdateUser');
-
     Route::post('/edit-password/{id}', [HomeController::class, 'UpdatePassword'])->name('UpdatePassword');
 
-    // CHAT STORY WHATSAPP
+    // --------------------------------------------------- CHAT STORY WHATSAPP -------------------------------- //
     Route::get('story/detailStory/{id}', [HomeController::class, 'detailStory'])->name('detailStory');
     Route::get('story/chatstory/{id}', [HomeController::class, 'ChatStory'])->name('ChatStory');
     Route::get('/loadMore/{id}', [HomeController::class, 'loadMore']);
     Route::get('/chapter/{id}', [HomeController::class, 'loadMore']);
 });
+
+
+
+
+
 Route::group(['middleware' => ['Auth.admin']], function () {
     Route::get('/admin/notification', [adminController::class, 'notification'])->name('notification');
     Route::get('/admin/ShowAllNotification', [adminController::class, 'ShowAllNotification'])->name('ShowAllNotification');
@@ -80,6 +131,7 @@ Route::group(['middleware' => ['Auth.admin']], function () {
 
     // data master
     Route::get('/admin/user/DataUser', [adminController::class, 'DataUser'])->name('DataUser');
+    Route::get('/admin/DataRequestWriter', [HomeController::class, 'DataRequestWriter'])->name('DataRequestWriter');
     Route::get('/admin/story/story/DataStory', [adminController::class, 'DataStory'])->name('DataStory');
     Route::get('/admin/Categories/DataCategories', [adminController::class, 'DataCategories'])->name('DataCategories');
     Route::get('/admin/story/rate/DataRate', [adminController::class, 'DataRate'])->name('DataRate');
@@ -104,6 +156,8 @@ Route::group(['middleware' => ['Auth.admin']], function () {
     Route::post('/admin/user/update-image-user/{id}', [adminController::class, 'updateImageUser'])->name('updateImageUser');
     Route::post('/admin/user/update-password-user/{id}', [adminController::class, 'updateUserPassword'])->name('updateUserPassword');
     Route::get('/admin/user/delete-user/{id}', [adminController::class, 'deleteUser'])->name('deleteUser');
+    Route::post('/admin/ApprovalRequest/{id}', [HomeController::class, 'ApprovalRequest'])->name('ApprovalRequest');
+
 
     // company
     Route::get('/admin/company/createCompany', [adminController::class, 'createCompany'])->name('createCompany');

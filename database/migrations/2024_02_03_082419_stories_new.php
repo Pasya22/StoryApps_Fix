@@ -23,6 +23,16 @@ return new class extends Migration {
             $table->string('username')->unique();
             $table->string('password');
             $table->string('phone_number')->nullable();
+            $table->integer('active')->nullable();
+            $table->timestamps();
+        });
+        Schema::create('requestWriter', function (Blueprint $table) {
+            $table->id('id_request');
+            $table->unsignedBigInteger('id_role');
+            $table->foreign('id_role')->references('id_role')->on('roles');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->integer('status_approve');
             $table->timestamps();
         });
 
@@ -177,5 +187,6 @@ return new class extends Migration {
         Schema::dropIfExists('company');
         Schema::dropIfExists('users');
         Schema::dropIfExists('roles');
+        Schema::dropIfExists('requestWriter');
     }
 };

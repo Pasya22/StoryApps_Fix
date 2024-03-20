@@ -1,10 +1,27 @@
 <div class="sidebar">
     <div class="brand" href="">
-      <h3>LOGO</h3>
+        <h3>LOGO</h3>
     </div>
-    <a href="javascript:void(1)" class="tablink" onclick="openPage('page', this, 'rgb(255, 255, 255)')" id="defaultOpen">DASHBOARD</a>
-    <a href="javascript:void(2)" class="tablink" onclick="openPage('page1', this, 'rgb(255, 255, 255)')">DATA CERITA</a>
-    <a href="javascript:void(3)" class="tablink" onclick="openPage('page2', this, 'rgb(255, 255, 255)')">DATA RATE</a>
-    <a href="javascript:void(5)" class="tablink" onclick="openPage('page3', this, 'rgb(255, 255, 255)')">DATA KOMEN</a>
-    <a href="javascript:void(5)" class="tablink" onclick="openPage('page4', this, 'rgb(255, 255, 255)')">DATA FAVORIT</a>
-  </div>
+    <div class="tablink {{ Route::currentRouteNamed('writter') ? 'active' : '' }}">
+        <a class="" href="{{ route('writter') }}"> Dashboard </a>
+    </div>
+    <div class="tablink {{ Route::currentRouteNamed('dataStories') ? 'active' : '' }}">
+        <a class="" href="{{ route('dataStories') }}"> Stories </a>
+    </div>
+    <div class="tablink {{ Route::currentRouteNamed('dataChapters') ? 'active' : '' }}">
+        <a class="" href="{{ route('dataChapters') }}"> Chapters </a>
+    </div>
+    <div class="tablink {{ Route::currentRouteNamed('dataCharacters') ? 'active' : '' }}">
+        <a class="" href="{{ route('dataCharacters') }}"> Characters </a>
+    </div>
+    <div class="tablink {{ Route::currentRouteNamed('dataDialogs') ? 'active' : '' }}">
+        <a class="" href="{{ route('dataDialogs') }}"> Dialogs </a>
+    </div>
+    <div class="tablink {{ Route::currentRouteNamed('dataFavorites') ? 'active' : '' }}">
+        <a class="" href="{{ route('dataFavorites') }}"> Favorites </a>
+    </div>
+    <div class="tablink {{ Route::currentRouteNamed('dataRates') ? 'active' : '' }}">
+        <a class="" href="{{ route('dataRates') }}"> Rates </a>
+    </div>
+
+</div>

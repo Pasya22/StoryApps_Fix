@@ -45,18 +45,115 @@ class HomeController extends Controller
         // dd($data['counts']);
 
         return view('home.StoryApps', compact('data'));
-    }
-
-    public function profile($id)
+    } 
+    public function profile($id = null)
     {
+        if (is_null($id)) {
+            $id = auth()->id();
+        }
+
         $data['user'] = adminModel::getDataById('users', 'id', $id);
         $data['genre'] = adminModel::getData('genre');
 
-        // dd($data['counts']);
-        // Count the number of stories for the user
-        // $data['story'] = adminModel::CountData('stories', 'id_story', $id);
         return view("home.profile", compact('data'));
     }
+
+    public function DataRequestWriter(Request $request)
+    {
+        $data = adminModel::GetDataRequestWriter();
+
+        return view('admin.requestWriter.requestWriter', compact('data'));
+    }
+    public function storyFavorite($id)
+    {
+        $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang masuk
+        $data['favorit'] = DB::table('favorites')
+            ->where('id_user', $userId)
+            ->pluck('id_story')
+            ->toArray();
+        $data['genre'] = adminModel::getData('genre');
+        $data['sto'] = adminModel::StoryFavoritUser($id);
+
+        $data['stories'] = adminModel::getStoryDetail($id);
+        $data['favorit'] = adminModel::getData('favorites');
+        // $data['storyPublish'] = adminModel::getDataById('stories', 'id_story', $id);
+        // dd($data);
+        $chapters = adminModel::getDataById2('chapters', 'id_story', $id);
+        return view('home.storyFavorite.storyFavorite', compact('data'));
+    }
+
+    public function RequestBeWriter($id)
+    {
+        // Retrieve data from the request
+        $user = adminModel::getDataById('users', 'id', $id);
+
+        // Check if the user exists
+        if ($user) {
+            // Check if the user has already requested to be a writer
+            $existingRequest = adminModel::getDataById('requestwriter', 'id_user', $user->id);
+
+            if ($existingRequest) {
+                return response()->json(['error' => false, 'message' => 'Ask to be a writer just once!']);
+            }
+
+            // If not, proceed to create the request
+            $data = [
+                'id_role' => $user->id_role,
+                'id_user' => $user->id,
+                'status_approve' => 0,
+            ];
+
+            if (adminModel::CreateData('requestwriter', $data)) {
+                $notif = [
+                    'id_user' => $data['id_user'], // Sesuaikan dengan ID pengguna yang sesuai
+                    "message" => 'User ' . $user->username . ' has requested to become a writer',
+                    "type" => 'RequestBeWriter',
+                    "entity_id" => null, // Menggunakan ID permintaan penulis yang baru saja dibuat
+                    "entity_id2" => $data['id_user'], // Menggunakan ID permintaan penulis yang baru saja dibuat
+                    "sender_id" => auth()->user()->id,
+                    "tgl_dibuat" => Carbon::now('Asia/Jakarta')->toDateTimeString() // Gunakan toDateTimeString() untuk memastikan format waktu yang sesuai
+                ];
+
+                // Insert notification
+                Notification::insertNotification($notif);
+            }
+            return response()->json(['success' => true, 'message' => 'Request Writer created successfully, waiting for approval!']);
+        } else {
+            return response()->json(['error' => false, 'message' => 'User not found!']);
+        }
+    }
+
+
+    public function ApprovalRequest($id)
+    {
+        // Jika diklik, maka status berubah menjadi 1
+        $statusApproved = [
+            "status_approve" => 1
+        ];
+
+        // Mengambil data yang akan diedit
+        $transactionData = adminModel::getDataById('requestWriter', 'id_request', $id);
+
+        // Check if $transactionData is not null before proceeding
+        if ($transactionData) {
+            // Memperbarui data tersebut dengan data yang telah diedit
+            DB::table('requestWriter')
+                ->where('id_request', $transactionData->id_request)
+                ->update(['status_approve' => $statusApproved["status_approve"]]);
+
+            // Memperbarui peran pengguna pada tabel pengguna
+            DB::table('users')
+                ->where('id', $transactionData->id_user)
+                ->update(['id_role' => 2]);
+
+            // Redirect ke halaman admin/dashboard
+            return redirect()->route('DataRequestWriter')->with('success', 'Request Writer has been approved!');
+        } else {
+            // Handle the case where no data was found for the given $id
+            return redirect()->route('DataRequestWriter')->with('error', 'No data found for the specified ID.');
+        }
+    }
+
     public function UpdateUser(Request $request, $id)
     {
         $validation = $request->validate([
@@ -128,10 +225,12 @@ class HomeController extends Controller
     public function favorite(Request $request)
     {
         // dd($request->all());
+        // return response()->json(['success' => true, 'message' => 'Add The Stories To Your Favorite!']);
+
         $idStory = $request->input('id_story');
         $id = auth()->user()->id;
         // dd($id);
-        if (!empty($request->input('favorit'))) {
+        if (!empty ($request->input('favorit'))) {
             $status = $request->input('favorit');
         } else {
             $status = 0;
@@ -160,13 +259,14 @@ class HomeController extends Controller
                 "message" => 'Cerita anda ada yang menjadi favorite  oleh user lainnya',
                 "type" => 'favorite',
                 "entity_id" => $data['id_story'],
+                "entity_id2" => null,
                 "sender_id" => auth()->user()->id,
-                "created_at" => Carbon::now('Asia/Jakarta')
+                "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);
         }
 
-        return response()->json(['success' => true, 'message' => 'Status favorit diperbarui.']);
+        return response()->json(['success' => true, 'message' => 'Add The Stories To Your Favorite!']);
     }
 
 

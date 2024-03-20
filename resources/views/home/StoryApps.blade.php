@@ -81,32 +81,7 @@
                                     </a>
                                     <div class="share">
                                         <div class="rate-1">
-                                            <!-- Tampilkan checkbox favorit -->
-                                            {{-- @if (Auth::check() && isset($data['favorit']) && is_object($data['favorit']))
-                                                <form action="{{ route('favorite') }}" method="post"
-                                                    class="favorite-form">
-                                                    @csrf
-                                                    @method('POST')
-                                                    <input type="hidden" name="id_story" value="{{ $items->id_story }}">
-                                                    @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
-                                                    @endphp
-                                                    <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                        id="heart-checkbox-{{ $items->id_story }}"
-                                                        data-story-id="{{ $items->id_story }}"
-                                                        data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                        {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
-                                                    <label for="heart-checkbox-{{ $items->id_story }}"
-                                                        class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
-                                                        id="heart"></label>
-                                                </form>
-                                            @else
-                                                <a href="#">
-                                                    <label for="heart-checkbox" class="heart" id="heart"></label>
-                                                    <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                        id="heart-checkbox">
-                                                </a>
-                                            @endif --}}
+
                                             @if (Auth::check())
                                                 <form action="{{ route('favorite') }}" method="post"
                                                     class="favorite-form">
@@ -217,7 +192,9 @@
                                                     <input type="hidden" name="id_story"
                                                         value="{{ $items->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                        $favoritItem = $data['favorit']
+                                                            ->where('id_story', $items->id_story)
+                                                            ->first();
                                                     @endphp
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
                                                         id="heart-checkbox-{{ $items->id_story }}"
@@ -468,7 +445,9 @@
                                                     <input type="hidden" name="id_story"
                                                         value="{{ $items->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                        $favoritItem = $data['favorit']
+                                                            ->where('id_story', $items->id_story)
+                                                            ->first();
                                                     @endphp
 
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
@@ -715,7 +694,9 @@
                                                         <input type="hidden" name="id_story"
                                                             value="{{ $items->id_story }}">
                                                         @php
-                                                            $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                            $favoritItem = $data['favorit']
+                                                                ->where('id_story', $items->id_story)
+                                                                ->first();
                                                         @endphp
 
                                                         <input type="checkbox" name="favorit" class="heart-checkbox"
@@ -817,7 +798,9 @@
                                                         <input type="hidden" name="id_story"
                                                             value="{{ $items->id_story }}">
                                                         @php
-                                                            $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                            $favoritItem = $data['favorit']
+                                                                ->where('id_story', $items->id_story)
+                                                                ->first();
                                                         @endphp
 
                                                         <input type="checkbox" name="favorit" class="heart-checkbox"
@@ -908,14 +891,15 @@
 
 
                                                 @if (Auth::check())
-                                                    <form action="{{ route('favorite') }}" method="post"
-                                                        class="favorite-form">
+                                                    <form action="#" method="post" class="favorite-form">
                                                         @csrf
                                                         @method('POST')
                                                         <input type="hidden" name="id_story"
                                                             value="{{ $items->id_story }}">
                                                         @php
-                                                            $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                            $favoritItem = $data['favorit']
+                                                                ->where('id_story', $items->id_story)
+                                                                ->first();
                                                         @endphp
 
                                                         <input type="checkbox" name="favorit" class="heart-checkbox"

@@ -49,7 +49,7 @@
             /* Set a different color for read notifications */
         }
     </style>
-    <link rel="icon" href="{{ asset('/img/default.png') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
 
     <link rel="stylesheet" href="{{ asset('css/custome.css') }}">
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -135,7 +135,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function() {
@@ -185,127 +185,137 @@
     </script>
 
     <script>
-       $(document).ready(function() {
-    // Fungsi untuk memperbarui badge count
-    function updateBadgeCount(count) {
-        $('.badge-counter').text(count);
-        if (count > 0) {
-            $('.badge-counter').show(); // Tampilkan badge jika ada notifikasi belum dibaca
-        } else {
-            $('.badge-counter').hide(); // Sembunyikan badge jika tidak ada notifikasi belum dibaca
-        }
-    }
-
-    // Fungsi untuk mengambil data notifikasi dari server
-    function getNotifications() {
-        $.ajax({
-            url: "{{ route('notification') }}", // Ganti dengan URL endpoint yang sesuai di server
-            method: 'GET',
-            dataType: 'json',
-            success: function(response) {
-                // Reset container notifikasi
-                $('#notificationContainer').empty();
-                var unreadCount = response.total_unread_count;
-
-                // Loop melalui data notifikasi dan tambahkan ke container
-                response.notifications.forEach(function(notification) {
-                    // Tentukan warna dan ikon berdasarkan jenis notifikasi
-                    console.log(notification);
-                    var iconClass = '';
-                    var colorClass = '';
-                    if (notification.type === 'comment') {
-                        iconClass = 'fa fa-comment';
-                        colorClass = 'text-primary';
-                    } else if (notification.type === 'rate') {
-                        iconClass = 'fa fa-star';
-                        colorClass = 'text-warning';
-                    } else if (notification.type === 'favorite') {
-                        iconClass = 'fa fa-heart';
-                        colorClass = 'text-danger';
-                    } else if (notification.type === 'user') {
-                        iconClass = 'fas fa-user';
-                        colorClass = 'text-info';
-                    }
-
-                    // Tentukan kelas untuk menandai notifikasi sudah dibaca atau belum
-                    var readClass = notification.is_read ? 'text-muted' :
-                        'font-weight-bold';
-
-                    // Buat elemen notifikasi dan tambahkan ke container
-                    var notificationItem =
-                        '<a id="notification_' + notification.id_notification +
-                        '" class="dropdown-item d-flex align-items-center" onclick="updateStatusNotifikasi(' +
-                        notification.id_notification + ')" style="cursor:pointer;">' +
-                        '<div class="mr-3">' +
-                        '<div class="icon-circle bg-white">' +
-                        '<i class="' + iconClass + ' ' + colorClass + '"></i>' +
-                        '</div>' +
-                        '</div>' +
-                        '<div>' +
-                        '<div class="small text-gray-500">' + notification.created_at +
-                        '</div>' +
-                        '<span class="' + readClass + '">' + notification.message +
-                        ' ' +
-                        notification.title +
-                        '</span>' +
-                        '</div>' +
-                        '</a>';
-                    $('#notificationContainer').append(notificationItem);
-
-                    // Perbarui jumlah notifikasi yang belum dibaca
-                    if (!notification.is_read) {
-                        unreadCount++;
-                    }
-                });
-
-                // Perbarui counter notifikasi
-                updateBadgeCount(unreadCount);
-            },
-            error: function(xhr, status, error) {
-                console.error('Error fetching notifications:', error);
-            }
-        });
-    }
-
-    // Panggil fungsi getNotifications saat dokumen siap
-    // getNotifications();
-
-    // Tambahkan interval untuk mengambil notifikasi secara berkala
-    setInterval(getNotifications, 6000); // Ambil notifikasi setiap 1 menit (60000 milidetik)
-});
-
-function updateStatusNotifikasi(id) {
-    $.ajax({
-        url: "{{ route('markNotificationAsRead', ['id' => '__id__']) }}".replace('__id__', id),
-        type: 'PUT',
-        data: {
-            _method: 'PUT',
-            _token: '{{ csrf_token() }}'
-        },
-        success: function(response) {
-            if (response.success) {
-                console.log(id);
-                console.log('Status notifikasi berhasil diupdate');
-                alert('Notifikasi telah dibaca');
-                // Hapus notifikasi dari tampilan setelah dibaca
-                $('#notification_' + id).remove();
-
-                // Kurangi jumlah notifikasi yang belum dibaca
-                var unreadCount = parseInt($('.badge-counter').text());
-                if (unreadCount > 0) {
-                    unreadCount--;
-                    updateBadgeCount(unreadCount);
+        $(document).ready(function() {
+            // Fungsi untuk memperbarui badge count
+            function updateBadgeCount(count) {
+                $('.badge-counter').text(count);
+                if (count > 0) {
+                    $('.badge-counter').show(); // Tampilkan badge jika ada notifikasi belum dibaca
+                } else {
+                    $('.badge-counter').hide(); // Sembunyikan badge jika tidak ada notifikasi belum dibaca
                 }
             }
-        },
-        error: function(xhr, status, error) {
-            console.error('Gagal mengupdate status notifikasi:', error);
-            alert('Gagal mengupdate status notifikasi');
-            // Jika Anda memiliki penanganan kesalahan lainnya, tambahkan di sini
-        }
-    });
-}
 
+            // Fungsi untuk mengambil data notifikasi dari server
+            function getNotifications() {
+                $.ajax({
+                    url: "{{ route('notification') }}", // Ganti dengan URL endpoint yang sesuai di server
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // Reset container notifikasi
+                        $('#notificationContainer').empty();
+                        var unreadCount = response.total_unread_count;
+
+                        // Loop melalui data notifikasi dan tambahkan ke container
+                        response.notifications.forEach(function(notification) {
+                            // Tentukan warna dan ikon berdasarkan jenis notifikasi
+                            console.log(notification);
+                            var iconClass = '';
+                            var colorClass = '';
+                            if (notification.type === 'comment') {
+                                iconClass = 'fa fa-comment';
+                                colorClass = 'text-primary';
+                            } else if (notification.type === 'rate') {
+                                iconClass = 'fa fa-star';
+                                colorClass = 'text-warning';
+                            } else if (notification.type === 'RequestBeWriter') {
+                                iconClass = 'fa fa-user';
+                                colorClass = 'text-success';
+                            } else if (notification.type === 'favorite') {
+                                iconClass = 'fa fa-heart';
+                                colorClass = 'text-danger';
+                            } else if (notification.type === 'user') {
+                                iconClass = 'fas fa-user';
+                                colorClass = 'text-info';
+                            }
+
+
+
+                            // Tentukan kelas untuk menandai notifikasi sudah dibaca atau belum
+                            var readClass = notification.is_read ? 'text-muted' :
+                                'font-weight-bold';
+
+                            // Buat elemen notifikasi dan tambahkan ke container
+                            var notificationItem =
+                                '<a id="notification_' + notification.id_notification +
+                                '" class="dropdown-item d-flex align-items-center" onclick="updateStatusNotifikasi(' +
+                                notification.id_notification + ')" style="cursor:pointer;">' +
+                                '<div class="mr-3">' +
+                                '<div class="icon-circle bg-white">' +
+                                '<i class="' + iconClass + ' ' + colorClass + '"></i>' +
+                                '</div>' +
+                                '</div>' +
+                                '<div>' +
+                                '<div class="small text-gray-500">' + notification.tgl_dibuat +
+                                '</div>' +
+                                '<span class="' + readClass + '">' + notification.message;
+
+                            // Check kondisi untuk menampilkan title atau tidak
+                            if (notification.entity_id === "entity_id") {
+                                notificationItem += ' ' + notification.title;
+                            }
+
+                            notificationItem += '</span>' +
+                                '</div>' +
+                                '</a>';
+
+                            $('#notificationContainer').append(notificationItem);
+
+
+                            // Perbarui jumlah notifikasi yang belum dibaca
+                            if (!notification.is_read) {
+                                unreadCount++;
+                            }
+                        });
+
+                        // Perbarui counter notifikasi
+                        updateBadgeCount(unreadCount);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error fetching notifications:', error);
+                    }
+                });
+            }
+
+            // Panggil fungsi getNotifications saat dokumen siap
+            // getNotifications();
+
+            // Tambahkan interval untuk mengambil notifikasi secara berkala
+            setInterval(getNotifications, 6000); // Ambil notifikasi setiap 1 menit (60000 milidetik)
+        });
+
+        function updateStatusNotifikasi(id) {
+            $.ajax({
+                url: "{{ route('markNotificationAsRead', ['id' => '__id__']) }}".replace('__id__', id),
+                type: 'PUT',
+                data: {
+                    _method: 'PUT',
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log(id);
+                        console.log('Status notifikasi berhasil diupdate');
+                        alert('Notifikasi telah dibaca');
+                        // Hapus notifikasi dari tampilan setelah dibaca
+                        $('#notification_' + id).remove();
+
+                        // Kurangi jumlah notifikasi yang belum dibaca
+                        var unreadCount = parseInt($('.badge-counter').text());
+                        if (unreadCount > 0) {
+                            unreadCount--;
+                            updateBadgeCount(unreadCount);
+                        }
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Gagal mengupdate status notifikasi:', error);
+                    alert('Gagal mengupdate status notifikasi');
+                    // Jika Anda memiliki penanganan kesalahan lainnya, tambahkan di sini
+                }
+            });
+        }
     </script>
 
     <script>

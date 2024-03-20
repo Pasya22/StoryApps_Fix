@@ -12,8 +12,8 @@
 
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
-    <link rel="shortcut icon" href="{{ asset('/img/default.png') }}" type="image/x-icon"/>
-
+    <link rel="shortcut icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,40 +32,40 @@
 <body>
 
 
-        <div id="nav" class="navs ">
-            <div class="nav-area">
-                <a class="brand" href="">
-                    <h3>Story Apps</h3>
-                </a>
-                <div class="nav-burger" {{-- onclick="gganjai()" --}}>
-                    <span class="material-symbols-outlined ">
-                        menu
-                    </span>
-                </div>
+    <div id="nav" class="navs ">
+        <div class="nav-area">
+            <a class="brand" href="">
+                <h3>Story Apps</h3>
+            </a>
+            <div class="nav-burger" {{-- onclick="gganjai()" --}}>
+                <span class="material-symbols-outlined ">
+                    menu
+                </span>
+            </div>
 
-                <div class="nav-menu">
-                    <div class="nav-menu-1 pc">
-                        <a href="#" onclick="list()">Genre <i id="iconnav" class="fa fa-caret-down"></i></a>
-                    </div>
-                    <div class="nav-menus-1 menu-nav-mb mobile">
-                        <a href="#" onclick="toggleDropdown()">Genre <i id="iconnav"
-                                class="fa fa-caret-down"></i></a>
-                        <div class="container-dw-mobile" id="list-mobile">
-                            @foreach ($data['genre'] as $genre)
-                                <div class="row2-mobile">
-                                    <div class="column2-mobile">
-                                        <a href="{{ route('StoryByGenre', $genre->genre) }}">{{ $genre->genre }}</a>
-                                    </div>
+            <div class="nav-menu">
+                <div class="nav-menu-1 pc">
+                    <a href="#" onclick="list()">Genre <i id="iconnav" class="fa fa-caret-down"></i></a>
+                </div>
+                <div class="nav-menus-1 menu-nav-mb mobile">
+                    <a href="#" onclick="toggleDropdown()">Genre <i id="iconnav"
+                            class="fa fa-caret-down"></i></a>
+                    <div class="container-dw-mobile" id="list-mobile">
+                        @foreach ($data['genre'] as $genre)
+                            <div class="row2-mobile">
+                                <div class="column2-mobile">
+                                    <a href="{{ route('StoryByGenre', $genre->genre) }}">{{ $genre->genre }}</a>
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="nav-menu-2">
-                        <a href="{{ route('storyList') }}">Daftar Cerita</a>
-                    </div>
-                    <a href="{{ route('storyList') }}">Membaca</a>
-                    <a href="{{ route('writter') }}">Menulis</a>
-                    {{-- @if (Auth::check())
+                </div>
+                <div class="nav-menu-2">
+                    <a href="{{ route('storyList') }}">Daftar Cerita</a>
+                </div>
+                <a href="{{ route('storyList') }}">Membaca</a>
+                <a href="{{ route('writter') }}">Menulis</a>
+                {{-- @if (Auth::check())
                         <a href="{{ route('logoutUser') }}">Logout</a>
                     @else
                         <div class="login-btn-Mobile">
@@ -74,26 +74,26 @@
 
                         </div>
                     @endif --}}
-                </div>
+            </div>
 
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
-                    {{-- untuk membuka pencarian --}}
-                    <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)">
-                        <span class="material-symbols-outlined">
-                            search
-                        </span>
-                    </button>
-                    {{-- untuk mencari --}}
-                    <button type="button" class="btn-serch2">
-                        <span class="material-symbols-outlined">
-                            search
-                        </span>
-                    </button>
-                </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
+                {{-- untuk membuka pencarian --}}
+                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+                {{-- untuk mencari --}}
+                <button type="button" class="btn-serch2">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+            </div>
 
 
-                {{-- <div class="nav-menu-dekstop">
+            {{-- <div class="nav-menu-dekstop">
                     @if (Auth::check())
                         <a href="{{ route('logoutUser') }}">Logout</a>
                     @else
@@ -101,36 +101,33 @@
                         <a href="{{ route('loginUser') }}">Login</a>
                     @endif
                 </div> --}}
-                <div class="nav-menu-dekstop">
-                    @if (Auth::check())
-                        <a href="{{ route('listFavorite') }}">
-                            <i class="fas fa-heart"></i>
+            <div class="nav-menu-dekstop">
+                @if (Auth::check())
+                    <a href="{{ route('storyFavorite', Auth::user()->id) }}">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <div class="dropdown-custom">
+                        <a class="dropbtn-custom">
+                            <i class="fas fa-user"></i>
                         </a>
-                        <div class="dropdown-custom">
-                            <a class="dropbtn-custom">
-                                <i class="fas fa-user"></i>
+                        <div class="dropdown-content-custom">
+                            <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">
+                                <i class="fas fa-user"></i> Profile
                             </a>
-                            <div class="dropdown-content-custom">
-                                <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">
-                                    <i class="fas fa-user"></i> Profile
-                                </a>
-                                <a href="{{ route('listFavorite') }}">
-                                    <i class="fas fa-heart"></i> Favorite
-                                </a>
-                                <a href="{{ route('logoutUser') }}">
-                                    <i class="fas fa-sign-out-alt"></i> Logout
-                                </a>
-                            </div>
+                            <a href="{{ route('logoutUser') }}">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
                         </div>
-                    @else
-                        <a href="{{ route('registerUser') }}">Register</a>
-                        <a href="{{ route('loginUser') }}">Login</a>
-                    @endif
-                </div>
-
-
+                    </div>
+                @else
+                    <a href="{{ route('registerUser') }}">Register</a>
+                    <a href="{{ route('loginUser') }}">Login</a>
+                @endif
             </div>
+
+
         </div>
+    </div>
 
 
 

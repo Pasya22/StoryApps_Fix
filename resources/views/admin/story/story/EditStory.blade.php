@@ -11,18 +11,7 @@
                         <div class="sbp-preview-content cursor-hover">
                             <form action="{{ route('updateStory', $data->id_story) }}" method="post"
                                 enctype="multipart/form-data" class="cursor-hover">
-                                @csrf
-                                {{-- <div class="mb-3 cursor-hover">
-                                    <label for="category" class="cursor-hover">Category</label>
-                                    <select name="id_category" id="id_category" class="form-control cursor-hover">
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id_category }}"
-                                                {{ $category->id_category == $data->id_category ? 'selected' : '' }}>
-                                                {{ $category->category }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div> --}}
+                                @csrf 
                                 <div class="mb-3 cursor-hover">
                                     <label for="genre" class="cursor-hover">Genre</label>
                                     <select name="id_genre" id="id_genre" class="form-control cursor-hover">

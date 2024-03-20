@@ -14,34 +14,54 @@ class AuthenticateDashboard
 {
 
 
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
 
         if (auth()->user()->id_role == 1) {
             if (Auth::check()) {
                 return $next($request);
             } else {
-                return redirect()->route('LoginAdmin');
+                if ($request->ajax()) {
+                    return response()->json(['success' => false, 'message' => 'Please login!']);
+                } else {
+                    return redirect()->route('LoginAdmin');
+                }
             }
         } else if (auth()->user()->id_role == 2) {
             if (Auth::check()) {
 
                 if ($request->is('writter/*')) {
-                    return redirect()->route('writter');
+                    if ($request->ajax()) {
+                        return response()->json(['success' => false, 'message' => 'Please login!']);
+                    } else {
+                        return redirect()->route('writter');
+                    }
                 }
 
             } else {
-                return redirect()->route('LoginUser');
+                if ($request->ajax()) {
+                    return response()->json(['success' => false, 'message' => 'Please login!']);
+                } else {
+                    return redirect()->route('LoginUser');
+                }
             }
         } else if (auth()->user()->id_role == 3) {
             if (Auth::check()) {
 
-                if (!$request->is('writter/*')) {
-                    return redirect()->route('StoryApps');
+                if (!$request->is('writter')) {
+                    if ($request->ajax()) {
+                        return response()->json(['success' => false, 'message' => 'Please login!']);
+                    } else {
+                        return redirect()->route('StoryApps');
+                    }
                 }
 
             } else {
-                return redirect()->route('LoginUser');
+                if ($request->ajax()) {
+                    return response()->json(['success' => false, 'message' => 'Please login!']);
+                } else {
+                    return redirect()->route('LoginUser');
+                }
             }
         }
     }
