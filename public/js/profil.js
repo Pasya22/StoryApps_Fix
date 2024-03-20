@@ -76,3 +76,44 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".content").style.opacity = 1;
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selectElement = document.querySelector('select');
+    const cardsBodies = document.querySelectorAll('.cards-body');
+    const cardTitle = document.getElementById('card-title');
+
+    // Function untuk menangani perubahan opsi terpilih
+    selectElement.addEventListener('change', function () {
+        const selectedOption = this.value;
+
+        // Sembunyikan semua konten tab
+        cardsBodies.forEach(function (cardsBody) {
+            cardsBody.style.display = 'none';
+        });
+
+        // Tampilkan konten tab yang dipilih
+        document.getElementById(selectedOption).style.display = 'block';
+
+        // Ubah judul card header sesuai dengan tab yang aktif
+        switch (selectedOption) {
+            case 'profile':
+                cardTitle.innerText = 'Profile User';
+                break;
+            case 'change-password':
+                cardTitle.innerText = 'Change-Password';
+                break;
+            case 'favorite':
+                cardTitle.innerText = 'Favorite';
+                break;
+            case 'log-out':
+                cardTitle.innerText = 'Keluar';
+                break;
+            default:
+                cardTitle.innerText = 'Profil Pengguna';
+                break;
+        }
+    });
+});
+
+

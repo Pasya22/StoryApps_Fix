@@ -255,3 +255,51 @@ dropdownBtns.addEventListener('click', function () {
     icon.classList.toggle('fa-caret-up');
 });
 
+//  ---------------------------------- overlay menu genre -------------------- //
+function list() {
+    var litss = document.getElementById('listss');
+    var overlay = document.getElementById('overlay');
+    var iconnav = document.getElementById('iconnav');
+    litss.classList.toggle('show');
+    overlay.classList.toggle('show');
+    iconnav.classList.toggle('show');
+}
+
+function hideList() {
+    var listss = document.getElementById('listss');
+    listss.classList.remove('show');
+    var overlay = document.getElementById('overlay');
+    overlay.classList.remove('show'); // Pastikan overlay disembunyikan saat daftar juga disembunyikan
+}
+
+// ------------------------------------------------------- other
+document.addEventListener("DOMContentLoaded", function() {
+    // Ambil elemen-elemen dropdown
+    var dropdownBtns = document.querySelectorAll('.dropbtn2');
+    var megaDropdown = document.querySelector('.mega-dropdown');
+
+    // Tambahkan event listener untuk dropdown
+    dropdownBtns.forEach(function(btn) {
+        btn.addEventListener('mouseenter', function() {
+            this.classList.toggle('active');
+            var icon = this.querySelector('.fa-caret-down');
+            icon.classList.toggle('fa-caret-up');
+        });
+
+        btn.addEventListener('mouseleave', function() {
+            this.classList.remove('active');
+            var icon = this.querySelector('.fa-caret-down');
+            icon.classList.remove('fa-caret-up');
+        });
+    });
+
+    // Tambahkan event listener untuk mega dropdown
+
+});
+
+
+// --------------------------------------------------
+function toggleDropdown() {
+    var contentList = document.getElementById('list-mobile');
+    contentList.classList.toggle('show');
+}

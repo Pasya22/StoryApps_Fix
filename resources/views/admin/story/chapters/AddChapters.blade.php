@@ -12,10 +12,8 @@
                             <form action="{{ route('PostChapter') }}" method="post" class="cursor-hover">
                                 @csrf
                                 <div class="mb-3 cursor-hover ">
-                                    <label for="id_story" class="cursor-hover"
-                                        id="id_story">Stories</label>
-                                    <select name="id_story" id="id_story" class="form-control cursor-hover"
-                                        data-characters="id_story">
+                                    <label for="id_story" class="cursor-hover" id="id_story">Stories</label>
+                                    <select name="id_story" id="id_story" class="form-control cursor-hover">
                                         <option value="">-- Choice stories --</option>
                                         @foreach ($data as $story)
                                             <option value="{{ $story->id_story }}">{{ $story->title }}

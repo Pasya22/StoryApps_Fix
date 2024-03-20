@@ -41,7 +41,9 @@
                                                 @method('POST')
                                                 <input type="hidden" name="id_story" value="{{ $recomend->id_story }}">
                                                 @php
-                                                    $favoritItem = $data['favorit']->where('id_story', $recomend->id_story)->first();
+                                                    $favoritItem = $data['favorit']
+                                                        ->where('id_story', $recomend->id_story)
+                                                        ->first();
                                                 @endphp
 
                                                 <input type="checkbox" name="favorit" class="heart-checkbox"
@@ -106,17 +108,6 @@
                                                     {{ '(' . number_format($recomend->average_rating, 1) . ')' }}</span>
                                             </div>
                                         </div>
-
-                                        {{-- <input type="radio" id="star5" name="rate123" value="5" />
-                                        <label for="star5" title="text">5 stars</label>
-                                        <input type="radio" id="star4" name="rate123" value="4" />
-                                        <label for="star4" title="text">4 stars</label>
-                                        <input type="radio" id="star3" name="rate123" value="3" />
-                                        <label for="star3" title="text">3 stars</label>
-                                        <input type="radio" id="star2" name="rate123" value="2" />
-                                        <label for="star2" title="text">2 stars</label>
-                                        <input type="radio" id="star1" name="rate123" value="1" />
-                                        <label for="star1" title="text">1 star</label> --}}
                                     </div>
 
                                 </div>
@@ -157,8 +148,7 @@
                                 <div class="media">
                                     <div class="favorit-detail">
                                         <div class="Love123">
-                                            {{-- <input type="checkbox" id="love1" name="rate" value="1" />
-                                        <label for="love1" title="text">love</label> --}}
+
 
                                             @if (Auth::check())
                                                 <form action="{{ route('favorite') }}" method="post"
@@ -168,7 +158,9 @@
                                                     <input type="hidden" name="id_story"
                                                         value="{{ $data['stories']->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $data['stories']->id_story)->first();
+                                                        $favoritItem = $data['favorit']
+                                                            ->where('id_story', $data['stories']->id_story)
+                                                            ->first();
                                                     @endphp
 
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
@@ -230,16 +222,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <input type="radio" id="star5" name="bintang" value="5" />
-                                        <label for="star5" title="text">5 stars</label>
-                                        <input type="radio" id="star4" name="bintang" value="4" />
-                                        <label for="star4" title="text">4 stars</label>
-                                        <input type="radio" id="star3" name="bintang" value="3" />
-                                        <label for="star3" title="text">3 stars</label>
-                                        <input type="radio" id="star2" name="bintang" value="2" />
-                                        <label for="star2" title="text">2 stars</label>
-                                        <input type="radio" id="star1" name="bintang" value="1" />
-                                        <label for="star1" title="text">1 star</label> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -297,9 +280,7 @@
                                         <div class="tipe-cerita">
                                             <p>{{ $data['stories']->genre }}</p>
                                         </div>
-                                        {{-- <div class="tipe-cerita margin-left-tipe-cerita">
-                                            <p>Romantis</p>
-                                        </div> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -399,10 +380,7 @@
                                             </a>
                                         </figure>
                                         <div class="Love">
-                                            {{-- <label for="heart-checkbox3" id="heart3">
-                                                    <input type="checkbox" name="" id="heart-checkbox3"
-                                                        onchange="toggleHeartColor3()">
-                                                </label> --}}
+
                                             @if (Auth::check())
                                                 <form action="{{ route('favorite') }}" method="post"
                                                     class="favorite-form">
@@ -411,7 +389,9 @@
                                                     <input type="hidden" name="id_story"
                                                         value="{{ $items->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                        $favoritItem = $data['favorit']
+                                                            ->where('id_story', $items->id_story)
+                                                            ->first();
                                                     @endphp
 
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
@@ -514,25 +494,4 @@
         </div>
     </div>
 
-
-    <script>
-        let lastScrollTop = 0;
-        const navbar = document.getElementById("nav");
-
-        window.addEventListener("scroll", function() {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll > lastScrollTop) {
-                // Scroll down
-                navbar.classList.add("sticky");
-                document.body.classList.add("sticky-nav");
-            } else {
-                // Scroll up
-                navbar.classList.remove("sticky");
-                document.body.classList.remove("sticky-nav");
-            }
-
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-        });
-    </script>
 @endsection

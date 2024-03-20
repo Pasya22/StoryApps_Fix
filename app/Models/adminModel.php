@@ -50,6 +50,7 @@ class adminModel extends Model
         // return DB::table($table)->orderBy($fieldColumn, 'desc')->paginate(5);
 
     }
+
     public static function updateStatus($id_story, $selectedStatus, $date)
     {
 
@@ -115,6 +116,17 @@ class adminModel extends Model
     //     ->select('chapters.*','stories.*','characters.*','chapters.*');
     // } belum selesai
 
+    public static function GetDataRequestWriter()
+    {
+
+        $joinData = DB::table('requestWriter')->select('users.*', 'roles.*', 'requestWriter.*')->join('users', 'users.id', 'requestWriter.id_user')->join('roles', 'roles.id_role', 'requestWriter.id_role')->orderBy('id_request', 'desc')->paginate(5);
+        return $joinData;
+    }
+    public static function GetDataRequestBeWriter()
+    {
+        return DB::table('users')->select('users.*', 'roles.id_role', 'roles.role')->join('roles', 'roles.id_role', 'users.id_role')->where('id');
+
+    }
     public static function StoryByChapters($id)
     {
         $joinData = DB::table('chapters')->select('stories.*', 'chapters.*')->join('stories', 'stories.id_story', 'chapters.id_story')->where('id_chapter', $id)->orderBy('id_chapter', 'desc')->first();
@@ -126,12 +138,52 @@ class adminModel extends Model
 
         return $joinData;
     }
+    // public static function StoryGenre()
+    // {
+    //     $joinData = DB::table('stories')->select('genre.*', 'stories.*')->join('genre', 'genre.id_genre', 'stories.id_genre')->orderBy('id_story', 'desc')->paginate(5);
+
+    //     return $joinData;
+    // }
     public static function StoryGenre()
     {
-        $joinData = DB::table('stories')->select('genre.*', 'stories.*')->join('genre', 'genre.id_genre', 'stories.id_genre')->orderBy('id_story', 'desc')->paginate(5);
+        $joinData = DB::table('stories')
+            ->select(
+                'genre.id_genre as genre_id',
+                'genre.genre as genre_name',
+                'stories.*',
+                DB::raw('COUNT(DISTINCT chapters.id_chapter) as jumlah_chapter'),
+                DB::raw('COUNT(characters.id_character) as jumlah_character'),
+                DB::raw('COUNT(dialogs.id_dialog) as jumlah_dialog')
+            )
+            ->join('genre', 'genre.id_genre', 'stories.id_genre')
+            ->leftJoin('chapters', 'chapters.id_story', 'stories.id_story')
+            ->leftJoin('characters', 'characters.id_chapter', 'chapters.id_chapter')
+            ->leftJoin('dialogs', 'dialogs.id_character', 'characters.id_character')
+            ->orderBy('stories.id_story', 'desc')
+            ->groupBy('stories.id_story')
+            ->paginate(5);
+
+        foreach ($joinData as $story) {
+            // Calculate the total number of dialogs and characters
+            $totalDialogs = $story->jumlah_dialog; // Total number of dialogs
+            $totalCharacters = $story->jumlah_character; // Total number of characters
+
+
+            // Calculate the total number of pages
+            $story->jumlah_halaman_dialogs = ceil($totalDialogs / 10); // 10 dialogs per page
+            $story->jumlah_halaman_characters = ceil($totalCharacters / 10); // 10 characters per page
+
+            // Total number of pages for both dialogs and characters
+            $story->jumlah_halaman_total = $story->jumlah_halaman_dialogs + $story->jumlah_halaman_characters;
+        }
 
         return $joinData;
+
+
     }
+
+
+
     public static function UserCommentsStory()
     {
         $joinData = DB::table('comments')->select('comments.*', 'users.*', 'stories.*')->join('stories', 'stories.id_story', 'comments.id_story')->join('users', 'users.id', 'comments.id_user')->orderBy('id_comment', 'desc')->paginate(5);
@@ -164,6 +216,51 @@ class adminModel extends Model
         # code...
     }
 
+
+    public static function StoryFavoritUser($id)
+    {
+        // Fetching data for the given chapter with joins
+        $query = DB::table('favorites')
+            ->join('stories', 'favorites.id_story', '=', 'stories.id_story')
+            ->leftJoin('rates', 'stories.id_story', '=', 'rates.id_story')
+            ->leftJoin('genre', 'stories.id_genre', '=', 'genre.id_genre')
+            ->join('users', 'favorites.id_user', '=', 'users.id')
+            ->select(
+                'stories.id_story',
+                'stories.title',
+                'stories.sinopsis',
+                'stories.book_status',
+                'stories.images',
+                'users.id_role',
+                'users.full_name',
+                // 'categories.*',
+                'genre.genre',
+                'favorites.favorit',
+                'favorites.id_favorite',
+                DB::raw('
+            SUM(CASE WHEN rate = 1 THEN 1 ELSE 0 END) as count_1,
+            SUM(CASE WHEN rate = 2 THEN 2 ELSE 0 END) as count_2,
+            SUM(CASE WHEN rate = 3 THEN 3 ELSE 0 END) as count_3,
+            SUM(CASE WHEN rate = 4 THEN 4 ELSE 0 END) as count_4,
+            SUM(CASE WHEN rate = 5 THEN 5 ELSE 0 END) as count_5,
+            COUNT(*) as total_ratings,
+            IF(COUNT(*) > 0, SUM(rate) / COUNT(*), 0) as average_rating
+        ')
+            )
+
+
+            ->where('users.id', $id)
+
+            ->groupBy('stories.id_story', 'stories.title', 'stories.sinopsis', 'stories.book_status', 'stories.images', 'genre.genre', 'users.id_role', 'users.full_name', 'favorites.favorit', 'favorites.id_favorite')
+            ->orderBy('favorites.id_favorite', 'Desc');
+        // Order by story ID in descending order
+
+
+        // Paginate the query
+        $stories = $query->paginate(10); // 10 adalah jumlah data yang akan ditampilkan per halaman
+
+        return $stories;
+    }
     public static function joinData($chapterId, $perPage = 5)
     {
         // Fetching data for the given chapter with joins
@@ -504,9 +601,10 @@ class adminModel extends Model
     public static function getUnreadNotifications()
     {
         return DB::table('notifications')
-            ->select('notifications.*', 'users.*', 'stories.*') // Sesuaikan kolom yang Anda butuhkan
+            ->select('notifications.*', 'users.*', 'stories.*', 'requestWriter.*') // Sesuaikan kolom yang Anda butuhkan
             ->join('users', 'users.id', '=', 'notifications.id_user')
             ->leftJoin('stories', 'stories.id_story', '=', 'notifications.entity_id') // Join dengan tabel cerita (stories)
+            ->leftJoin('requestWriter', 'requestWriter.id_request', '=', 'notifications.entity_id2') // Join dengan tabel cerita (stories)
             ->where('notifications.is_read', 0) // Hanya notifikasi yang belum dibaca
             // ->orWhere('is_read', false)
             ->orderByDesc('notifications.id_notification')

@@ -935,7 +935,7 @@ class adminController extends Controller
                 "type" => 'rate',
                 "entity_id" => $data['id_story'],
                 "sender_id" => auth()->user()->id,
-                "created_at" => Carbon::now('Asia/Jakarta')
+                "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);
             return redirect()->route('DataRate')->with('success', 'Successfully added new Rate!');
@@ -1043,7 +1043,7 @@ class adminController extends Controller
                 "type" => 'comment',
                 "entity_id" => $data['id_story'],
                 "sender_id" => auth()->user()->id,
-                "created_at" => Carbon::now('Asia/Jakarta')
+                "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);
 
@@ -1091,7 +1091,7 @@ class adminController extends Controller
                 'type' => 'comment',
                 "entity_id" => $validation['id_story'],
                 'sender_id' => auth()->user()->id, // ID pengirim notifikasi (pengguna yang sedang login)
-                'created_at' => Carbon::now('Asia/Jakarta')
+                'tgl_dibuat' => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);
 
@@ -1165,7 +1165,7 @@ class adminController extends Controller
                 "type" => 'favorite',
                 "entity_id" => $data['id_story'],
                 "sender_id" => auth()->user()->id,
-                "created_at" => Carbon::now('Asia/Jakarta')
+                "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);
 
@@ -1213,7 +1213,7 @@ class adminController extends Controller
                 'type' => 'favorite',
                 'sender_id' => auth()->user()->id, // ID pengirim notifikasi (pengguna yang sedang login)
                 "entity_id" => $validation['id_story'],
-                'created_at' => Carbon::now('Asia/Jakarta')
+                'tgl_dibuat' => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);
 

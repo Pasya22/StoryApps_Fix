@@ -6,12 +6,11 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <title>@yield('title')</title>
-     <link rel="icon" href="{{ asset('/img/default.png') }}" type="image/x-icon"/>
+     <link rel="icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
 
      <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-     {{-- <link rel="stylesheet" href="{{ asset('css/custome.css') }}"> --}}
-
      <link rel="stylesheet" href="{{ asset('css/profil.css') }}">
+
 
      <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
      <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
@@ -26,12 +25,138 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;400;600&display=swap"
          rel="stylesheet">
+     <style>
+         /* .requestButton {
+             background-color: rgb(5, 23, 82);
+             color: #f7bf07ea;
+             border-radius: 30px;
+             padding: 10px 30px;
+             font-size: 18px;
+             font-weight: bold;
+             cursor: pointer;
+             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             transition: background-color 0.3s, color 0.3s;
+         }
+
+         .requestButton:hover {
+             background-color: #f7bf07ea;
+             color: rgb(5, 23, 82);
+         } */
+         .custom-btn {
+             color: #fff;
+             width: 130px;
+             height: 40px;
+             padding: 10px 25px;
+             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Courier, monospace;
+             font-weight: 500;
+             background: transparent;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             position: relative;
+             display: inline-block;
+             margin-top: 20px;
+         }
+
+         /* 12 */
+         .btn-12 {
+             color: #f7bf07ea;
+             position: relative;
+             right: 20px;
+             bottom: 20px;
+             border: none;
+             width: 130px;
+             height: 40px;
+             line-height: 40px;
+             -webkit-perspective: 230px;
+             perspective: 230px;
+         }
+
+         .btn-12 span {
+             display: block;
+             position: absolute;
+             width: 130px;
+             height: 40px;
+             border: 1px solid #333ede;
+             box-shadow: 0 0 5px #333ede, 0 0 5px #333ede inset;
+             margin: 0;
+             text-align: center;
+             -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+             box-sizing: border-box;
+             -webkit-transition: all .3s;
+             transition: all .3s;
+         }
+
+         .btn-12 span:nth-child(1) {
+             box-shadow: 0 0 5px #06b1fa, 0 0 5px #06b1fa inset;
+             -webkit-transform: rotateX(90deg);
+             -moz-transform: rotateX(90deg);
+             transform: rotateX(90deg);
+             -webkit-transform-origin: 50% 50% -20px;
+             -moz-transform-origin: 50% 50% -20px;
+             transform-origin: 50% 50% -20px;
+         }
+
+         .btn-12 span:nth-child(2) {
+             -webkit-transform: rotateX(0deg);
+             -moz-transform: rotateX(0deg);
+             transform: rotateX(0deg);
+             -webkit-transform-origin: 50% 50% -20px;
+             -moz-transform-origin: 50% 50% -20px;
+             transform-origin: 50% 50% -20px;
+         }
+
+         .btn-12:hover span:nth-child(1) {
+             -webkit-transform: rotateX(0deg);
+             -moz-transform: rotateX(0deg);
+             transform: rotateX(0deg);
+         }
+
+         .btn-12:hover span:nth-child(2) {
+             background: #000;
+             color: #000;
+             box-shadow: 0 0 5px #06b1fa, 0 0 5px #06b1fa inset;
+             -webkit-transform: rotateX(-90deg);
+             -moz-transform: rotateX(-90deg);
+             transform: rotateX(-90deg);
+         }
+
+
+         .desktop {
+             display: block;
+         }
+
+         .mobile {
+             display: none;
+         }
+
+         .container-profil .cards .left-column .cards .cards-body2 select {
+             width: 100%;
+             height: 43px;
+             border: 2px solid #3245e1;
+             display: flex;
+             flex-direction: row;
+             justify-content: space-evenly;
+             text-align: center;
+             border-radius: 0 0 10px 10px;
+         }
+
+         /* CSS untuk tampilan mobile */
+         @media only screen and (max-width: 700px) {
+             .desktop {
+                 display: none;
+             }
+
+             .mobile {
+                 display: block;
+             }
+
+         }
+     </style>
  </head>
 
  <body>
-
-
-     <div class="navs" id="nav">
+ <div class="navs" id="nav">
          <div class="nav-area">
              <a class="brand" href="">
                  <h3>LOGO</h3>
@@ -95,7 +220,7 @@
 
              <div class="nav-menu-dekstop">
                  @if (Auth::check())
-                     <a href="{{ route('listFavorite') }}">
+                     <a href="{{ route('storyFavorite', Auth::user()->id) }}">
                          <i class="fa fa-heart"></i>
                      </a>
                      <div class="dropdown-custom">
@@ -105,9 +230,6 @@
                          <div class="dropdown-content-custom">
                              <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">
                                  <i class="fa fa-user"></i> Profile
-                             </a>
-                             <a href="{{ route('listFavorite') }}">
-                                 <i class="fa fa-heart"></i> Favorite
                              </a>
                              <a href="{{ route('logoutUser') }}">
                                  <i class="fas fa-sign-out-alt"></i> Logout
@@ -205,12 +327,6 @@
 
  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
- <script>
-     function loginDulu() {
-         alert("Anda belum Login!");
-         window.location = {{ route('loginUser') }};
-     }
- </script>
  <!--swiper-->
  <script>
      document.addEventListener('DOMContentLoaded', function() {
@@ -287,42 +403,4 @@
          var overlay = document.getElementById('overlay');
          overlay.classList.remove('show'); // Pastikan overlay disembunyikan saat daftar juga disembunyikan
      }
- </script>
- <script>
-     function toggleDropdown() {
-         var contentList = document.getElementById('list-mobile');
-         contentList.classList.toggle('show');
-     }
- </script>
- <script>
-     document.addEventListener("DOMContentLoaded", function() {
-         // Ambil elemen-elemen dropdown
-         var dropdownBtns = document.querySelectorAll('.dropbtn2');
-         var megaDropdown = document.querySelector('.mega-dropdown');
-
-         // Tambahkan event listener untuk dropdown
-         dropdownBtns.forEach(function(btn) {
-             btn.addEventListener('mouseenter', function() {
-                 this.classList.toggle('active');
-                 var icon = this.querySelector('.fa-caret-down');
-                 icon.classList.toggle('fa-caret-up');
-             });
-
-             btn.addEventListener('mouseleave', function() {
-                 this.classList.remove('active');
-                 var icon = this.querySelector('.fa-caret-down');
-                 icon.classList.remove('fa-caret-up');
-             });
-         });
-
-         // Tambahkan event listener untuk mega dropdown
-         megaDropdown.addEventListener('mouseenter', function() {
-             this.classList.add('show', 'rollDown');
-         });
-
-         megaDropdown.addEventListener('mouseleave', function() {
-             this.classList.remove('show', 'rollDown');
-             this.classList.add('rollUp');
-         });
-     });
  </script>

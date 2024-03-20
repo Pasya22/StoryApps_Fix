@@ -561,12 +561,141 @@ function toggleHeartColor3() {
 
 
 
+// -------------------------------------------- filter drop down ------------------------------ //
+function toggleListBagian() {
+    var listbagian = document.getElementById("listbagian");
+    listbagian.classList.toggle("show");
+}
+function toggleListBagian2() {
+    var listbagian = document.getElementById("listbagian2");
+    listbagian.classList.toggle("show");
+}
+function toggleListBagian3() {
+    var listbagian = document.getElementById("listbagian3");
+    listbagian.classList.toggle("show");
+}
 
 
+// ---------------------------------------- share ------------------------------------- //
+// Get references to the SVG and the share list
+const shareIcon = document.getElementById('share-icon');
+const shareList = document.querySelector('.cerita-terbaru .textcerita .bagikan-cerita .list-share');
 
+// Add a click event listener to the SVG
+shareIcon.addEventListener('click', function () {
+    const parentWithClass = shareIcon.closest('.bagikan-cerita');
+    console.log(parentWithClass);
+    // Toggle the 'show' class on the share list
+    shareList.classList.toggle('show');
+});
 
+// ------------------------- list ------------------------- //
+function list() {
+    var litss = document.getElementById('listss');
+    var overlay = document.getElementById('overlay');
+    var iconnav = document.getElementById('iconnav');
+    litss.classList.toggle('show');
+    overlay.classList.toggle('show');
+    iconnav.classList.toggle('show');
+}
 
+function hideList() {
+    var listss = document.getElementById('listss');
+    listss.classList.remove('show');
+    var overlay = document.getElementById('overlay');
+    overlay.classList.remove('show'); // Pastikan overlay disembunyikan saat daftar juga disembunyikan
+}
 
+// ---------------- dropddown toogle -------------------//
+function toggleDropdown() {
+    var contentList = document.getElementById('list-mobile');
+    contentList.classList.toggle('show');
+}
 
+//  --------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+    // Ambil elemen-elemen dropdown
+    var dropdownBtns = document.querySelectorAll('.dropbtn2');
+    var megaDropdown = document.querySelector('.mega-dropdown');
 
+    // Tambahkan event listener untuk dropdown
+    dropdownBtns.forEach(function (btn) {
+        btn.addEventListener('mouseenter', function () {
+            this.classList.toggle('active');
+            var icon = this.querySelector('.fa-caret-down');
+            icon.classList.toggle('fa-caret-up');
+        });
+
+        btn.addEventListener('mouseleave', function () {
+            this.classList.remove('active');
+            var icon = this.querySelector('.fa-caret-down');
+            icon.classList.remove('fa-caret-up');
+        });
+    });
+
+    // Tambahkan event listener untuk mega dropdown
+    megaDropdown.addEventListener('mouseenter', function () {
+        this.classList.add('show', 'rollDown');
+    });
+
+    megaDropdown.addEventListener('mouseleave', function () {
+        this.classList.remove('show', 'rollDown');
+        this.classList.add('rollUp');
+    });
+});
+
+// --------------------------- search fitur ------------------------------ //
+function toggleSearch() {
+    var searchBox = document.querySelector('.search-box');
+    var searchInput = document.getElementById('searchInput');
+    var navBurger = document.querySelector('.nav-burger');
+    var brand = document.querySelector('.brand');
+
+    if (!searchBox.classList.contains('open')) {
+        // Jika kotak pencarian belum terbuka, buka dan fokus ke input
+        searchBox.classList.add('open');
+        searchInput.focus();
+        navBurger.classList.add('hidden'); // Sembunyikan menu desktop
+        brand.classList.add('hidden'); // Sembunyikan menu desktop
+    } else {
+        // Jika kotak pencarian sudah terbuka, tutup dan tampilkan elemen yang disembunyikan
+        searchBox.classList.remove('open');
+        searchInput.value = '';
+        navBurger.classList.remove('hidden'); // Tampilkan kembali menu desktop
+        brand.classList.remove('hidden'); // Tampilkan kembali menu desktop
+    }
+}
+
+// Tambahkan event listener untuk menangani scroll
+window.addEventListener('scroll', function () {
+    var searchBox = document.querySelector('.search-box');
+
+    // Tutup kotak pencarian jika terbuka
+    if (searchBox.classList.contains('open')) {
+        searchBox.classList.remove('open');
+
+        // Tampilkan kembali elemen yang disembunyikan
+        var navBurger = document.querySelector('.nav-burger');
+        var brand = document.querySelector('.brand');
+        navBurger.classList.remove('hidden');
+        brand.classList.remove('hidden');
+    }
+});
+
+// Tambahkan event listener untuk menangani klik di luar kotak pencarian
+document.addEventListener('click', function (event) {
+    var searchBox = document.querySelector('.search-box');
+    var isClickInsideSearchBox = searchBox.contains(event.target);
+
+    // Tutup kotak pencarian jika terbuka dan klik dilakukan di luar kotak pencarian
+    if (searchBox.classList.contains('open') && !isClickInsideSearchBox) {
+        searchBox.classList.remove('open');
+
+        // Tampilkan kembali elemen yang disembunyikan
+        var navBurger = document.querySelector('.nav-burger');
+        var brand = document.querySelector('.brand');
+        navBurger.classList.remove('hidden');
+        brand.classList.remove('hidden');
+    }
+});
 

@@ -31,20 +31,36 @@
 
             </div>
             <div class="cards">
-                <div class="left-column">
+                <div class="left-column desktop">
                     <div class="cards">
                         <div class="cards-header2">
                             <h2>Menu</h2>
                         </div>
                         <div class="cards-body2">
-                            <a href="#" style="font-size: 20px;" class="tab-link" data-tab="profile">Profile</a>
-                            <a href="#" class="tab-link" data-tab="change-password" style="font-size: 20px;">Change
-                                Password</a>
-                            <a href="#" class="tab-link" data-tab="favorite"style="font-size: 20px;">Favorite</a>
-                            <a href="#"class="tab-link" data-tab="log-out" style="font-size: 20px;">Log Out</a>
+                            <a href="#" class="tab-link" data-tab="profile">Profile</a>
+                            <a href="#" class="tab-link" data-tab="change-password">Change Password</a>
+                            <a href="#" class="tab-link" data-tab="favorite">Favorite</a>
                         </div>
                     </div>
                 </div>
+                <div class="left-column mobile">
+                    <div class="cards">
+                        <div class="cards-header2">
+                            <h2>Menu</h2>
+                        </div>
+                        <div class="cards-body2">
+                            <select name="" id="">
+                                <option value="profile"> <a href="#" class="tab-link" data-tab="profile">Profile</a>
+                                </option>
+                                <option value="change-password"> <a href="#" class="tab-link"
+                                        data-tab="change-password">Change Password</a></option>
+                                <option value="favorite"> <a href="#" class="tab-link"
+                                        data-tab="favorite">Favorite</a></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="right-column">
                     <div class="cards">
                         <div class="cards-header">
@@ -61,7 +77,12 @@
                                                 value="{{ $data['user']->image_user }}">
                                             <input type="hidden" name="old_image_user"
                                                 value="{{ $data['user']->image_user }}">
-                                            <img src="{{ asset('/upload/' . $data['user']->image_user) }}" alt="icon">
+                                            @if (empty($data['user']->image_user))
+                                                <img src="{{ asset('/img/default.png') }}" alt="icon">
+                                            @else
+                                                <img src="{{ asset('/upload/' . $data['user']->image_user) }}"
+                                                    alt="icon">
+                                            @endif
                                         </label>
                                     </div>
                                     <div class="right">
@@ -87,9 +108,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="container-button" style="display: flex; justify-content: flex-end;">
-                                    <button type="submit" class="btn">Simpan</button>
+
+                                <div>
+                                    @if (Auth::user()->id_role == 3)
+                                        <button id="requestWriterBtn" data-user-id="{{ $data['user']->id }}"
+                                            type="button" class="custom-btn btn-12"><span>Click!</span>
+                                            <span>Request Writer</span></button>
+                                    @endif
+                                    <div id="errorMessage" style="color: red;"></div>
+
                                 </div>
+                                <div class="container-button" style="display: flex; justify-content: flex-end;">
+                                    <button type="submit" class="btn"
+                                        style="width: 50%; text-align: center;">Save</button>
+                                </div>
+
                             </form>
                         </div>
 
@@ -126,16 +159,48 @@
 
                                     </div>
                                 </div>
+
                                 <div class="container-button" style="display: flex; justify-content: flex-end;">
                                     <button type="submit" class="btn">Simpan</button>
                                 </div>
                             </form>
                         </div>
 
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#requestWriterBtn').click(function() {
+                var userId = $(this).data('user-id');
+
+                $.ajax({
+                    url: '/RequestBeWriter/' + userId,
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            // Handle success response
+                            alert(response.message);
+                        } else {
+                            // Handle unsuccessful response
+                            $('#errorMessage').text(response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error response
+                        var errorMessage = xhr.responseJSON.message;
+                        $('#errorMessage').text(errorMessage);
+                    }
+                });
+            });
+        });
+    </script>
+
 @endsection

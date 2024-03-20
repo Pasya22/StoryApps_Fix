@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Point Head <sup></sup></div>
+        <div class="sidebar-brand-text mx-3">StoryApps<sup></sup></div>
     </a>
 
     <!-- Divider -->
@@ -31,6 +31,13 @@
         <a class="nav-link collapsed" href="/admin/user/DataUser">
             <i class="fas fa-user"></i>
             Data User
+        </a>
+
+    </li>
+    <li class="nav-item {{ Route::currentRouteNamed('DataRequestWriter') ? 'active' : '' }} ">
+        <a class="nav-link collapsed" href="/admin/DataRequestWriter">
+            <i class="fas fa-user"></i>
+            Data Request
         </a>
 
     </li>

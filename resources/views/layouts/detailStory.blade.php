@@ -9,9 +9,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/DetailStory.css') }}">
     <link rel="stylesheet" href="{{ asset('css/storyList.css') }}">
+
     <link rel="shortcut icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
-
-
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -112,7 +112,7 @@
             </div> --}}
             <div class="nav-menu-dekstop">
                 @if (Auth::check())
-                    <a href="{{ route('listFavorite') }}">
+                    <a href="{{ route('storyFavorite', Auth::user()->id) }}">
                         <i class="fas fa-heart"></i>
                     </a>
                     <div class="dropdown-custom">
@@ -122,9 +122,6 @@
                         <div class="dropdown-content-custom">
                             <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">
                                 <i class="fas fa-user"></i> Profile
-                            </a>
-                            <a href="{{ route('listFavorite') }}">
-                                <i class="fas fa-heart"></i> Favorite
                             </a>
                             <a href="{{ route('logoutUser') }}">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -217,17 +214,8 @@
 <script src="{{ asset('js/DetailStory.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- header -->
-<script src="{{ asset('js/home.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<script>
-    function loginDulu() {
-        alert("Anda belum Login!");
-        window.location = {{ route('loginUser') }};
-    }
-</script>
-<!--swiper-->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         $('.heart-checkbox').on('change', function() {
@@ -235,19 +223,14 @@
             var id = checkbox.attr('data-story-id');
             var action = checkbox.attr('data-story-action');
             console.log(checkbox.parent('.favorite-form').serialize());
-            // Update Heart Styles
+
             updateHeartStyles(checkbox);
 
-            // console.log(checkbox.prop('checked') ? '1' : '0');
-
-            // Set checkbox value based on checked status
             checkbox.val(checkbox.prop('checked') ? '1' : '0');
 
-            // console.log('checkbox'. checkbox);
 
-            // Perform Ajax request
             var currentUrl = window.location
-            .href; // Simpan URL saat ini sebelum melakukan permintaan AJAX
+                .href;
 
             $.ajax({
                 type: 'POST',
@@ -260,16 +243,20 @@
                         console.log(response.message);
                         alert('Add The Stories To Your Favorite!');
                         window.location.href =
-                        currentUrl; // Arahkan kembali ke URL saat ini
+                            currentUrl; // Arahkan kembali ke URL saat ini
                         // Add logic here to update UI based on the response (if needed)
                     } else {
                         console.error('Server error:', response.message);
                     }
                 },
                 error: function(error) {
-                    confirm('Upami bade masihan love, kudu login hela!');
-                    window.location.href =
-                    '/Auth'; // Gunakan href untuk mengarahkan ke URL lengkap
+                    Swal.fire({
+                        title: 'Opps, Sabar Dulu',
+                        text: 'Kamu Harus Login Dulu, jika ingin memberikan love pada cerita',
+                        icon: 'info',
+                        confirmButtonText: 'Tutup'
+                    })
+
                     console.error(error);
                 }
             });
@@ -292,57 +279,23 @@
 </script>
 
 <script>
-    function list() {
-        var litss = document.getElementById('listss');
-        var overlay = document.getElementById('overlay');
-        var iconnav = document.getElementById('iconnav');
-        litss.classList.toggle('show');
-        overlay.classList.toggle('show');
-        iconnav.classList.toggle('show');
-    }
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("nav");
 
-    function hideList() {
-        var listss = document.getElementById('listss');
-        listss.classList.remove('show');
-        var overlay = document.getElementById('overlay');
-        overlay.classList.remove('show'); // Pastikan overlay disembunyikan saat daftar juga disembunyikan
-    }
-</script>
-<script>
-    function toggleDropdown() {
-        var contentList = document.getElementById('list-mobile');
-        contentList.classList.toggle('show');
-    }
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Ambil elemen-elemen dropdown
-        var dropdownBtns = document.querySelectorAll('.dropbtn2');
-        var megaDropdown = document.querySelector('.mega-dropdown');
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Tambahkan event listener untuk dropdown
-        dropdownBtns.forEach(function(btn) {
-            btn.addEventListener('mouseenter', function() {
-                this.classList.toggle('active');
-                var icon = this.querySelector('.fa-caret-down');
-                icon.classList.toggle('fa-caret-up');
-            });
+        if (currentScroll > lastScrollTop) {
+            // Scroll down
+            navbar.classList.add("sticky");
+            document.body.classList.add("sticky-nav");
+        } else {
+            // Scroll up
+            navbar.classList.remove("sticky");
+            document.body.classList.remove("sticky-nav");
+        }
 
-            btn.addEventListener('mouseleave', function() {
-                this.classList.remove('active');
-                var icon = this.querySelector('.fa-caret-down');
-                icon.classList.remove('fa-caret-up');
-            });
-        });
-
-        // Tambahkan event listener untuk mega dropdown
-        megaDropdown.addEventListener('mouseenter', function() {
-            this.classList.add('show', 'rollDown');
-        });
-
-        megaDropdown.addEventListener('mouseleave', function() {
-            this.classList.remove('show', 'rollDown');
-            this.classList.add('rollUp');
-        });
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
     });
 </script>
+ 

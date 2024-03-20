@@ -124,6 +124,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user(); // Mendapatkan objek pengguna setelah otentikasi berhasil
 
+
             // Periksa apakah ada URL sebelumnya yang tersimpan dalam session
             if (Session::has('previous_url')) {
                 $previousUrl = Session::get('previous_url');
@@ -131,15 +132,12 @@ class AuthController extends Controller
                 return redirect()->to($previousUrl); // Arahkan pengguna kembali ke URL sebelumnya
             }
             Session::put('previous_url', url()->current());
-
             // Jika status pengguna aktif,  arahkan pengguna berdasarkan peran pengguna
 
             if ($user->id_role == 1) {
                 return redirect()->route('Dashboard');
             } elseif ($user->id_role == 2) {
                 return redirect()->route('writter');
-            } elseif ($user->id_role == 3) {
-                return redirect()->route('StoryApps');
             }
 
         }
