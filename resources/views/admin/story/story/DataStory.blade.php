@@ -4,7 +4,8 @@
 
 @section('content')
     {{-- <div class="container"> --}}
-    <h1>Data Stories</h1>
+    <h1>
+        Data Stories</h1>
     <div class="container-box">
         <form action="/stories" method="get">
             <input type="search" name="search" placeholder="Search stories..." value="{{ $search ?? '' }}"
@@ -41,7 +42,13 @@
                         <img src="/upload/{{ $story->images }}" alt="images" height="50px" width="50px" />
                     </td>
                     <td>{{ $story->jumlah_chapter }}</td>
-                    <td>{{ $story->jumlah_halaman }}</td>
+                    <td>
+                        @if (isset($story->jumlah_halaman_dialogs))
+                            {{ $story->jumlah_halaman_dialogs }}
+                        @else
+                            0
+                        @endif
+                    </td>
                     <td>{{ $story->created_at }}</td>
                     <td>
                         @if ($story->book_status == 1)
