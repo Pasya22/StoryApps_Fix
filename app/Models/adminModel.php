@@ -148,7 +148,7 @@ class adminModel extends Model
     {
         $joinData = DB::table('stories')
             ->select(
-                'genre.id_genre as genre_id',
+                'genre.id_genre',
                 'genre.genre as genre_name',
                 'stories.*',
                 DB::raw('COUNT(DISTINCT chapters.id_chapter) as jumlah_chapter'),
