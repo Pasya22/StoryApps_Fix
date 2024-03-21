@@ -48,13 +48,6 @@
         </a>
 
     </li>
-    <li class="nav-item {{ Route::currentRouteNamed('DataCategories') ? 'active' : '' }} ">
-        <a class="nav-link collapsed" href="/admin/Categories/DataCategories">
-            <i class="fas fa-list-alt"></i>
-            Data Categories
-        </a>
-
-    </li>
     <hr class="sidebar-divider">
 
     <!-- Heading -->
