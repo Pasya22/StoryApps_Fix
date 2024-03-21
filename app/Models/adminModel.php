@@ -160,7 +160,7 @@ class adminModel extends Model
             ->leftJoin('characters', 'characters.id_chapter', 'chapters.id_chapter')
             ->leftJoin('dialogs', 'dialogs.id_character', 'characters.id_character')
             ->orderBy('stories.id_story', 'desc')
-            ->groupBy('stories.id_story')
+            ->groupBy('stories.id_story','stories.id_genre')
             ->paginate(5);
 
         foreach ($joinData as $story) {
