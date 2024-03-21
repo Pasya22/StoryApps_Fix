@@ -150,7 +150,12 @@ class adminModel extends Model
             ->select(
                 'genre.id_genre as genre_id',
                 'genre.genre as genre_name',
-                'stories.*',
+                'stories.id_genre',
+                'stories.images',
+                'stories.id_story',
+                'stories.title',
+                'stories.book_status',
+                'stories.created_at',
                 DB::raw('COUNT(DISTINCT chapters.id_chapter) as jumlah_chapter'),
                 DB::raw('COUNT(characters.id_character) as jumlah_character'),
                 DB::raw('COUNT(dialogs.id_dialog) as jumlah_dialog')
@@ -160,7 +165,7 @@ class adminModel extends Model
             ->leftJoin('characters', 'characters.id_chapter', 'chapters.id_chapter')
             ->leftJoin('dialogs', 'dialogs.id_character', 'characters.id_character')
             ->orderBy('stories.id_story', 'desc')
-            ->groupBy('stories.id_story','stories.id_genre')
+            ->groupBy('stories.id_story', 'stories.id_genre', 'stories.images', 'stories.title', 'stories.book_status', 'stories.created_at')
             ->paginate(5);
 
         foreach ($joinData as $story) {
