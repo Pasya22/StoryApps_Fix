@@ -50,6 +50,17 @@
                                 <input type="text" class="form-control" id="phone_number" name="phone_number"
                                     value="{{ $user->phone_number }}" required>
                             </div>
+                            <div class="form-group">
+                                <label for="phone_number">Phone Number:</label>
+                                <select name="id_role" id="id_role" class="form-control cursor-hover">
+                                    @foreach ($roles as $items)
+                                        <option value="{{ $items->id_role }}"
+                                            {{ $items->id_role == $user->id_role ? 'selected' : '' }}>
+                                            {{ $items->role }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary">Update User</button>
                             @if (session('success'))
                                 <i id="successMessage" class="alert alert-success">{{ session('success') }}</i>

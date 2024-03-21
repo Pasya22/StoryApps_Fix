@@ -10,39 +10,7 @@
                     aria-hidden="true" style="margin-right:5px;"></i>Add New User
             </a>
         </div>
-        {{-- <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th colspan="2">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $i = 1; ?>
-                @foreach ($users as $user)
-                    <tr>
-                        <td>{{ $i }}</td>
-                        <td><img src="/upload/{{ $user->image_user }}" alt="" width="50px" height="50px"></td>
-                        <td>{{ $user->full_name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td><a href="/user/{{ $user->id }}"
-                                class="btn
-                                btn-info">Detail</a></td>
-                        <td>
-                            <form action="/user/{{ $user->id }}" method="post">
-                                @method('delete')
-                                @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <?php $i++; ?>
-                @endforeach
-            </tbody>
-        </table> --}}
+
         <hr class="sidebar-divider">
 
         <!-- Heading -->
@@ -85,7 +53,7 @@
                                             </div>
                                             <div class="modal-body">Are You Seroius Delete This Data?</div>
                                             <div class="modal-footer">
-                                                <form action="{{ route('deleteRate', $user->id) }}" method="GET">
+                                                <form action="{{ route('deleteUser', $user->id) }}" method="GET">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-secondary" type="button"

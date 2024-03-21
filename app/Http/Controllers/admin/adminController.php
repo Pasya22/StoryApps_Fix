@@ -1400,6 +1400,7 @@ class adminController extends Controller
     public function detailUser($id)
     {
         $data['user'] = adminModel::getDataById('users', 'id', $id);
+        $data['roles'] = adminModel::getData('roles');
 
         // Count the number of stories for the user
         $data['story'] = adminModel::CountData('stories', 'id_story', $id);
@@ -1522,6 +1523,7 @@ class adminController extends Controller
         $validation = $request->validate([
             'full_name' => 'required',
             'email' => 'required',
+            'id_role' => 'required',
             'phone_number' => 'required|numeric'
         ]);
 
@@ -1529,6 +1531,7 @@ class adminController extends Controller
         $updateDataUser = adminModel::getDataById('users', 'id', $id);
         $updateDataUser->full_name = $validation['full_name'];
         $updateDataUser->email = $validation['email'];
+        $updateDataUser->id_role = $validation['id_role'];
         $updateDataUser->phone_number = $validation['phone_number'];
 
         $executeUpdate = adminModel::updateData('users', 'id', $id, $updateDataUser);
@@ -1565,6 +1568,27 @@ class adminController extends Controller
      */
     public function deleteUser($id)
     {
-        //
+
+        $deleteRow = adminModel::deleteData(
+            'users',
+            'id',
+            [$id]
+        );  //Menghapus row di tabel genre yang mem
+        //iliki id=$id
+        if ($deleteRow > 0) {
+            echo "
+            <script>
+            alert('Success Delete Data Rate');
+            window.location.href='/admin/user/DataUser';
+            </script>
+            ";
+        } else {
+            echo "
+                <script>
+                alert('Failed to Delete Data Rate');
+                window.location.href='/admin/user/DataUser';
+                </script>
+                ";
+        }
     }
 }

@@ -146,6 +146,7 @@ class adminModel extends Model
     // }
     public static function StoryGenre()
     {
+        $auhtId = Auth::user()->id;
         $joinData = DB::table('stories')
             ->select(
                 'genre.id_genre as genre_id',
@@ -164,6 +165,7 @@ class adminModel extends Model
             ->leftJoin('chapters', 'chapters.id_story', 'stories.id_story')
             ->leftJoin('characters', 'characters.id_chapter', 'chapters.id_chapter')
             ->leftJoin('dialogs', 'dialogs.id_character', 'characters.id_character')
+            ->where('stories.id_user', $auhtId)
             ->orderBy('stories.id_story', 'desc')
             ->groupBy('stories.id_story', 'stories.id_genre', 'stories.images', 'stories.title', 'stories.book_status', 'stories.created_at', 'genre_id', 'genre_name')
             ->paginate(5);
