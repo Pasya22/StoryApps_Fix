@@ -1306,7 +1306,7 @@ class adminController extends Controller
             $rate = [
                 'id_user' => auth()->user()->id,
                 'id_story' => $id_story,
-                'rate' => 0,
+                'rate' => 1,
                 'status' => 0,
                 "created_at" => Carbon::now('Asia/Jakarta')
             ];
