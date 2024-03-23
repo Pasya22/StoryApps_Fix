@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div id="characters-container" class="flex-grow-1">
+            <div id="characters-container" class="flex-grow-1 form">
 
             </div>
             <div class="btn-submit"><button type="submit" class="btn" style="cursor: pointer;">Submit</button></div>

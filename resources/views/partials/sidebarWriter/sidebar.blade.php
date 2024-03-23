@@ -3,7 +3,7 @@
         <h3>LOGO</h3>
     </div>
     <div class="tablink {{ Route::currentRouteNamed('writter') ? 'active' : '' }}">
-        <a class="" href="{{ route('writter') }}"> Dashboard </a>
+        <a class="" href="{{ route('writter') }}" id="defaultOpen"> Dashboard </a>
     </div>
     <div class="tablink {{ Route::currentRouteNamed('dataStories') ? 'active' : '' }}">
         <a class="" href="{{ route('dataStories') }}"> Stories </a>

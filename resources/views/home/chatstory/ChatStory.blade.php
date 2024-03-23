@@ -113,15 +113,7 @@
                     Loading...
                 </div>
                 <div class="halaman" id="infinite-change-page">
-                    {{-- <a href="/ChatStory{{ $data['sinopsis']->items()[0]->id_chapter }}{{ $data['datah']->previousPageUrl() }}"
-                        id="prevBagianBtn" style="display: {{ $data['datah']->currentPage() == 1 ? 'none' : 'block' }}">
-                        <button class="button3
-                    buttonpage" type="submit">Prev Halaman</button>
-                    </a>
-                    <a href="/ChatStory/{{ $data['sinopsis']->items()[0]->id_chapter }}{{ $data['datah']->nextPageUrl() }}"
-                        id="nextBagianBtn" data-current-page="{{ $data['datah']->currentPage() }}">
-                        <button class="buttonpage">Next Halaman</button>
-                    </a> --}}
+
                     <a href="{{ $data['datah']->previousPageUrl() ? $data['datah']->previousPageUrl() : '#' }}"
                         id="prevBagianBtn" style="display: {{ $data['datah']->currentPage() == 1 ? 'none' : 'block' }}">
                         <button class="button3 buttonpage" type="submit">Prev Halaman</button>
@@ -209,6 +201,7 @@
                 return parseInt(urlParams.get('page')) || 1;
             }
 
+
             function displayDialogs(dialogs) {
                 for (let i = 0; i < dialogs.length; i += 2) {
                     let leftDialogHtml = `
@@ -233,90 +226,8 @@
                         $('#infinite-scroll-container').append(rightDialogHtml);
                     }
                 }
-            }
-            //     function displayDialogs(dialogs) {
-            //         let isLeft =
-            //         true; // Gunakan variabel boolean untuk melacak apakah dialog harus ditampilkan di sebelah kiri atau kanan
-            //         for (let i = 0; i < dialogs.length; i++) {
-            //             let dialogHtml = `
-        //     <div class="card ${isLeft ? 'kiri' : 'kanan'}" id="${isLeft ? 'cardkiri' : 'cardkanan'}">
-        //         <strong>
-        //             <p>${dialogs[i].character}</p>
-        //         </strong>
-        //         ${dialogs[i].dialog}
-        //     </div>
-        // `;
-            //             $('#infinite-scroll-container').append(dialogHtml);
-            //             isLeft = !isLeft; // Toggle nilai boolean untuk bergantian antara kiri dan kanan
-            //         }
-            //     }
+            } 
 
-
-            // function loadMoreData(page) {
-            //     $.ajax({
-            //         url: '/loadMore/' + {{ $data['sinopsis']->items()[0]->id_chapter }} + '?page=' + page,
-            //         type: 'GET',
-            //         dataType: 'json', // Specify the data type as JSON
-            //         success: function(data) {
-            //             console.log('Received data:', data);
-            //             if (data.length > 0) {
-            //                 displayDialogs(data);
-            //                 //   updatePaginationButton2(page + 1);
-            //                 history.pushState({
-            //                     page: page
-            //                 }, null, '?page=' + page);
-
-
-            //                 if (data.length === 0) {
-            //                     // Tambahkan pesan atau aturan tampilan jika tidak ada data lagi
-            //                     const noMoreDataMessage = 'Besambung.......';
-            //                     $('#infinite-scroll-container').append(noMoreDataMessage);
-
-            //                     // Nonaktifkan tombol "Next Page"
-            //                     $('#nextBagianBtn').prop('disabled', true);
-            //                 } else {
-            //                     // Aktifkan kembali tombol "Next Page"
-            //                     $('#nextBagianBtn').prop('disabled', false);
-
-            //                     // Update href atribut tombol "Next Page"
-            //                     $('#prevBagianBtn').attr('href', '/story/chatstory/' +
-            //                         {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
-            //                         '?page=' + (page - 1)
-            //                     );
-            //                     $('#nextBagianBtn').attr('href', '/story/chatstory/' +
-            //                         {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
-            //                         '?page=' + (page + 1)
-            //                     );
-
-            //                 }
-            //                 $(window).scroll(function() {
-            //                     // Check if the user has reached the bottom of the page
-            //                     if ($(window).scrollTop() + $(window).height() == $(document)
-            //                         .height()) {
-
-            //                         // Load more data when the user reaches the bottom
-            //                         loadMoreData(currentPage);
-            //                     }
-            //                 });
-            //                 updatePaginationButton(page, pjumlah);
-
-
-            //             } else {
-            //                 // Tambahkan pesan atau aturan tampilan jika tidak ada data lagi
-            //                 const noMoreDataMessage = 'Bersambung..............';
-            //                 $('#infinite-scroll-container').append(noMoreDataMessage);
-
-            //                 // Nonaktifkan tombol "Next Page"
-            //                 $('#nextBagianBtn').prop('disabled', true);
-            //             }
-            //             loading = false;
-            //         },
-            //         error: function(xhr, ajaxOptions, thrownError) {
-            //             console.error(xhr.responseText);
-            //             loading = false;
-            //         }
-            //     });
-            // }
             function loadMoreData(page) {
                 $.ajax({
                     url: '/loadMore/' + {{ $data['sinopsis']->items()[0]->id_chapter }} + '?page=' + page,
@@ -330,39 +241,51 @@
                             history.pushState({
                                 page: page
                             }, null, '?page=' + page);
+
+
+                            if (data.length === 0) {
+                                // Tambahkan pesan atau aturan tampilan jika tidak ada data lagi
+                                const noMoreDataMessage = 'Besambung.......';
+                                $('#infinite-scroll-container').append(noMoreDataMessage);
+
+                                // Nonaktifkan tombol "Next Page"
+                                $('#nextBagianBtn').prop('disabled', true);
+                            } else {
+                                // Aktifkan kembali tombol "Next Page"
+                                $('#nextBagianBtn').prop('disabled', false);
+
+                                // Update href atribut tombol "Next Page"
+                                $('#prevBagianBtn').attr('href', '/story/chatstory/' +
+                                    {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
+                                    '?page=' + (page - 1)
+                                );
+                                $('#nextBagianBtn').attr('href', '/story/chatstory/' +
+                                    {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
+                                    '?page=' + (page + 1)
+                                );
+
+                            }
+                            $(window).scroll(function() {
+                                // Check if the user has reached the bottom of the page
+                                if ($(window).scrollTop() + $(window).height() == $(document)
+                                    .height()) {
+
+                                    // Load more data when the user reaches the bottom
+                                    loadMoreData(currentPage);
+                                }
+                            });
+                            updatePaginationButton(page, pjumlah);
+
+
                         } else {
                             // Tambahkan pesan atau aturan tampilan jika tidak ada data lagi
-                            const noMoreDataMessage = 'Data tidak ditemukan lagi';
+                            const noMoreDataMessage = 'Bersambung..............';
                             $('#infinite-scroll-container').append(noMoreDataMessage);
 
                             // Nonaktifkan tombol "Next Page"
                             $('#nextBagianBtn').prop('disabled', true);
                         }
-                         
-                        $('#nextBagianBtn').attr('href', '/story/chatstory/' +
-                            {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
-                            '?page=' + (page + 1)
-                        );
-
-                        // Aktifkan kembali tombol "Previous Page" jika tidak di halaman pertama
-                        if (page > 1) {
-                            $('#prevBagianBtn').attr('href', '/story/chatstory/' +
-                                {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
-                                '?page=' + (page - 1)
-                            ).show();
-                        } else {
-                            $('#prevBagianBtn').hide();
-                        }
-
-                        $(window).scroll(function() {
-                            // Check if the user has reached the bottom of the page
-                            if ($(window).scrollTop() + $(window).height() == $(document)
-                                .height()) {
-                                // Load more data when the user reaches the bottom
-                                loadMoreData(currentPage);
-                            }
-                        });
-                        updatePaginationButton(page, pjumlah);
+                        loading = false;
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
                         console.error(xhr.responseText);
@@ -370,14 +293,66 @@
                     }
                 });
             }
+            // function loadMoreData(page) {
+            //     $.ajax({
+            //         url: '/loadMore/' + {{ $data['datah']->items()[0]->id_chapter }} + '?page=' + page,
+            //         type: 'GET',
+            //         dataType: 'json', // Specify the data type as JSON
+            //         success: function(data) {
+            //             console.log('Received data:', data);
+            //             if (data.length > 0) {
+            //                 displayDialogs(data);
+            //                 //   updatePaginationButton2(page + 1);
+            //                 history.pushState({
+            //                     page: page
+            //                 }, null, '?page=' + page);
+            //                 currentPage = page; // Update currentPage with the new page number
+            //             } else {
+            //                 // Tambahkan pesan atau aturan tampilan jika tidak ada data lagi
+            //                 const noMoreDataMessage = 'Data tidak ditemukan lagi';
+            //                 $('#infinite-scroll-container').append(noMoreDataMessage);
+
+            //                 // Nonaktifkan tombol "Next Page"
+            //                 $('#nextBagianBtn').prop('disabled', true);
+            //             }
+
+            //             $('#nextBagianBtn').attr('href', '/story/chatstory/' +
+            //                 {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
+            //                 '?page=' + (page + 1)
+            //             );
+
+            //             // Aktifkan kembali tombol "Previous Page" jika tidak di halaman pertama
+            //             if (page > 1) {
+            //                 $('#prevBagianBtn').attr('href', '/story/chatstory/' +
+            //                     {{ $data['sinopsis']->isNotEmpty() ? $data['sinopsis']->items()[0]->id_chapter : 'N/A' }} +
+            //                     '?page=' + (page - 1)
+            //                 ).show();
+            //             } else {
+            //                 $('#prevBagianBtn').hide();
+            //             }
+
+            //             $(window).scroll(function() {
+            //                 // Check if the user has reached the bottom of the page
+            //                 if ($(window).scrollTop() + $(window).height() == $(document)
+            //                     .height()) {
+            //                     // Load more data when the user reaches the bottom
+            //                     loadMoreData(currentPage);
+            //                 }
+            //             });
+            //             updatePaginationButton(page, pjumlah);
+            //         },
+            //         error: function(xhr, ajaxOptions, thrownError) {
+            //             console.error(xhr.responseText);
+            //             loading = false;
+            //         }
+            //     });
+            // }
 
             function updatePaginationButton(currentPage, pjumlah) {
                 let buttonText = currentPage + '/' + pjumlah;
 
                 $('#listhalamanBtn').html(buttonText);
-
             }
-
 
             // Event listener for browser back/forward buttons
             window.onpopstate = function(event) {

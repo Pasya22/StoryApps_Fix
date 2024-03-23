@@ -3,7 +3,7 @@
 @section('content')
     <h3>List Characters</h3>
     <button type="submit" class="add">
-        <a href="{{ route('addDialogsPage') }}">+ Add New Characters</a>
+        <a href="{{ route('addDialogsPage') }}">+ Add New Dialog</a>
     </button>
     <div class="page">
         <table>
@@ -33,10 +33,10 @@
                         <td>
                             <div class="text">{{ $items->dialog }}</div>
                         </td>
-                        <td>
+                        <td class="created_at">
                             <div class="text">{{ $items->created_at }}</div>
                         </td>
-                        <td>
+                        <td class="created_at">
                             <div class="text">{{ $items->updated_at }}</div>
                         </td>
                         <td class="cover">

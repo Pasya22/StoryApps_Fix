@@ -146,6 +146,50 @@ class adminModel extends Model
     // }
     public static function StoryGenre()
     {
+        // $auhtId = Auth::user()->id;
+        $joinData = DB::table('stories')
+            ->select(
+                'genre.id_genre as genre_id',
+                'genre.genre as genre_name',
+                'stories.id_genre',
+                'stories.images',
+                'stories.id_story',
+                'stories.title',
+                'stories.book_status',
+                'stories.created_at',
+                DB::raw('COUNT(DISTINCT chapters.id_chapter) as jumlah_chapter'),
+                DB::raw('COUNT(characters.id_character) as jumlah_character'),
+                DB::raw('COUNT(dialogs.id_dialog) as jumlah_dialog')
+            )
+            ->join('genre', 'genre.id_genre', 'stories.id_genre')
+            ->leftJoin('chapters', 'chapters.id_story', 'stories.id_story')
+            ->leftJoin('characters', 'characters.id_chapter', 'chapters.id_chapter')
+            ->leftJoin('dialogs', 'dialogs.id_character', 'characters.id_character')
+            // ->where('stories.id_user', $auhtId)
+            ->orderBy('stories.id_story', 'desc')
+            ->groupBy('stories.id_story', 'stories.id_genre', 'stories.images', 'stories.title', 'stories.book_status', 'stories.created_at', 'genre_id', 'genre_name')
+            ->paginate(5);
+
+        foreach ($joinData as $story) {
+            // Calculate the total number of dialogs and characters
+            $totalDialogs = $story->jumlah_dialog; // Total number of dialogs
+            $totalCharacters = $story->jumlah_character; // Total number of characters
+
+
+            // Calculate the total number of pages
+            $story->jumlah_halaman_dialogs = ceil($totalDialogs / 10); // 10 dialogs per page
+            $story->jumlah_halaman_characters = ceil($totalCharacters / 10); // 10 characters per page
+
+            // Total number of pages for both dialogs and characters
+            $story->jumlah_halaman_total = $story->jumlah_halaman_dialogs + $story->jumlah_halaman_characters;
+        }
+
+        return $joinData;
+
+
+    }
+    public static function StoryGenre2()
+    {
         $auhtId = Auth::user()->id;
         $joinData = DB::table('stories')
             ->select(
@@ -205,9 +249,57 @@ class adminModel extends Model
     }
     public static function UserFavoriteStory()
     {
-        $joinData = DB::table('favorites')->select('favorites.*', 'stories.*', 'users.*')->join('stories', 'stories.id_story', 'favorites.id_story')->join('users', 'users.id', 'favorites.id_user')->orderBy('id_favorite', 'desc')->paginate(5);
+        $userId = auth()->id(); // Ambil ID pengguna yang sedang login
 
-        return $joinData;
+        $favoriteStories = DB::table('favorites')
+            ->select('stories.*', 'favorites.*')
+            ->join('stories', 'stories.id_story', '=', 'favorites.id_story')
+            ->join('users', 'users.id', '=', 'favorites.id_user')
+            ->where('stories.id_user', $userId) // Hanya tampilkan cerita yang dimiliki oleh pengguna yang sedang login
+            ->orderBy('favorites.id_favorite', 'desc') // Urutkan berdasarkan ID favorit dengan descending
+            ->paginate(5);
+
+        return $favoriteStories;
+    }
+
+    public static function StoryUserRate2()
+    {
+        $userId = auth()->id(); // Ambil ID pengguna yang sedang login
+        $users = DB::table('rates')
+            ->select(
+                'users.full_name',
+                'stories.id_story',
+                'stories.title',
+                'stories.images',
+                'rates.rate',
+                'rates.id_rate',
+                DB::raw('
+            SUM(CASE WHEN rate = 1 THEN 1 ELSE 0 END) as count_1,
+            SUM(CASE WHEN rate = 2 THEN 2 ELSE 0 END) as count_2,
+            SUM(CASE WHEN rate = 3 THEN 3 ELSE 0 END) as count_3,
+            SUM(CASE WHEN rate = 4 THEN 4 ELSE 0 END) as count_4,
+            SUM(CASE WHEN rate = 5 THEN 5 ELSE 0 END) as count_5,
+            COUNT(*) as total_ratings,
+            IF(COUNT(*) > 0, SUM(rate) / COUNT(*), 0) as average_rating
+        ')
+            )
+            ->join('stories', 'stories.id_story', '=', 'rates.id_story')
+            ->join('users', 'users.id', 'rates.id_user')
+            ->where('stories.id_user', $userId) // Hanya tampilkan cerita yang dimiliki oleh pengguna yang sedang login
+            ->orderBy('rates.id_rate', 'desc')
+            ->groupBy(
+                'stories.id_story',
+                'stories.title',
+                'stories.images',
+                'users.full_name',
+                'rates.rate',
+                'rates.id_rate'
+            )
+
+            ->paginate(5);
+        // or use paginate() if you want pagination
+
+        return $users;
     }
     public static function UserFavoriteStory2()
     {
@@ -268,7 +360,7 @@ class adminModel extends Model
 
         return $stories;
     }
-    public static function joinData($chapterId, $perPage = 5)
+    public static function joinData($chapterId, $perPage = 10)
     {
         // Fetching data for the given chapter with joins
         $query = DB::table('chapters')
@@ -615,7 +707,6 @@ class adminModel extends Model
             ->where('notifications.is_read', 0) // Hanya notifikasi yang belum dibaca
             // ->orWhere('is_read', false)
             ->orderByDesc('notifications.id_notification')
-            ->limit(5)
             ->get();
     }
     public static function markNotificationAsReads($id)
@@ -627,6 +718,32 @@ class adminModel extends Model
 
     }
     public static function countUnreadNotifications()
+    {
+        return DB::table('notifications')
+            ->where('is_read', 0) // Hanya notifikasi yang belum dibaca
+            // ->orWhere('is_read', false)
+            ->count();
+    }
+    public static function getUnreadNotificationsWriter()
+    {
+        $userId = Auth::User()->id;
+        return DB::table('notifications')
+            ->select('notifications.*', 'stories.*')
+            ->join('stories', 'stories.id_story', '=', 'notifications.entity_id')
+            ->where('stories.id_user', $userId)
+            ->where('notifications.is_read2', 0) // Hanya notifikasi yang belum dibaca
+            ->orderBy('notifications.tgl_dibuat', 'desc')
+            ->paginate(10);
+    }
+    public static function markNotificationAsReadsWriter($id)
+    {
+
+        return DB::table('notifications')
+            ->where('id_notification', $id)
+            ->update(['is_read' => 1]);
+
+    }
+    public static function countUnreadNotificationsWriter()
     {
         return DB::table('notifications')
             ->where('is_read', 0) // Hanya notifikasi yang belum dibaca

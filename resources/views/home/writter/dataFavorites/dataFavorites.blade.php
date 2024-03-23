@@ -1,81 +1,36 @@
 @extends('layouts.writer')
-@section('title', 'Data Stories')
+@section('title', 'Data Favorites')
 @section('content')
-    <h3>Daftar Cerita</h3>
-    <button type="submit" class="add">
-        <a href="#">+ Buat Novel Baru</a>
-    </button>
+    <h3>Stories That People Like</h3>
     <div class="page">
         <table>
             <tr>
-                <th>Image</th>
-                <th>Genre</th>
-                <th>Title</th>
-                <th>Create At</th>
-                <th>Book Status</th>
-                <th>Action</th>
+                <th>Images</th>
+                <th>User</th>
+                <th>Stories</th>
+                <th>Love</th>
             </tr>
             <tr>
-                @foreach ($data['stories'] as $story)
-                    <td class="cover">
+                @foreach ($data['favorites'] as $favorite)
+                    <td class="cover" style="width: auto; text-align: center; ">
                         <figure>
-                            <img src="/upload/{{ $story->images }}" alt="images" height="50px" width="50px" />
+                            <img src="/upload/{{ $favorite->images }}" alt="images" height="50px" width="50px" />
                         </figure>
                     </td>
                     <td>
-                        <div class="text">{{ $story->genre }}</div>
+                        <div class="text" >{{ $favorite->full_name ?? '' }}</div>
                     </td>
                     <td>
-                        <div class="text">{{ $story->title }}</div>
+                        <div class="text">{{ $favorite->title ?? '' }}</div>
                     </td>
-                    {{-- <td>
-                        <div class="text">Jumlah Chapter</div>
-                    </td> --}}
-                    {{-- <td>
-                        <div class="text">Jumlah Halaman</div>
-                    </td> --}}
-                    <td>
-                        <div class="text">
-                            @if ($story->book_status == 1)
-                                Publish
-                            @elseif($story->book_status == 2)
-                                Draf
-                            @elseif($story->book_status == 3)
-                                Completed
-                            @elseif($story->book_status == 4)
-                                On Hold
-                            @endif
-                        </div>
-                    </td>
-                    <td>
-                        <div class="text">
-                            @if ($story->book_status == 1)
-                                Publish
-                            @elseif($story->book_status == 2)
-                                Draft
-                            @elseif($story->book_status == 3)
-                                Completed
-                            @elseif($story->book_status == 4)
-                                On Hold
-                            @endif
-                        </div>
+                    <td style="width: 10%; text-align: center; ">
+                        @if ($favorite->favorit)
+                            <img src="{{ asset('img/love.png') }}" alt="Love" class="love-icon">
+                        @else
+                            <img src="{{ asset('img/love.png') }}" alt="Love" class="love-icon">
+                        @endif
                     </td>
 
-                    <td class="cover">
-                        <div class="aksi" style="display: flex; ">
-                            <select class="form-control" onchange="changeStatus('{{ $story->id_story }}', this)"
-                                style="width: 150px;">
-                                <option value="1" {{ $story->book_status == 1 ? 'selected' : '' }}>Publish</option>
-                                <option value="2" {{ $story->book_status == 2 ? 'selected' : '' }}>Draft</option>
-                                <option value="3" {{ $story->book_status == 3 ? 'selected' : '' }}>Completed</option>
-                                <option value="4" {{ $story->book_status == 4 ? 'selected' : '' }}>On Hold</option>
-                            </select>
-
-
-                            <a href="/writter/edit-story/{{ $story->id_story }}" class="btn btn-warning mr-2">Edit</a>
-                            <a href="#" class="btn btn-danger delete-btn" data-id="{{ $story->id_story }}">Delete</a>
-                        </div>
-                    </td>
             </tr>
             @endforeach
         </table>

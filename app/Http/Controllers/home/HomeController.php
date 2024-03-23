@@ -45,7 +45,7 @@ class HomeController extends Controller
         // dd($data['counts']);
 
         return view('home.StoryApps', compact('data'));
-    } 
+    }
     public function profile($id = null)
     {
         if (is_null($id)) {
@@ -271,29 +271,46 @@ class HomeController extends Controller
 
 
     // chatstory ============================================================
-
     public function StoryByGenre($id)
     {
-        $data['genre'] = adminModel::getData('genre');
-        $data['favorit'] = adminModel::getData('favorites');
-        $data['stories'] = adminModel::StoryListByGenre($id);
         $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang masuk
+
+        // Mendapatkan daftar favorit berdasarkan pengguna yang sedang masuk
+        $data['favorit'] = DB::table('favorites')
+            ->where('id_user', $userId)
+            ->pluck('id_story')
+            ->toArray();
+
+        $data['genre'] = adminModel::getData('genre');
+        // Hapus baris ini karena Anda telah mengambil daftar favorit sebelumnya
+        // $data['favorit'] = adminModel::getData('favorites');
+
+        // Mendapatkan daftar cerita yang disukai oleh pengguna yang sedang masuk
+        $data['stories'] = adminModel::StoryListByGenre($id);
+
         $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
+
         return view('home.StoryByGenre.StoryByGenre', compact('data'));
     }
 
-
     public function StoryList()
     {
-        // $data['user'] = adminModel::getDataById('users', 'id', $id);
         $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang masuk
+
+        // Mendapatkan daftar cerita favorit berdasarkan pengguna yang sedang login
+        $data['favorit'] = DB::table('favorites')
+            ->where('id_user', $userId)
+            ->pluck('id_story')
+            ->toArray();
+
         $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
         $data['genre'] = adminModel::getData('genre');
         $data['stories'] = adminModel::CountDataRate();
-        $data['favorit'] = adminModel::getData('favorites');
 
         return view('home.StoryList.StoryList', compact('data'));
     }
+
+
     public function detailStory($id)
     {
         $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang masuk
@@ -302,17 +319,77 @@ class HomeController extends Controller
             ->where('id_user', $userId)
             ->pluck('id_story')
             ->toArray();
+
         $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
         $data['genre'] = adminModel::getData('genre');
         $data['stories'] = adminModel::getStoryDetail($id);
-        $data['favorit'] = adminModel::getData('favorites');
+
+        // $data['favorit'] = adminModel::getData('favorites');
         $data['storyPublish'] = adminModel::getDataById('stories', 'id_story', $id);
         $chapters = adminModel::getDataById2('chapters', 'id_story', $id);
-        // dd($chapters);
-
 
         return view('home.detail.DetailStory', compact('data', 'chapters'));
     }
+
+    public function PostCommentAndRate(Request $request, $id)
+    {
+        $validation = $request->validate([
+            'rate' => 'required',
+
+        ]);
+        $validations = $request->validate([
+            'comment' => 'required',
+
+        ]);
+
+        $data = array_merge($validation, [
+            'id_story' => $id,
+            'id_user' => auth()->user()->id,
+            'status' => 0,
+            'created_at' => Carbon::now('Asia/Jakarta')
+        ]);
+
+        // Simpan data penilaian
+        if (adminModel::CreateData('rates', $data)) {
+            // Buat notifikasi untuk penilaian baru
+            $rateNotif = [
+                'id_user' => $data['id_user'],
+                "message" => 'Anda memiliki penilaian baru pada cerita ini',
+                "type" => 'rate',
+                "entity_id" => $data['id_story'],
+                "entity_id2" => null,
+                "sender_id" => auth()->user()->id,
+                "tgl_dibuat" => Carbon::now('Asia/Jakarta')
+            ];
+            Notification::insertNotification($rateNotif);
+
+            // Simpan data komentar
+            $commentData = array_merge($validations, [
+                'id_story' => $data['id_story'],
+                'id_user' => $data['id_user'],
+                'created_at' => $data['created_at'],
+            ]);
+            if (adminModel::CreateData('comments', $commentData)) {
+                // Buat notifikasi untuk komentar baru
+                $commentNotif = [
+                    'id_user' => $data['id_user'],
+                    "message" => 'Anda memiliki komentar baru pada cerita ini',
+                    "type" => 'comment',
+                    "entity_id" => $data['id_story'],
+                    "entity_id2" => null,
+                    "sender_id" => auth()->user()->id,
+                    "tgl_dibuat" => Carbon::now('Asia/Jakarta')
+                ];
+                Notification::insertNotification($commentNotif);
+            }
+
+            return redirect()->route('detailStory', ['id' => $id])->with('success', 'Successfully added new Rate and Comment!');
+        } else {
+            return back()->withErrors(['failed to add new Rate']);
+        }
+    }
+
+
     public function ChatStory($id)
     {
         $perPage = 10;
@@ -333,7 +410,7 @@ class HomeController extends Controller
     public function loadMore(Request $request, $idChapter)
     {
         $page = $request->input('page', 1);
-        $dialogs = adminModel::GetSinopsis($idChapter, 10);
+        $dialogs = adminModel::joinData($idChapter, 10);
         return response()->json($dialogs->items(), 200);
     }
 

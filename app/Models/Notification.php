@@ -41,5 +41,11 @@ class Notification extends Model
             ->where('id_notification', $id)
             ->update(['is_read' => 1]); // Setel is_read menjadi 1 untuk menandai notifikasi telah dibaca
     }
+    public static function markNotificationAsReadsWriter($id)
+    {
+        return DB::table('notifications')
+            ->where('id_notification', $id)
+            ->update(['is_read2' => 1]); // Setel is_read menjadi 1 untuk menandai notifikasi telah dibaca
+    }
 
 }

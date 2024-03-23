@@ -28,7 +28,7 @@
                         <td>
                             <div class="text">{{ $items->title }}</div>
                         </td>
-                        <td>
+                        <td class="created_at">
                             <div class="text">{{ $items->created_at }}</div>
                         </td>
                         <td class="cover">

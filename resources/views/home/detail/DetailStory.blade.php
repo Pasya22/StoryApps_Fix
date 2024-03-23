@@ -40,19 +40,20 @@
                                                 @csrf
                                                 @method('POST')
                                                 <input type="hidden" name="id_story" value="{{ $recomend->id_story }}">
+
                                                 @php
-                                                    $favoritItem = $data['favorit']
-                                                        ->where('id_story', $recomend->id_story)
-                                                        ->first();
+                                                    $favoritItem = in_array($recomend->id_story, $data['favorit']);
+
                                                 @endphp
 
                                                 <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                    style="display: none;" id="heart-checkbox-{{ $recomend->id_story }}"
-                                                    data-story-id="{{ $recomend->id_story }}"
+                                                    style="display: none;"
+                                                    id="heart-checkbox-{{ $data['stories']->id_story }}"
+                                                    data-story-id="{{ $data['stories']->id_story }}"
                                                     data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                    {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
-                                                <label for="heart-checkbox-{{ $recomend->id_story }}"
-                                                    class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
+                                                    {{ $favoritItem ? 'checked' : '' }}>
+                                                <label for="heart-checkbox-{{ $data['stories']->id_story }}"
+                                                    class="heart  {{ $favoritItem ? 'checked' : '' }}"
                                                     id="heart"></label>
                                             </form>
                                         @else
@@ -158,19 +159,20 @@
                                                     <input type="hidden" name="id_story"
                                                         value="{{ $data['stories']->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']
-                                                            ->where('id_story', $data['stories']->id_story)
-                                                            ->first();
-                                                    @endphp
+                                                        $favoritItem = in_array(
+                                                            $data['stories']->id_story,
+                                                            $data['favorit'],
+                                                        );
 
+                                                    @endphp
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
                                                         style="display: none;"
                                                         id="heart-checkbox-{{ $data['stories']->id_story }}"
                                                         data-story-id="{{ $data['stories']->id_story }}"
                                                         data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                        {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                        {{ $favoritItem ? 'checked' : '' }}>
                                                     <label for="heart-checkbox-{{ $data['stories']->id_story }}"
-                                                        class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
+                                                        class="heart  {{ $favoritItem ? 'checked' : '' }}"
                                                         id="heart"></label>
                                                 </form>
                                             @else
@@ -331,24 +333,32 @@
                     <div class="card-input">
 
                         <div class="tab-content">
-                            <form action="" method="">
+                            <form action="{{ route('PostCommentAndRate', $data['stories']->id_story) }}" method="POST">
+                                @csrf
                                 <div class="bintang2">
                                     <div class="bb">
-                                        <input type="radio" id="star5" name="bintang2" value="5" />
+                                        <input type="text" id="rating5" name="id_story"
+                                            value="{{ $data['stories']->id_story }}" />
+                                        <input type="radio" id="star5" class="rate" name="rate"
+                                            value="5" />
                                         <label for="star5" title="text">5 stars</label>
-                                        <input type="radio" id="star4" name="bintang2" value="4" />
+                                        <input type="radio" id="star4" class="rate" name="rate"
+                                            value="4" />
                                         <label for="star4" title="text">4 stars</label>
-                                        <input type="radio" id="star3" name="bintang2" value="3" />
+                                        <input type="radio" id="star3" class="rate" name="rate"
+                                            value="3" />
                                         <label for="star3" title="text">3 stars</label>
-                                        <input type="radio" id="star2" name="bintang2" value="2" />
+                                        <input type="radio" id="star2" class="rate" name="rate"
+                                            value="2" />
                                         <label for="star2" title="text">2 stars</label>
-                                        <input type="radio" id="star1" name="bintang2" value="1" />
+                                        <input type="radio" id="star1" class="rate" name="rate"
+                                            value="1" />
                                         <label for="star1" title="text">1 star</label>
                                     </div>
                                 </div>
 
-                                <textarea name="#" id="komentar" placeholder="Tulis Komentar....."></textarea>
-                                <button type="submit">Send</button>
+                                <textarea name="comment" id="komentar" placeholder="Tulis Komentar....."></textarea>
+                                <button type="submit" name="submit">Send</button>
                             </form>
                         </div>
 
@@ -389,18 +399,17 @@
                                                     <input type="hidden" name="id_story"
                                                         value="{{ $items->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']
-                                                            ->where('id_story', $items->id_story)
-                                                            ->first();
+                                                        $favoritItem = in_array($items->id_story, $data['favorit']);
+
                                                     @endphp
 
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
                                                         style="display: none;" id="heart-checkbox-{{ $items->id_story }}"
                                                         data-story-id="{{ $items->id_story }}"
                                                         data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                        {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                        {{ $favoritItem ? 'checked' : '' }}>
                                                     <label for="heart-checkbox-{{ $items->id_story }}"
-                                                        class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
+                                                        class="heart  {{ $favoritItem ? 'checked' : '' }}"
                                                         id="heart"></label>
                                                 </form>
                                             @else

@@ -7,69 +7,59 @@
         <table>
             <tr>
                 <th>Images</th>
-                <th>Title</th>
-                <th>Username</th>
+                <th>Story</th>
+                <th>User</th>
                 <th>Rate</th>
-                <th>Create At</th>
             </tr>
+            @foreach ($data['rates'] as $rate)
             <tr>
-                @foreach ($data['rates'] as $item)
-                    <td class="cover">
-                        <figure>
-                            <img src="/upload/{{ $item->images }}" alt="images" height="50px" width="50px" />
-                        </figure>
-                    </td> 
+                <td class="cover">
+                    <figure>
+                        <img src="/upload/{{ $rate->images }}" alt="images" height="50px" width="50px" />
+                    </figure>
+                </td>
                     <td>
-                        <div class="text">{{ $item->title }}</div>
+                        <div class="text">{{ $rate->title ?? '' }}</div>
                     </td>
-                    {{-- <td>
-                        <div class="text">Jumlah Chapter</div>
-                    </td> --}}
-                    {{-- <td>
-                        <div class="text">Jumlah Halaman</div>
-                    </td> --}}
                     <td>
-                        <div class="text">
-                            @if ($story->book_status == 1)
-                                Publish
-                            @elseif($story->book_status == 2)
-                                Draf
-                            @elseif($story->book_status == 3)
-                                Completed
-                            @elseif($story->book_status == 4)
-                                On Hold
+                        <div class="text">{{ $rate->full_name ?? '' }}</div>
+                    </td>
+                    <td style="width: 20%; text-align: center; ">
+                        @if ($rate->total_ratings > 0)
+                            @if ($rate->average_rating >= 0.5 && $rate->average_rating <= 5)
+                                @for ($i = 0.5; $i <= 5; $i++)
+                                    @if ($i <= $rate->average_rating)
+                                        <span class="fa fa-star checked" style="cursor: pointer;"></span>
+                                    @else
+                                        @if ($i - 0.5 <= $rate->average_rating)
+                                            <span class="fa fa-star-half checked-half" style="cursor: pointer; "></span>
+                                        @else
+                                            <span class="fa fa-star" style="cursor: pointer;"></span>
+                                        @endif
+                                    @endif
+                                @endfor
                             @endif
-                        </div>
-                    </td>
-                    <td>
-                        <div class="text">
-                            @if ($story->book_status == 1)
-                                Publish
-                            @elseif($story->book_status == 2)
-                                Draft
-                            @elseif($story->book_status == 3)
-                                Completed
-                            @elseif($story->book_status == 4)
-                                On Hold
-                            @endif
-                        </div>
+                            <!-- Tampilkan bintang default jika total_ratings = 0 -->
+                        @else
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        @endif
+                        <!-- Tampilkan peringkat rata-rata jika average_rating > 0 -->
+                        @if ($rate->average_rating > 0)
+                            <div class="counts">
+                                <span class="span">{{ '(' . number_format($rate->average_rating, 1) . ')' }}</span>
+                            </div>
+                            <!-- Sembunyikan peringkat rata-rata jika average_rating = 0.0 -->
+                        @elseif ($rate->average_rating == 0.0)
+                            <div class="counts" style="display: none;">
+                                <span class="span">{{ '(' . number_format($rate->average_rating, 1) . ')' }}</span>
+                            </div>
+                        @endif
                     </td>
 
-                    <td class="cover">
-                        <div class="aksi" style="display: flex; ">
-                            <select class="form-control" onchange="changeStatus('{{ $story->id_story }}', this)"
-                                style="width: 150px;">
-                                <option value="1" {{ $story->book_status == 1 ? 'selected' : '' }}>Publish</option>
-                                <option value="2" {{ $story->book_status == 2 ? 'selected' : '' }}>Draft</option>
-                                <option value="3" {{ $story->book_status == 3 ? 'selected' : '' }}>Completed</option>
-                                <option value="4" {{ $story->book_status == 4 ? 'selected' : '' }}>On Hold</option>
-                            </select>
-
-
-                            <a href="/writter/edit-story/{{ $story->id_story }}" class="btn btn-warning mr-2">Edit</a>
-                            <a href="#" class="btn btn-danger delete-btn" data-id="{{ $story->id_story }}">Delete</a>
-                        </div>
-                    </td>
             </tr>
             @endforeach
         </table>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\home;
 
 use App\Models\adminModel;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -25,19 +26,22 @@ class writterController extends Controller
             return view('home.writter.dashboard', $data);
         }
     }
-    public function profile($id)
+    public function profiles($id = null)
     {
+        if (is_null($id)) {
+            $id = auth()->id();
+        }
         $data['user'] = adminModel::getDataById('users', 'id', $id);
         $data['genre'] = adminModel::getData('genre');
         // dd($data);
 
-        return view("writter.profile.profile", compact('data'));
+        return view("home.writter.profile.profile", compact('data'));
     }
 
     public function dataStories()
     {
 
-        $data['stories'] = adminModel::StoryGenre();
+        $data['stories'] = adminModel::StoryGenre2();
         return view("home.writter.dataStories.dataStories", compact('data'));
     }
     public function dataChapters()
@@ -69,11 +73,25 @@ class writterController extends Controller
     public function dataRates()
     {
 
-        $data['rates'] = adminModel::StoryUserRate();
+        $data['rates'] = adminModel::StoryUserRate2();
         return view("home.writter.dataRates.dataRates", compact('data'));
     }
+    public function notifications()
+    {
+        $unreadNotifications = adminModel::getUnreadNotificationsWriter()->items(); // Ambil item-data dari Paginator
+        $totalUnreadCount = adminModel::countUnreadNotificationsWriter();
 
+        return response()->json([
+            'notifications' => $unreadNotifications,
+            'total_unread_count' => $totalUnreadCount
+        ]);
+    }
+    public function markNotificationAsReads($id)
+    {
+        $updatedCount = Notification::markNotificationAsReadsWriter($id);
 
+        return response()->json(['success' => true, 'message' => 'Notification marked as read', 'is_read' => $updatedCount]);
+    }
 
 
 
@@ -121,7 +139,7 @@ class writterController extends Controller
             $rate = [
                 'id_user' => auth()->user()->id,
                 'id_story' => $id_story,
-                'rate' => 0,
+                'rate' => 1,
                 'status' => 0,
                 "created_at" => now('Asia/Jakarta')
             ];

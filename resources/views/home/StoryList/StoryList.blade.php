@@ -72,18 +72,17 @@
                                                         <input type="hidden" name="id_story"
                                                             value="{{ $items->id_story }}">
                                                         @php
-                                                            $favoritItem = $data['favorit']
-                                                                ->where('id_story', $items->id_story)
-                                                                ->first();
+                                                            // Memeriksa apakah cerita adalah favorit pengguna saat ini
+                                                            $isFavorite = in_array($items->id_story, $data['favorit']);
                                                         @endphp
 
                                                         <input type="checkbox" name="favorit" class="heart-checkbox"
                                                             id="heart-checkbox-{{ $items->id_story }}"
                                                             data-story-id="{{ $items->id_story }}"
                                                             data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                            {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                            {{ $isFavorite ? 'checked' : '' }}>
                                                         <label for="heart-checkbox-{{ $items->id_story }}"
-                                                            class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }} hearts"
+                                                            class="heart  {{ $isFavorite ? 'checked' : '' }} hearts"
                                                             id="heart hearts"></label>
                                                     </form>
                                                 @else
@@ -93,6 +92,7 @@
                                                             id="heart-checkbox">
                                                     </a>
                                                 @endif
+
 
 
                                                 <div class="Cerita-Terbaru TextcontentLeft1">
@@ -187,6 +187,10 @@
                         <div class="row">
                             @foreach ($data['stories'] as $story)
                                 @if ($story->book_status == 1 || $story->book_status == 3)
+                                    @php
+                                        // Mengecek apakah cerita termasuk dalam daftar favorit pengguna yang sedang login
+                                        $favoritItem = in_array($story->id_story, $data['favorit']);
+                                    @endphp
                                     <div class="cardcerita">
                                         <a href="{{ route('detailStory', $story->id_story) }}">
                                             <figure>
@@ -208,20 +212,23 @@
                                                             <input type="hidden" name="id_story"
                                                                 value="{{ $story->id_story }}">
                                                             @php
-                                                                $favoritItem = $data['favorit']
-                                                                    ->where('id_story', $story->id_story)
-                                                                    ->first();
+                                                                $favoritItem = in_array(
+                                                                    $story->id_story,
+                                                                    $data['favorit'],
+                                                                );
+
                                                             @endphp
 
+                                                            <!-- Menampilkan checkbox dan ikon hati sesuai dengan status cerita -->
                                                             <input type="checkbox" name="favorit" class="heart-checkbox"
                                                                 id="heart-checkbox-{{ $story->id_story }}"
                                                                 data-story-id="{{ $story->id_story }}"
                                                                 data-story-action="{{ route('favorite') }}"
-                                                                style="color: red;"
-                                                                {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                                style="color: red;" {{ $favoritItem ? 'checked' : '' }}>
                                                             <label for="heart-checkbox-{{ $story->id_story }}"
-                                                                class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
+                                                                class="heart {{ $favoritItem ? 'checked' : '' }}"
                                                                 id="heart"></label>
+
                                                         </form>
                                                     @else
                                                         <a href="#">
@@ -231,6 +238,7 @@
                                                                 id="heart-checkbox">
                                                         </a>
                                                     @endif
+
 
                                                     <svg class="share-icon" id="share-icon" width="13"
                                                         height="14" viewBox="0 0 13 14" fill="none"

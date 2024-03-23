@@ -57,9 +57,11 @@ return new class extends Migration {
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('sender_id')->nullable();
             $table->unsignedBigInteger('entity_id')->nullable();
+            $table->unsignedBigInteger('entity_id2')->nullable();
             $table->string('message');
             $table->string('type');
             $table->integer('is_read');
+            $table->integer('is_read2');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

@@ -934,6 +934,7 @@ class adminController extends Controller
                 "message" => 'Anda memiliki penilaian baru pada cerita ini',
                 "type" => 'rate',
                 "entity_id" => $data['id_story'],
+                "entity_id2" => null,
                 "sender_id" => auth()->user()->id,
                 "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
@@ -1042,6 +1043,7 @@ class adminController extends Controller
                 "message" => 'Anda memiliki komentar baru pada cerita ini',
                 "type" => 'comment',
                 "entity_id" => $data['id_story'],
+                "entity_id2" => null,
                 "sender_id" => auth()->user()->id,
                 "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
@@ -1090,6 +1092,7 @@ class adminController extends Controller
                 'message' => 'Anda memiliki komentar baru pada cerita ini',
                 'type' => 'comment',
                 "entity_id" => $validation['id_story'],
+                "entity_id2" => null,
                 'sender_id' => auth()->user()->id, // ID pengirim notifikasi (pengguna yang sedang login)
                 'tgl_dibuat' => Carbon::now('Asia/Jakarta')
             ];
@@ -1164,6 +1167,7 @@ class adminController extends Controller
                 "message" => 'Cerita anda ada yang menjadi favorite  oleh user lainnya',
                 "type" => 'favorite',
                 "entity_id" => $data['id_story'],
+                "entity_id2" => null,
                 "sender_id" => auth()->user()->id,
                 "tgl_dibuat" => Carbon::now('Asia/Jakarta')
             ];
@@ -1213,6 +1217,7 @@ class adminController extends Controller
                 'type' => 'favorite',
                 'sender_id' => auth()->user()->id, // ID pengirim notifikasi (pengguna yang sedang login)
                 "entity_id" => $validation['id_story'],
+                "entity_id2" => null,
                 'tgl_dibuat' => Carbon::now('Asia/Jakarta')
             ];
             Notification::insertNotification($notif);

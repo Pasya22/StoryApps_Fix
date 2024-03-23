@@ -132,8 +132,8 @@
                                 <div class="container-form">
                                     <div class="right">
                                         <div class="form-group">
-                                            <input type="password" class="input" name="password" id="password">
 
+                                            <input type="password" class="input" name="password" id="password">
                                             <i class="text">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text visibility-toggle"

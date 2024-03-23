@@ -6,6 +6,8 @@
 
         <a href="{{ route('dataDialogs') }}">
             <i class="fa fa-arrow-left" id="left-icon"></i>
+            &nbsp;&nbsp;
+           
         </a>
         <div class="input-btn-add">
             <input type="button" onclick="addDialogInput()" class="btn-add btn-primary ml-2" id="btnAddDialog"
@@ -55,9 +57,9 @@
                 <label for="text1">Dialogs</label><br>
                 <textarea type="text" name="dialog[]" class="sinopsis2" cols="30" rows="10"></textarea> <!-- Moved textarea inside -->
                 <br>
-                <div id="dialogs-container"> <!-- Added ID for dialogs container -->
-                    <br>
-                </div>
+            </div>
+            <div id="dialogs-container" class="form-type"> <!-- Added ID for dialogs container -->
+                <br>
             </div>
             <div class="btn-submit"><button type="submit" class="btn" style="cursor: pointer;">Submit</button></div>
         </form>

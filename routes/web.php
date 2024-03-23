@@ -49,8 +49,16 @@ Route::group(['middleware' => ['Auth.user']], function () {
 
     Route::get('/Auth/logout', [AuthController::class, 'logout'])->name('logoutUser');
 
+
+
+    // notification
+    Route::get('/writer/notification', [writterController::class, 'notifications'])->name('notifications');
+    Route::get('/writer/ShowAllNotification', [writterController::class, 'ShowAllNotifications'])->name('ShowAllNotifications');
+    Route::put('/writer/markNotificationAsRead/{id}', [writterController::class, 'markNotificationAsReads'])->name('markNotificationAsReads');
+
     // Writter
-    Route::get('/profile/{id}', [writterController::class, 'profile'])->name('profile');
+    Route::get('/writter/profile', [writterController::class, 'profiles'])->name('profiles');
+    Route::get('/writter/profile/{id}', [writterController::class, 'profiles'])->name('user.profiles');
 
     // ------------------------------------------- data master ------------------------------------------------ //
     Route::get('writter/dataFavorites', [writterController::class, 'dataFavorites'])->name('dataFavorites');
@@ -109,6 +117,10 @@ Route::group(['middleware' => ['Auth.user']], function () {
     Route::post('/RequestBeWriter/{id}', [HomeController::class, 'RequestBeWriter'])->name('RequestBeWriter');
     Route::post('/edit-profil/{id}', [HomeController::class, 'UpdateUser'])->name('UpdateUser');
     Route::post('/edit-password/{id}', [HomeController::class, 'UpdatePassword'])->name('UpdatePassword');
+
+    // post comment  and rates------------------------------------------------
+    Route::post('/comment/{id}', [HomeController::class, 'PostCommentAndRate'])->name('PostCommentAndRate');
+
 
     // --------------------------------------------------- CHAT STORY WHATSAPP -------------------------------- //
     Route::get('story/detailStory/{id}', [HomeController::class, 'detailStory'])->name('detailStory');

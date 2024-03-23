@@ -33,11 +33,11 @@
                         <td>
                             <div class="text">{{ $story->title }}</div>
                         </td>
-                        <td>
+                        <td style="width: 8px;">
                             <div class="text">{{ $story->jumlah_chapter }}</div>
                         </td>
 
-                        <td>
+                        <td class="width: 8px;">
                             <div class="text">
                                 @if (isset($story->jumlah_halaman_dialogs))
                                     {{ $story->jumlah_halaman_dialogs }}
@@ -60,7 +60,7 @@
                                 @endif
                             </div>
                         </td>
-                        <td>
+                        <td class="created_at">
                             <div class="text">{{ $story->created_at }}</div>
                         </td>
                         <td class="cover">

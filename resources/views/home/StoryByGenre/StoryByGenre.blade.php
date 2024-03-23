@@ -66,16 +66,18 @@
                                                     @method('POST')
                                                     <input type="hidden" name="id_story" value="{{ $items->id_story }}">
                                                     @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
+                                                        // Mencari apakah cerita termasuk dalam daftar favorit pengguna yang sedang login
+                                                        $favoritItem = in_array($items->id_story, $data['favorit']);
                                                     @endphp
 
+                                                    <!-- Menampilkan checkbox dan ikon hati sesuai dengan status cerita -->
                                                     <input type="checkbox" name="favorit" class="heart-checkbox"
                                                         id="heart-checkbox-{{ $items->id_story }}"
                                                         data-story-id="{{ $items->id_story }}"
                                                         data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                        {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                        {{ $favoritItem ? 'checked' : '' }}>
                                                     <label for="heart-checkbox-{{ $items->id_story }}"
-                                                        class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }} hearts"
+                                                        class="heart {{ $favoritItem ? 'checked' : '' }} hearts"
                                                         id="heart hearts"></label>
                                                 </form>
                                             @else
@@ -85,7 +87,6 @@
                                                         id="heart-checkbox">
                                                 </a>
                                             @endif
-
 
                                             <div class="Cerita-Terbaru TextcontentLeft1">
 
@@ -197,18 +198,14 @@
                                                         @method('POST')
                                                         <input type="hidden" name="id_story"
                                                             value="{{ $story->id_story }}">
-                                                        @php
-                                                            $favoritItem = $data['favorit']->where('id_story', $story->id_story)->first();
-                                                        @endphp
-
                                                         <input type="checkbox" name="favorit" class="heart-checkbox"
                                                             id="heart-checkbox-{{ $story->id_story }}"
                                                             data-story-id="{{ $story->id_story }}"
                                                             data-story-action="{{ route('favorite') }}"
                                                             style="color: red;"
-                                                            {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                            {{ in_array($story->id_story, $data['favorit']) ? 'checked' : '' }}>
                                                         <label for="heart-checkbox-{{ $story->id_story }}"
-                                                            class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
+                                                            class="heart  {{ in_array($story->id_story, $data['favorit']) ? 'checked' : '' }}"
                                                             id="heart"></label>
                                                     </form>
                                                 @else

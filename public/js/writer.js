@@ -1,4 +1,16 @@
+function toggleSidebar() {
+    var sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("active");
+}
 
+// Fungsi untuk menutup sidebar saat pengguna mengklik di luar area sidebar atau konten utama
+document.addEventListener("mousedown", function (event) {
+    var sidebar = document.querySelector(".sidebar");
+    var navBurger = document.querySelector(".nav-burger");
+    if (!sidebar.contains(event.target) && event.target !== navBurger) {
+        sidebar.classList.remove("active");
+    }
+});
 // -------------------------------------------- fungsi dropdown ----------------------------------------------- //
 /* Toggle dropdown */
 function toggleDropdown(dropdownId) {
@@ -38,6 +50,7 @@ document.addEventListener("mousedown", function (event) {
 window.addEventListener("click", function (event) {
     if (!event.target.matches(".dropbtn1")) {
         var dropdowns = document.getElementsByClassName("dropdown-content1");
+        var i;
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains("show1")) {
@@ -97,6 +110,7 @@ function addCharacterInput() {
         var removeButton = document.createElement('button');
         removeButton.className = 'btn-submit';
         removeButton.type = 'button';
+        removeButton.style.color = 'white';
         removeButton.innerHTML = 'Remove Character';
         removeButton.addEventListener('click', function () {
             charactersContainer.removeChild(characterContainer);
@@ -180,6 +194,7 @@ function addDialogInput() {
         var removeButton = document.createElement('button');
         removeButton.className = 'btn-submit';
         removeButton.type = 'button';
+        removeButton.style.color = 'white';
         removeButton.innerHTML = 'Remove Dialog';
         removeButton.addEventListener('click', function () {
             dialogsContainer.removeChild(dialogContainer);

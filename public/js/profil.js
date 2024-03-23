@@ -70,14 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Setelah DOM diinisialisasi, tambahkan gaya ke elemen-elemen HTML
-    document.body.style.transition = "background-color 0.5s ease";
-    document.querySelector(".content").style.opacity = 1;
-});
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const selectElement = document.querySelector('select');
     const cardsBodies = document.querySelectorAll('.cards-body');
@@ -114,6 +106,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
         }
     });
+});
+
+
+// ================================================================  Visibility User Password =============================================================================== //
+function togglePasswordVisibility(inputId) {
+    var passwordInput = document.getElementById(inputId);
+    var icon = passwordInput.nextElementSibling.querySelector('.visibility-icon');
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = "password";
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
+// alert updated password moving
+setTimeout(function () {
+    document.getElementById('successMessage').style.display = 'none';
+}, 2000);
+
+
+
+// ================================================================  end Visibility User Password =============================================================================== //
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Setelah DOM diinisialisasi, tambahkan gaya ke elemen-elemen HTML
+    document.body.style.transition = "background-color 0.5s ease";
+    document.querySelector(".content").style.opacity = 1;
 });
 
 

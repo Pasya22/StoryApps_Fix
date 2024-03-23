@@ -186,7 +186,6 @@
 
     <script>
         $(document).ready(function() {
-            // Fungsi untuk memperbarui badge count
             function updateBadgeCount(count) {
                 $('.badge-counter').text(count);
                 if (count > 0) {
@@ -205,7 +204,7 @@
                     success: function(response) {
                         // Reset container notifikasi
                         $('#notificationContainer').empty();
-                        var unreadCount = response.total_unread_count;
+                        var unreadCount = 0; // Inisialisasi jumlah notifikasi yang belum dibaca
 
                         // Loop melalui data notifikasi dan tambahkan ke container
                         response.notifications.forEach(function(notification) {
@@ -229,8 +228,6 @@
                                 iconClass = 'fas fa-user';
                                 colorClass = 'text-info';
                             }
-
-
 
                             // Tentukan kelas untuk menandai notifikasi sudah dibaca atau belum
                             var readClass = notification.is_read ? 'text-muted' :
@@ -262,7 +259,6 @@
 
                             $('#notificationContainer').append(notificationItem);
 
-
                             // Perbarui jumlah notifikasi yang belum dibaca
                             if (!notification.is_read) {
                                 unreadCount++;
@@ -284,6 +280,7 @@
             // Tambahkan interval untuk mengambil notifikasi secara berkala
             setInterval(getNotifications, 6000); // Ambil notifikasi setiap 1 menit (60000 milidetik)
         });
+
 
         function updateStatusNotifikasi(id) {
             $.ajax({
