@@ -610,7 +610,7 @@ button {
 .ceritafavorit .counts span{
     position: absolute;
     right: -40px;
-    bottom: 20px;
+    bottom: 10px;
 }
 .ceritafavorit .card-body .container-card .card .share {
     float: right;
