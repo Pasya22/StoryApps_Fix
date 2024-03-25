@@ -313,7 +313,7 @@
                         <div class="bagian-cerita">
                             @foreach ($chapters as $item)
                                 <a href="{{ route('ChatStory', $item->id_chapter) }}" class="card-bagian">
-                                    <h4>{{ Str::limit($item->chapter, 40) }}</h4>
+                                    <h4>{{ Str::limit($item->chapter, 30) }}</h4>
                                     <p>{{ date('j F Y', strtotime($item->created_at)) }}</p>
                                 </a>
                             @endforeach
