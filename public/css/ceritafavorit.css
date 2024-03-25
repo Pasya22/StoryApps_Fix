@@ -607,11 +607,13 @@ button {
     border-radius: 10px;
     cursor: pointer;
 }
-.ceritafavorit .counts span{
+
+.ceritafavorit .counts span {
     position: absolute;
     right: -40px;
     bottom: 20px;
 }
+
 .ceritafavorit .card-body .container-card .card .share {
     float: right;
     padding: 10px 0;
@@ -714,9 +716,11 @@ label {
     font-size: 13px;
     color: black;
 }
-.ceritafavorit .fa-star:before{
+
+.ceritafavorit .fa-star:before {
     margin-left: 5px;
 }
+
 .rate {
     margin-top: 25px;
     float: left;
@@ -760,6 +764,7 @@ label {
 .rate>label:hover~input:checked~label {
     color: #c59b08;
 }
+
 /* tab */
 @media screen and (max-width: 770px) {
     .ceritafavorit {
@@ -990,9 +995,32 @@ label {
     .ceritafavorit .card-body .container-card .card {
         margin: 10px 10px;
         padding: 10px 10px;
-        width: 140px;
+        height: 307px;
+        width: 124px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
+    }
+
+    .link {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        flex-direction: row;
+    }
+
+    .rate {
+        margin-top: 37px;
+        margin-left: -12px;
+        float: left;
+        display: flex;
+        font-size: 11px;
+        height: 45px;
+        padding: 10px 0px;
+        position: relative;
+    }
+
+    .rate .fa-star-half {
+        margin-left: 7px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul h4 {
@@ -1000,7 +1028,20 @@ label {
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul p {
-        font-size: 5px;
+        font-size: 9px;
+    }
+
+    .ceritafavorit .card-body .container-card .card a .text-judul {
+        margin-top: 55px;
+        padding: 0px 2px;
+    }
+
+    .ceritafavorit .card-body .container-card .card .banner {
+        width: 100%;
+        height: 112px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
     }
 
     .rate:not(:checked)>label {
@@ -1046,6 +1087,7 @@ label {
         transform: rotate(45deg);
         transform-origin: 100% 100%;
     }
+
     .rate:not(:checked)>label {
         float: right;
         width: 1em;
@@ -1055,6 +1097,23 @@ label {
         font-size: 13px;
         color: #ccc;
     }
+}
+
+.link {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 10%;
+    flex-direction: row;
+}
+
+.link a {
+    color: #0e9df6 !important;
+    margin-left: 5px;
+}
+
+.link p {
+    color: #0e9df6 !important;
+    margin-left: 10px;
 }
 
 /* hp3 */
