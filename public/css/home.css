@@ -78,12 +78,12 @@ body {
 }
 
 .navs {
-    padding: 0 20px;
     background-image: linear-gradient(to right, rgba(0, 194, 255, 1), rgba(52, 59, 221, 1));
     position: relative;
     /* Navbar posisi awal */
     z-index: 99;
     width: 100%;
+    height: 81px;
     transition: top 0.3s ease, position 0.3s ease;
     /* Transisi untuk perubahan posisi dan top */
 }
@@ -193,7 +193,9 @@ body {
     /* Update max-height value */
     opacity: 1;
     visibility: visible;
-    background-color: rgba(255, 255, 255, 0);
+    /* background-color: rgba(255, 255, 255, 0); */
+    background-image: linear-gradient(to right, rgba(0, 194, 255, 1), rgba(52, 59, 221, 1));
+
 }
 
 .nav-menu-dekstop {
@@ -263,6 +265,14 @@ button {
         display: none;
     }
 
+
+    .nav-menu.active {
+        max-height: 200rem;
+        opacity: 1;
+        visibility: visible;
+        background-image: linear-gradient(to right, rgba(0, 194, 255, 1), rgba(52, 59, 221, 1));
+    }
+
     .nav-menu {
         width: inherit;
         display: flex;
@@ -272,6 +282,7 @@ button {
         transition: inherit;
         visibility: inherit;
         margin-top: inherit;
+
     }
 
     .nav-menu a {
@@ -311,7 +322,7 @@ button {
     .search-box {
         margin: 10px auto;
         text-align: center;
-        width: 240px;
+
     }
 
     .search-box input {
@@ -392,43 +403,69 @@ button {
         transition: opacity 0.3s ease;
     }
 
-    .nav-area .brand h3 {
-        font-size: 14px;
-    }
-
     .hidden {
         display: none;
         opacity: 0;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 13;
+        margin-left: 17px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 20px;
+        margin-left: 123px;
+        margin-top: 4px;
+    }
+
+    .nav-area .nav-burger span {
+        font-size: 24px;
+        margin-left: 0px;
     }
 }
 
 @media screen and (max-width:400px) {
     .nav-area .brand h3 {
-        font-size: 11px;
+        font-size: 13;
+        margin-left: 17px;
     }
 
     .search-box .btn-serch span {
         font-size: 20px;
+        margin-left: 123px;
+        margin-top: 4px;
     }
+
+    .nav-area .nav-burger span {
+        font-size: 24px;
+        margin-left: 0px;
+    }
+
 }
 
 @media screen and (max-width:360px) {
     .nav-area .nav-burger span {
-        font-size: 19px;
-        margin-left: -4px;
+        font-size: 24px;
+        margin-left: 0px;
     }
 
     .nav-area .brand h3 {
         font-size: 13px;
+        margin-left: 15px;
     }
 
     .search-box .btn-serch span {
-        font-size: 19px;
-        margin-left: -33px;
+        font-size: 20px;
+        margin-left: 123px;
+        margin-top: 4px;
     }
-    .nav-area{
-        width: 342px;
+
+    .nav-area {
+        width: 360px;
     }
+
+
 }
 
 
@@ -1096,6 +1133,16 @@ footer .material-symbols-outlined {
         display: none;
     }
 
+    .nav-area .brand h3 {
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .nav-menu.active {
+        z-index: 5;
+        padding-left: 12px;
+    }
+
     .container-2 {
         padding: 0 0px 0 2px;
         display: grid;
@@ -1712,6 +1759,16 @@ footer .material-symbols-outlined {
         display: block;
     }
 
+    .nav-area .brand h3 {
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .nav-menu.active {
+        z-index: 5;
+        padding-left: 12px;
+    }
+
     .grup-card1 {
         display: flex;
         overflow-y: hidden;
@@ -1839,9 +1896,14 @@ footer .material-symbols-outlined {
     }
 }
 
-@media only screen and (min-width: 1168px) {
+@media screen and (min-width: 1024px) and (max-width:2000px) {
     .nav-menu-2 {
         position: relative;
+    }
+
+    .nav-menu.active {
+        z-index: 5;
+        background: #ffffff00;
     }
 
     .grup-card1 {
@@ -1935,7 +1997,7 @@ footer .material-symbols-outlined {
 }
 
 /* Styles for screens between 430px and 560px */
-@media screen and (min-width: 430px) and (max-width: 560px) {
+@media screen and (min-width: 429px) and (max-width: 560px) {
     .social a {
         display: flex;
         /* Change links to block elements */
@@ -1984,4 +2046,17 @@ footer .material-symbols-outlined {
         margin-left: 10px;
     }
 
+    .nav-area .brand h3 {
+        font-size: 13;
+        margin-left: 17px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 20px;
+    }
+
+    .nav-area .nav-burger span {
+        font-size: 24px;
+        margin-left: 0px;
+    }
 }

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
     <link rel="shortcut icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css">
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,7 +42,22 @@
                     menu
                 </span>
             </div>
-
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
+                {{-- untuk membuka pencarian --}}
+                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)"
+                    id="searchButton">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+                {{-- untuk mencari --}}
+                <button type="button" class="btn-serch2">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+            </div>
             <div class="nav-menu">
                 <div class="nav-menu-1 pc">
                     <a href="#" onclick="list()">Genre <i id="iconnav" class="fa fa-caret-down"></i></a>
@@ -79,22 +94,7 @@
                 @endif
             </div>
 
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
-                {{-- untuk membuka pencarian --}}
-                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)"
-                    id="searchButton">
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
-                </button>
-                {{-- untuk mencari --}}
-                <button type="button" class="btn-serch2">
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
-                </button>
-            </div>
+
 
             <div class="nav-menu-dekstop">
                 @if (Auth::check())

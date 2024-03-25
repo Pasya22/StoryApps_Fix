@@ -76,7 +76,9 @@
                     <a href="{{ route('storyFavorite', Auth::user()->id) }}">
                         Favorite
                     </a>
-                    <a href="{{ route('logoutUser') }}">Logout</a>
+                    <div class="login-btn-Mobile">
+                        <a href="{{ route('logoutUser') }}">Logout</a>
+                    </div>
                 @else
                     <div class="login-btn-Mobile">
                         <a href="{{ route('registerUser') }}">Register</a>

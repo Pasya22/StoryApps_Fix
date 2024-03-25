@@ -1,4 +1,3 @@
-
 <div class="container">
     @include('partials.header.header')
     @yield('content')
