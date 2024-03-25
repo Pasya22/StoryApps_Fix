@@ -593,19 +593,25 @@ button {
 .ceritafavorit .card-body .container-card .card {
     margin: 10px 10px;
     padding: 10px 10px;
-    width: 228px;
+    width: 180px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    height: 380px;
+    position: relative;
 }
 
 .ceritafavorit .card-body .container-card .card .banner {
     width: 100%;
-    height: 30%;
+    height: 165px;
     object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
 }
-
+.ceritafavorit .counts span{
+    position: absolute;
+    right: -40px;
+    bottom: 20px;
+}
 .ceritafavorit .card-body .container-card .card .share {
     float: right;
     padding: 10px 0;
@@ -695,12 +701,12 @@ label {
 }
 
 .ceritafavorit .card-body .container-card .card a .text-judul {
-    margin-top: 30px;
+    margin-top: 55px;
     padding: 5px 5px;
 }
 
 .ceritafavorit .card-body .container-card .card a .text-judul h4 {
-    font-size: 25px;
+    font-size: 1.2em;
     color: black;
 }
 
@@ -708,11 +714,15 @@ label {
     font-size: 13px;
     color: black;
 }
-
+.ceritafavorit .fa-star:before{
+    margin-left: 5px;
+}
 .rate {
+    margin-top: 25px;
     float: left;
     height: 46px;
     padding: 0 0;
+    position: relative;
 }
 
 .rate:not(:checked)>input {
@@ -750,7 +760,6 @@ label {
 .rate>label:hover~input:checked~label {
     color: #c59b08;
 }
-
 /* tab */
 @media screen and (max-width: 770px) {
     .ceritafavorit {
@@ -788,13 +797,12 @@ label {
     .ceritafavorit .card-body .container-card .card {
         margin: 10px 10px;
         padding: 10px 10px;
-        width: 150px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul h4 {
-        font-size: 23px;
+        font-size: 19px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul p {
@@ -887,17 +895,17 @@ label {
     .ceritafavorit .card-body .container-card .card {
         margin: 10px 10px;
         padding: 10px 10px;
-        width: 130px;
+        width: 170px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul h4 {
-        font-size: 23px;
+        font-size: 15px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul p {
-        font-size: 11px;
+        font-size: 9px;
     }
 
     .rate:not(:checked)>label {
@@ -906,7 +914,7 @@ label {
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 16px;
         color: #ccc;
     }
 }
@@ -982,17 +990,17 @@ label {
     .ceritafavorit .card-body .container-card .card {
         margin: 10px 10px;
         padding: 10px 10px;
-        width: 120px;
+        width: 140px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul h4 {
-        font-size: 19px;
+        font-size: 13px;
     }
 
     .ceritafavorit .card-body .container-card .card a .text-judul p {
-        font-size: 7px;
+        font-size: 5px;
     }
 
     .rate:not(:checked)>label {
@@ -1037,6 +1045,15 @@ label {
         left: -35px;
         transform: rotate(45deg);
         transform-origin: 100% 100%;
+    }
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 13px;
+        color: #ccc;
     }
 }
 
@@ -1130,7 +1147,7 @@ label {
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
-        font-size: 15px;
+        font-size: 10px;
         color: #ccc;
     }
 

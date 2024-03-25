@@ -1341,7 +1341,7 @@ button {
     /* padding-right: 5px; */
 }
 
-.rate {
+.container-DetailStory .rate {
     margin-left: -10px;
     height: 36px;
     margin-top: 14px;
@@ -2657,7 +2657,7 @@ label {
 
     .container-DetailStory .content-right .cerita-detail .isi-cerita .text-cerita .isi-text-cerita p {
         font-family: Poppins;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 400;
         padding: 0 3%;
         text-align: left;

@@ -241,10 +241,10 @@
                                     </p>
 
                                     <div class="bagian-detail-cerita">
-                                        <p>Start: {{ $chapters->first()->chapter }}</p>
+                                        <p>Start: {{ Str::limit($chapters->first()->chapter, 9) }}</p>
                                     </div>
                                     <div class="bagian-detail-cerita">
-                                        <p>Last: {{ $chapters->last()->chapter }}</p>
+                                        <p>Last: {{ Str::limit($chapters->last()->chapter, 8) }}</p>
                                     </div>
                                 </div>
 
