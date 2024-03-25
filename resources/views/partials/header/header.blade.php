@@ -65,21 +65,25 @@
                 </div>
                 <a href="{{ route('storyList') }}">Membaca</a>
                 <a href="{{ route('writter') }}">Menulis</a>
-                {{-- @if (Auth::check())
+                @if (Auth::check())
+                    <a href="{{ route('storyFavorite', Auth::user()->id) }}">
+                        Favorite
+                    </a>
+                    <div class="login-btn-Mobile">
                         <a href="{{ route('logoutUser') }}">Logout</a>
-                    @else
-                        <div class="login-btn-Mobile">
-                            <a href="{{ route('registerUser') }}">Register</a>
-                            <a href="{{ route('loginUser') }}">Login</a>
-
-                        </div>
-                    @endif --}}
+                    </div>
+                @else
+                    <div class="login-btn-Mobile">
+                        <a href="{{ route('registerUser') }}">Register</a>
+                        <a href="{{ route('loginUser') }}">Login</a>
+                @endif
             </div>
 
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
                 {{-- untuk membuka pencarian --}}
-                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)">
+                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)"
+                    id="searchButton">
                     <span class="material-symbols-outlined">
                         search
                     </span>
@@ -92,15 +96,6 @@
                 </button>
             </div>
 
-
-            {{-- <div class="nav-menu-dekstop">
-                    @if (Auth::check())
-                        <a href="{{ route('logoutUser') }}">Logout</a>
-                    @else
-                        <a href="{{ route('registerUser') }}">Register</a>
-                        <a href="{{ route('loginUser') }}">Login</a>
-                    @endif
-                </div> --}}
             <div class="nav-menu-dekstop">
                 @if (Auth::check())
                     <a href="{{ route('storyFavorite', Auth::user()->id) }}">

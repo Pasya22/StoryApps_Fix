@@ -6,17 +6,18 @@
             <strong> Untuk membaca anda dapat mengklik scroll atau tombol Next Halaman</strong>
         </div>
         <div class="home">
-            <a href="#"><svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+            <a href="{{ route('StoryApps') }}"><svg width="20" height="17" viewBox="0 0 20 17" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M20 16.918C17.5535 13.9315 15.381 12.237 13.482 11.834C11.5835 11.4315 9.776 11.3705 8.059 11.6515V17L0 8.2725L8.059 0V5.0835C11.2335 5.1085 13.932 6.2475 16.155 8.5C18.3775 10.7525 19.6595 13.5585 20 16.918Z"
                         fill="#005AC8" />
                 </svg></a>
-            <a href="#">
-                <h5>Home</h5>
+            <a href="">
+                <p>Home</p>
             </a>
-            <a href="#">
-                <h5>Data Cerita</h5>
+            <p>/</p>
+            <a href="">
+                <p>Chat Story</p>
             </a>
         </div>
         <div class="card">
@@ -226,7 +227,7 @@
                         $('#infinite-scroll-container').append(rightDialogHtml);
                     }
                 }
-            } 
+            }
 
             function loadMoreData(page) {
                 $.ajax({
@@ -279,9 +280,22 @@
 
                         } else {
                             // Tambahkan pesan atau aturan tampilan jika tidak ada data lagi
+
                             const noMoreDataMessage = 'Bersambung..............';
                             $('#infinite-scroll-container').append(noMoreDataMessage);
+                            if (data.length === 0 && !isEndOfContent) {
+                                // Tambahkan pesan "Bersambung..." hanya sekali
+                                const noMoreDataMessage = 'Bersambung..............';
+                                $('#infinite-scroll-container').append(noMoreDataMessage);
 
+                                // Atur variabel isEndOfContent menjadi true
+                                isEndOfContent = true;
+
+                                // Nonaktifkan tombol "Next Page"
+                                $('#nextBagianBtn').prop('disabled', true);
+                            } else {
+                                // Logika lainnya ...
+                            }
                             // Nonaktifkan tombol "Next Page"
                             $('#nextBagianBtn').prop('disabled', true);
                         }

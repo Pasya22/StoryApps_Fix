@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/storyList.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/chatstory.css') }}">
 
-    <link rel="icon" href="{{ asset('/img/default.png') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
@@ -73,6 +73,9 @@
                 <a href="{{ route('storyList') }}">Membaca</a>
                 <a href="{{ route('writter') }}">Menulis</a>
                 @if (Auth::check())
+                    <a href="{{ route('storyFavorite', Auth::user()->id) }}">
+                        Favorite
+                    </a>
                     <a href="{{ route('logoutUser') }}">Logout</a>
                 @else
                     <div class="login-btn-Mobile">
@@ -227,6 +230,30 @@
         alert("Anda belum Login!");
         window.location = {{ route('loginUser') }};
     }
+</script>
+<script>
+    // Function to filter stories based on search input
+    function filterStories(containerId) {
+        const container = document.getElementById(containerId);
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const stories = container.querySelectorAll('.card');
+
+        stories.forEach(function(story) {
+            const title = story.querySelector('.text-title').textContent.toLowerCase();
+            if (title.includes(searchInput)) {
+                story.style.display = 'block';
+            } else {
+                story.style.display = 'none';
+            }
+        });
+    }
+
+    // Add event listener to search input
+    document.getElementById('searchInput').addEventListener('input', function() {
+        filterStories('storyContainer');
+        filterStories('popularStoryContainer');
+        filterStories('recommendedStoryContainer');
+    });
 </script>
 <!--swiper-->
 <script>

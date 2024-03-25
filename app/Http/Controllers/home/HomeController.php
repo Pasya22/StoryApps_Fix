@@ -46,6 +46,8 @@ class HomeController extends Controller
 
         return view('home.StoryApps', compact('data'));
     }
+
+
     public function profile($id = null)
     {
         if (is_null($id)) {

@@ -1876,10 +1876,10 @@ label {
     }
 
     .container-cerita-terbaru .titleright {
-        max-width: 95%;
+        max-width: 100%;
         width: 100%;
         padding: 0 20px;
-        margin-left: 20px;
+        margin-left: 2px;
     }
 
     .container-cerita-terbaru .ddropdown {
@@ -2170,6 +2170,27 @@ label {
 
 }
 
+@media screen and (max-width:360px) {
+    .nav-area .nav-burger span {
+        font-size: 19px;
+        margin-left: -4px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 13px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 19px;
+        margin-left: -33px;
+    }
+
+    .nav-area {
+        width: 342px;
+    }
+
+}
+
 @media screen and (max-width: 414px) {
     .container-cerita-terbaru .gmbcrt {
         width: 148px;
@@ -2186,7 +2207,47 @@ label {
     .bin {
         margin-left: -32px;
     }
+
+    .nav-area {
+        width: 342px;
+    }
+
+    .nav-area .nav-burger span {
+        font-size: 19px;
+        margin-left: -4px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 13px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 19px;
+        margin-left: -33px;
+    }
+
 }
+@media screen and (max-width: 430px) {
+    .nav-area {
+        width: 342px;
+    }
+
+    .nav-area .nav-burger span {
+        font-size: 19px;
+        margin-left: -4px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 13px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 19px;
+        margin-left: -33px;
+    }
+
+}
+
 
 @media screen and (max-width: 394px) {
     .container-cerita-terbaru .titleright {

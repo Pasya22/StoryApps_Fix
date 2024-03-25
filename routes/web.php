@@ -29,6 +29,7 @@ use App\Http\Controllers\DetailStory\DetailStoryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('StoryApps');
 
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/StoryList', [HomeController::class, 'storyList'])->name('storyList');
 

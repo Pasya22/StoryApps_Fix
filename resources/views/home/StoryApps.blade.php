@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="content">
+    <div class="content" id="searchResults">
         {{-- {{asset('/img/konten/'.$user->image)}} --}}
 
 
@@ -68,7 +68,7 @@
                             arrow_back_ios
                         </span>
                     </button>
-                    <div class="grub-card">
+                    <div class="grub-card" id="storyContainer">
                         @foreach ($data['NewStoryRate'] as $items)
                             @if ($items->book_status == 1 || $items->book_status == 3)
 
@@ -123,9 +123,9 @@
                                         <p class="text-title">{{ Str::limit($items->title, 8) }}</p>
                                         <strong style="width: 80px; display: inline-block; ">Writter</strong>:
                                         <!-- Tampilkan nama penulis yang dipotong jika terlalu panjang -->
-                                        <span>{{ Str::limit($items->full_name, 8) }}</span><br>
+                                        <span class="text-writer">{{ Str::limit($items->full_name, 8) }}</span><br>
                                         <strong style="width: 80px; display: inline-block;">Genre</strong>:
-                                        <span>{{ Str::limit($items->genre, 8) }}</span>
+                                        <span class="text-genre">{{ Str::limit($items->genre, 8) }}</span>
                                         <div class="rate">
                                             <div>
                                                 <div style="display: flex; justify-content: space-between; ">
@@ -304,11 +304,11 @@
                             arrow_back_ios
                         </span>
                     </button>
-                    <div class="grub-card1">
+                    <div class="grub-card1" id="popularStoryContainer">
 
                         @foreach ($data['RateStoryPopuler'] as $items)
                             @if ($items->book_status == 1 || $items->book_status == 3)
-                                <div class="card">
+                                <div class="card" >
                                     <a href="{{ route('detailStory', $items->id_story) }}">
                                         <figure>
                                             <img src="/upload/{{ $items->images }}" alt=""
@@ -317,35 +317,7 @@
                                     </a>
                                     <div class="share">
                                         <div class="rate-1">
-                                            {{--
 
-                                            @if (Auth::check())
-                                                <form action="{{ route('favorite') }}" method="post"
-                                                    class="favorite-form">
-                                                    @csrf
-                                                    @method('POST')
-                                                    <input type="hidden" name="id_story"
-                                                        value="{{ $items->id_story }}">
-                                                    @php
-                                                        $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
-                                                    @endphp
-
-                                                    <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                        id="heart-checkbox-{{ $items->id_story }}"
-                                                        data-story-id="{{ $items->id_story }}"
-                                                        data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                        {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
-                                                    <label for="heart-checkbox-{{ $items->id_story }}"
-                                                        class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
-                                                        id="heart"></label>
-                                                </form>
-                                            @else
-                                                <a href="#">
-                                                    <label for="heart-checkbox" class="heart" id="heart"></label>
-                                                    <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                        id="heart-checkbox">
-                                                </a>
-                                            @endif --}}
                                             @if (Auth::check())
                                                 <form action="{{ route('favorite') }}" method="post"
                                                     class="favorite-form">
@@ -387,10 +359,10 @@
                                         </div>
 
                                         <p class="text-title">{{ Str::limit($items->title, 8) }}</p>
-                                        <strong style="width: 80px; display: inline-block;">Writter</strong>:
-                                        <span>{{ Str::limit($items->full_name, 8) }}</span><br>
+                                        <strong style="width: 80px; display: inline-block; ">Writter</strong>:
+                                        <span class="text-writer">{{ Str::limit($items->full_name, 8) }}</span><br>
                                         <strong style="width: 80px; display: inline-block;">Genre</strong>:
-                                        <span>{{ Str::limit($items->genre, 8) }}</span>
+                                        <span class="text-genre">{{ Str::limit($items->genre, 8) }}</span>
                                         <div class="rate">
                                             <div>
                                                 <div style="display: flex; justify-content: space-between; ">
@@ -547,13 +519,13 @@
                             arrow_back_ios
                         </span>
                     </button>
-                    <div class="grub-card2">
+                    <div class="grub-card2" id="recommendedStoryContainer">
                         @if (Auth::check())
 
 
                             @foreach ($data['RateRecomendationStory'] as $items)
                                 @if ($items->book_status == 1 || $items->book_status == 3)
-                                    <div class="card">
+                                    <div class="card"  >
                                         <a href="{{ route('detailStory', $items->id_story) }}">
                                             <figure>
                                                 <img src="/upload/{{ $items->images }}" alt=""
@@ -563,36 +535,6 @@
                                         <div class="share">
                                             <div class="rate-1">
 
-
-                                                {{-- @if (Auth::check())
-                                                    <form action="{{ route('favorite') }}" method="post"
-                                                        class="favorite-form">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <input type="hidden" name="id_story"
-                                                            value="{{ $items->id_story }}">
-                                                        @php
-                                                            $favoritItem = $data['favorit']->where('id_story', $items->id_story)->first();
-                                                        @endphp
-
-                                                        <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                            id="heart-checkbox-{{ $items->id_story }}"
-                                                            data-story-id="{{ $items->id_story }}"
-                                                            data-story-action="{{ route('favorite') }}"
-                                                            style="color: red;"
-                                                            {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
-                                                        <label for="heart-checkbox-{{ $items->id_story }}"
-                                                            class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
-                                                            id="heart"></label>
-                                                    </form>
-                                                @else
-                                                    <a href="#">
-                                                        <label for="heart-checkbox" class="heart"
-                                                            id="heart"></label>
-                                                        <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                            id="heart-checkbox">
-                                                    </a>
-                                                @endif --}}
                                                 @if (Auth::check())
                                                     <form action="{{ route('favorite') }}" method="post"
                                                         class="favorite-form">
@@ -636,10 +578,10 @@
                                             </div>
 
                                             <p class="text-title">{{ Str::limit($items->title, 8) }}</p>
-                                            <strong style="width: 80px; display: inline-block;">Writter</strong>:
-                                            <span>{{ Str::limit($items->full_name, 8) }}</span><br>
+                                            <strong style="width: 80px; display: inline-block; ">Writter</strong>:
+                                            <span class="text-writer">{{ Str::limit($items->full_name, 8) }}</span><br>
                                             <strong style="width: 80px; display: inline-block;">Genre</strong>:
-                                            <span>{{ Str::limit($items->genre, 8) }}</span>
+                                            <span class="text-genre">{{ Str::limit($items->genre, 8) }}</span>
                                             <div class="rate">
                                                 <div>
                                                     <div style="display: flex; justify-content: space-between; ">
@@ -779,7 +721,7 @@
                         @else
                             @foreach ($data['RateRecomendationStory'] as $items)
                                 @if ($items->book_status == 1 || $items->book_status == 3)
-                                    <div class="card">
+                                    <div class="card"  >
                                         <a href="{{ route('detailStory', $items->id_story) }}">
                                             <figure>
                                                 <img src="/upload/{{ $items->images }}" alt=""
@@ -840,10 +782,10 @@
                                             </div>
 
                                             <p class="text-title">{{ Str::limit($items->title, 8) }}</p>
-                                            <strong style="width: 80px; display: inline-block;">Writter</strong>:
-                                            <span>{{ Str::limit($items->full_name, 8) }}</span><br>
+                                            <strong style="width: 80px; display: inline-block; ">Writter</strong>:
+                                            <span class="text-writer">{{ Str::limit($items->full_name, 8) }}</span><br>
                                             <strong style="width: 80px; display: inline-block;">Genre</strong>:
-                                            <span>{{ Str::limit($items->genre, 8) }}</span>
+                                            <span class="text-genre">{{ Str::limit($items->genre, 8) }}</span>
                                             <div class="rate">
                                                 <div>
                                                     <div style="display: flex; justify-content: space-between; ">

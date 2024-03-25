@@ -186,9 +186,7 @@ body {
     position: relative;
 }
 
-.nav-menu a:nth-child(6) {
-    font-weight: bold;
-}
+
 
 .nav-menu.active {
     max-height: 200rem;
@@ -394,9 +392,42 @@ button {
         transition: opacity 0.3s ease;
     }
 
+    .nav-area .brand h3 {
+        font-size: 14px;
+    }
+
     .hidden {
         display: none;
         opacity: 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .nav-area .brand h3 {
+        font-size: 11px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:360px) {
+    .nav-area .nav-burger span {
+        font-size: 19px;
+        margin-left: -4px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 13px;
+    }
+
+    .search-box .btn-serch span {
+        font-size: 19px;
+        margin-left: -33px;
+    }
+    .nav-area{
+        width: 342px;
     }
 }
 

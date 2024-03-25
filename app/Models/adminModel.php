@@ -559,7 +559,6 @@ class adminModel extends Model
         $counts = DB::table('stories')
             ->leftJoin('rates', 'stories.id_story', '=', 'rates.id_story')
             ->leftJoin('genre', 'genre.id_genre', '=', 'stories.id_genre')
-            // ->leftJoin('categories', 'categories.id_category', '=', 'stories.id_category')
             ->leftJoin('users', 'users.id', '=', 'stories.id_user')
             ->select(
                 'stories.id_story',

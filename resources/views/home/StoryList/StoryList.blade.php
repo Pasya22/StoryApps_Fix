@@ -9,7 +9,7 @@
 
     <div class="container-cerita-terbaru">
         <div class="cerita-terbaru container">
-            <div class="cerita-terbaru card">
+            <div class="cerita-terbaru card" id="storyContainer">
                 <div class="cerita-terbaruNav">
                     <a href="{{ route('StoryApps') }}">
                         <img src="{{ asset('/img/konten/turnLeft.svg') }}" alt="" class="iconleft">
@@ -18,9 +18,9 @@
                     <p>/</p>
                     <a href="#" class="Cerita-Terbaru KeranjangNav">Story List</a>
                 </div>
-                <div class="Cerita-Terbaru card2">
+                <div class="Cerita-Terbaru card2" >
                     <div class="Cerita-Terbaru RekomLeft">
-                        <div class="Cerita-Terbaru TitleLeft">Recomendation</div>
+                        <div class="Cerita-Terbaru TitleLeft" >Recomendation</div>
 
                         @foreach ($data['RateRecomendationStory'] as $items)
                             @if ($items->book_status == 1 || $items->book_status == 3)
@@ -155,7 +155,7 @@
                     </div>
                     <div class="Cerita-Terbaru garis"></div>
 
-                    <div class="Cerita-Terbaru ceritaterbaruRight">
+                    <div class="Cerita-Terbaru ceritaterbaruRight" >
                         <div class="Cerita-Terbaru titleright">Story List</div>
                         <div class="Cerita-Terbaru ddropdown">
                             <!-- Dropdown pertama -->
@@ -269,7 +269,7 @@
 
                                             </div>
                                             <div class="judul-cerita">
-                                                <h3>{{ Str::limit($story->title, 8) }}</h3>
+                                                <h3 class="text-title">{{ Str::limit($story->title, 8) }}</h3>
                                                 <p>Penulis &nbsp;&nbsp;: {{ Str::limit($story->full_name, 8) }}</p>
                                                 <p>Kategori : {{ Str::limit($story->genre, 8) }}</p>
                                             </div>

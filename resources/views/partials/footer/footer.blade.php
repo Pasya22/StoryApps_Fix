@@ -55,6 +55,32 @@
      <script src="{{ asset('js/home.js') }}"></script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+     <script>
+         // Function to filter stories based on search input
+         function filterStories(containerId) {
+             const container = document.getElementById(containerId);
+             const searchInput = document.getElementById('searchInput').value.toLowerCase();
+             const stories = container.querySelectorAll('.card');
+
+             stories.forEach(function(story) {
+                 const title = story.querySelector('.text-title').textContent.toLowerCase();
+                 if (title.includes(searchInput)) {
+                     story.style.display = 'block';
+                 } else {
+                     story.style.display = 'none';
+                 }
+             });
+         }
+
+         // Add event listener to search input
+         document.getElementById('searchInput').addEventListener('input', function() {
+             filterStories('storyContainer');
+             filterStories('popularStoryContainer');
+             filterStories('recommendedStoryContainer');
+         });
+     </script>
      <script>
          document.addEventListener('DOMContentLoaded', function() {
              $('.heart-checkbox').on('change', function() {
@@ -138,4 +164,3 @@
              lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
          });
      </script>
-

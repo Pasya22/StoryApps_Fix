@@ -156,7 +156,7 @@
  </head>
 
  <body>
- <div class="navs" id="nav">
+     <div class="navs" id="nav">
          <div class="nav-area">
              <a class="brand" href="">
                  <h3>LOGO</h3>
@@ -191,7 +191,12 @@
                  <a href="{{ route('storyList') }}">Membaca</a>
                  <a href="{{ route('writter') }}">Menulis</a>
                  @if (Auth::check())
-                     <a href="{{ route('logoutUser') }}">Logout</a>
+                     <a href="{{ route('storyFavorite', Auth::user()->id) }}">
+                         Favorite
+                     </a>
+                     <div class="login-btn-Mobile">
+                         <a href="{{ route('logoutUser') }}">Logout</a>
+                     </div>
                  @else
                      <div class="login-btn-Mobile">
                          <a href="{{ route('registerUser') }}">Register</a>
@@ -326,7 +331,30 @@
 
 
  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+ <script>
+    // Function to filter stories based on search input
+    function filterStories(containerId) {
+        const container = document.getElementById(containerId);
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const stories = container.querySelectorAll('.card');
 
+        stories.forEach(function(story) {
+            const title = story.querySelector('.text-title').textContent.toLowerCase();
+            if (title.includes(searchInput)) {
+                story.style.display = 'block';
+            } else {
+                story.style.display = 'none';
+            }
+        });
+    }
+
+    // Add event listener to search input
+    document.getElementById('searchInput').addEventListener('input', function() {
+        filterStories('storyContainer');
+        filterStories('popularStoryContainer');
+        filterStories('recommendedStoryContainer');
+    });
+</script>
  <!--swiper-->
  <script>
      document.addEventListener('DOMContentLoaded', function() {
