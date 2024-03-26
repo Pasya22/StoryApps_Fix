@@ -93,7 +93,7 @@
 
                 {{-- untuk membuka pencarian --}}
 
-                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)">
+                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)" id="searchButton">
                     <span class="material-symbols-outlined">
                         search
                     </span>

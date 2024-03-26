@@ -83,7 +83,7 @@ body {
     /* Navbar posisi awal */
     z-index: 99;
     width: 100%;
-    height: 81px;
+    height: 75px;
     transition: top 0.3s ease, position 0.3s ease;
     /* Transisi untuk perubahan posisi dan top */
 }
@@ -214,6 +214,8 @@ body {
 
 .search-box {
     display: flex;
+    margin-left: 87px;
+    margin-right: 87px;
     align-items: center;
     border-radius: 10px;
     background: #e4e4e400;
@@ -325,6 +327,7 @@ button {
 
     }
 
+
     .search-box input {
         margin: 10px auto;
         width: 200px;
@@ -382,6 +385,10 @@ button {
         display: block;
     }
 
+    .search-box.open .btn-serch2 span {
+        font-size: 20px;
+    }
+
     .search-box.open .closetel {
         display: block;
     }
@@ -392,7 +399,6 @@ button {
         border: none;
         outline: none;
         color: rgb(255, 255, 255);
-        width: 80%;
         height: 8px;
         opacity: 1;
         visibility: visible;
@@ -1141,6 +1147,7 @@ footer .material-symbols-outlined {
     .nav-menu.active {
         z-index: 5;
         padding-left: 12px;
+        margin-top: 6px;
     }
 
     .container-2 {
@@ -1186,6 +1193,8 @@ footer .material-symbols-outlined {
     .nav-menu.active {
         z-index: 5;
     }
+
+
 
 }
 
@@ -1266,6 +1275,12 @@ footer .material-symbols-outlined {
         color: rgb(255, 0, 0);
         transition: 0.5s ease;
     }
+
+    .nav-menu.active {
+        margin-top: 4px;
+    }
+
+ 
 }
 
 /* ---------------------------Cerita Terbaru-------------------------------- */
@@ -1841,9 +1856,8 @@ footer .material-symbols-outlined {
 .overlay {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 66.8cm;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Warna overlay */
     z-index: 1;
     opacity: 0;
     display: none;
@@ -1896,10 +1910,28 @@ footer .material-symbols-outlined {
     }
 }
 
+@media screen and (min-width: 1024px) and (max-width:1220px) {
+    .search-box {
+        margin-left: 39px;
+        margin-right: 87px;
+        align-items: center;
+        border-radius: 10px;
+        background: #e4e4e400;
+        border: 1px solid #fff;
+    }
+
+    .brand {
+        margin-left: 20px;
+    }
+
+}
+
 @media screen and (min-width: 1024px) and (max-width:2000px) {
     .nav-menu-2 {
         position: relative;
     }
+
+
 
     .nav-menu.active {
         z-index: 5;

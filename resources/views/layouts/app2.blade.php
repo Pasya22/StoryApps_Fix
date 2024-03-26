@@ -1,5 +1,5 @@
-<div class="container">
-    @include('partials.header.header')
+@include('partials.header.header')
+{{-- <div class="container"> --}}
     @yield('content')
-    @include('partials.footer.footer')
-</div>
+{{-- </div> --}}
+@include('partials.footer.footer')

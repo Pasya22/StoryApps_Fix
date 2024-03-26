@@ -151,15 +151,15 @@
          window.addEventListener("scroll", function() {
              let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-            //  if (currentScroll > lastScrollTop) {
-            //      // Scroll down
-            //      navbar.classList.add("sticky");
-            //      document.body.classList.add("sticky-nav");
-            //  } else {
-            //      // Scroll up
-            //      navbar.classList.remove("sticky");
-            //      document.body.classList.remove("sticky-nav");
-            //  }
+             if (currentScroll > lastScrollTop) {
+                 // Scroll down
+                 navbar.classList.add("sticky");
+                 document.body.classList.add("sticky-nav");
+             } else {
+                 // Scroll up
+                 navbar.classList.remove("sticky");
+                 document.body.classList.remove("sticky-nav");
+             }
 
              lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
          });
