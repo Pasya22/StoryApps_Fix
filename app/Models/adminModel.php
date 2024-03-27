@@ -252,7 +252,7 @@ class adminModel extends Model
         $userId = auth()->id(); // Ambil ID pengguna yang sedang login
 
         $favoriteStories = DB::table('favorites')
-            ->select('stories.*', 'favorites.*')
+            ->select('stories.*', 'favorites.*','users.*')
             ->join('stories', 'stories.id_story', '=', 'favorites.id_story')
             ->join('users', 'users.id', '=', 'favorites.id_user')
             ->where('stories.id_user', $userId) // Hanya tampilkan cerita yang dimiliki oleh pengguna yang sedang login
