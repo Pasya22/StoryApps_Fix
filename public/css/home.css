@@ -214,8 +214,8 @@ body {
 
 .search-box {
     display: flex;
-    margin-left: 87px;
-    margin-right: 87px;
+    margin-left: -1px;
+    margin-right: 2px;
     align-items: center;
     border-radius: 10px;
     background: #e4e4e400;
@@ -1280,7 +1280,7 @@ footer .material-symbols-outlined {
         margin-top: 4px;
     }
 
- 
+
 }
 
 /* ---------------------------Cerita Terbaru-------------------------------- */
