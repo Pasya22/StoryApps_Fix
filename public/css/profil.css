@@ -226,7 +226,7 @@
   .text {
   position: absolute;
   left: 0;
-  top: 6px;
+  top: -8px;
   z-index: 1;
   transition: all 0.5s;
   color: #aaaaaa;
@@ -242,7 +242,7 @@
   .form-group
   input:focus
   + .text {
-  transform: translateY(-15px);
+  transform: translateY(-2px);
 }
 
 @media screen and (max-width: 770px) {

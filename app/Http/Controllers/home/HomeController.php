@@ -232,7 +232,7 @@ class HomeController extends Controller
         $idStory = $request->input('id_story');
         $id = auth()->user()->id;
         // dd($id);
-        if (!empty ($request->input('favorit'))) {
+        if (!empty($request->input('favorit'))) {
             $status = $request->input('favorit');
         } else {
             $status = 0;
@@ -310,6 +310,28 @@ class HomeController extends Controller
         $data['stories'] = adminModel::CountDataRate();
 
         return view('home.StoryList.StoryList', compact('data'));
+    }
+    public function searchStory(Request $request)
+    {
+        $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang masuk
+
+        // Mendapatkan daftar cerita favorit berdasarkan pengguna yang sedang login
+        $data['favorit'] = DB::table('favorites')
+            ->where('id_user', $userId)
+            ->pluck('id_story')
+            ->toArray();
+
+
+        // $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
+        $data['genre'] = adminModel::getData('genre');
+        $query = $request->input('keyword');
+
+        // Memanggil fungsi pencarian dari model Story
+        $datas = adminModel::searchFounStory($query);
+
+        // $data['stories'] = adminModel::CountDataRate();
+
+        return view('home.SearchStory.search', compact('data', 'datas'));
     }
 
 

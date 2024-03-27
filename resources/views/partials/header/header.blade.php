@@ -84,34 +84,16 @@
 
              </div>
 
+
              <div class="search-box">
-                 <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
-
-                 {{-- untuk membuka pencarian --}}
-
-                 <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)"
-                     id="searchButton">
-                     <span class="material-symbols-outlined">
-                         search
-                     </span>
-                 </button>
-                 {{-- untuk mencari --}}
-                 <button type="button" class="btn-serch2">
-                     <span class="material-symbols-outlined">
-                         search
-                     </span>
-                 </button>
+                 <form action="{{ route('searchStory') }}" method="GET">
+                     <input type="text" name="keyword" id="searchInput" placeholder="Cari Cerita Favorit Anda">
+                     <button type="submit" class="btn-serch">
+                         <span class="material-symbols-outlined">search</span>
+                     </button>
+                 </form>
              </div>
 
-
-             {{-- <div class="nav-menu-dekstop">
-                @if (Auth::check())
-                    <a href="{{ route('logoutUser') }}">Logout</a>
-                @else
-                    <a href="{{ route('registerUser') }}">Register</a>
-                    <a href="{{ route('loginUser') }}">Login</a>
-                @endif
-            </div> --}}
              <div class="nav-menu-dekstop">
                  @if (Auth::check())
                      <a href="{{ route('storyFavorite', Auth::user()->id) }}">

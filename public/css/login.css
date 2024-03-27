@@ -47,7 +47,7 @@ html {
     border-radius: 18px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 370px;
-    height: 550px;
+    height: 700px;
     backdrop-filter: blur(50px);
     /* Efek blur */
     border: 1px solid #fff;
@@ -172,4 +172,90 @@ label {
 .sosmed a svg {
     display: grid;
     justify-content: center;
+}
+
+.password-container {
+    position: relative;
+}
+
+#password {
+    padding-right: 55px;
+    /* Mengatur ruang agar tombol tidak menutupi teks */
+}
+
+#password-regist {
+    padding-right: 55px;
+    /* Mengatur ruang agar tombol tidak menutupi teks */
+}
+
+#password_confirmation {
+    padding-right: 55px;
+    /* Mengatur ruang agar tombol tidak menutupi teks */
+}
+
+#showHideBtn {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    background: transparent;
+    color: #fff;
+}
+
+#showHideBtn-regist {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    background: transparent;
+    color: #fff;
+}
+
+#showHideBtn-confirmation {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    background: transparent;
+    color: #fff;
+}
+
+.popup.error {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(248, 190, 190, 0.863);
+    color: #ee4a4a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease forwards;
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gaya untuk notifikasi berhasil (hijau) */
+.popup.success {
+    background-color: #4caf50;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: rgb(0, 252, 105);
+    padding: 10px 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease forwards;
+    display: none;
 }

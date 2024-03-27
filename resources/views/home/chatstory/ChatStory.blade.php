@@ -50,11 +50,11 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div id="listhalamanBtn" class="button2 buttonpage">
+                        {{-- <div id="listhalamanBtn" class="button2 buttonpage"> --}}
                             {{-- {{ $data['datah']->currentPage() }}/{{ $data['datah']->Count() }} --}}
-                            {{ $data['datah']->currentPage() }}/{{ $data['datah']->lastPage() }}
+                            {{-- {{ $data['datah']->currentPage() }}/{{ $data['datah']->lastPage() }} --}}
 
-                        </div>
+                        {{-- </div> --}}
                     </div>
                     <div class="kanan">
                         @if ($data['sinopsis']->isNotEmpty() && $data['sinopsis']->items()[0]->id_chapter > 1)

@@ -103,7 +103,41 @@ class adminModel extends Model
     }
 
 
+    public static function searchFounStory($query)
+    {
 
+        $results = DB::table('stories')
+            ->select(
+                'genre.id_genre as genre_id',
+                'users.full_name',
+                'genre.genre as genre_name',
+                'stories.id_genre',
+                'stories.images',
+                'rates.rate',
+                'stories.id_story',
+                'stories.title',
+                'stories.book_status',
+                'stories.created_at',
+                DB::raw('
+        SUM(CASE WHEN rate = 1 THEN 1 ELSE 0 END) as count_1,
+        SUM(CASE WHEN rate = 2 THEN 2 ELSE 0 END) as count_2,
+        SUM(CASE WHEN rate = 3 THEN 3 ELSE 0 END) as count_3,
+        SUM(CASE WHEN rate = 4 THEN 4 ELSE 0 END) as count_4,
+        SUM(CASE WHEN rate = 5 THEN 5 ELSE 0 END) as count_5,
+        COUNT(*) as total_ratings,
+        IF(COUNT(*) > 0, SUM(rate) / COUNT(*), 0) as average_rating
+    ')
+            )
+            ->join('genre', 'genre.id_genre', 'stories.id_genre')
+            ->leftJoin('users', 'users.id', 'stories.id_user')
+            ->leftJoin('rates', 'stories.id_story', '=', 'rates.id_story') // Gabungkan dengan tabel rates untuk menghitung rating
+            ->where('stories.title', 'like', "%$query%")
+            ->orderBy('stories.id_story', 'desc')
+            ->groupBy('stories.id_story', 'stories.id_genre', 'stories.images', 'stories.title', 'stories.book_status', 'stories.created_at', 'genre_id', 'genre_name', 'rates.rate', 'users.full_name');
+
+        $results = $results->paginate(5);
+        return $results;
+    }
 
     // join data
 
@@ -252,7 +286,7 @@ class adminModel extends Model
         $userId = auth()->id(); // Ambil ID pengguna yang sedang login
 
         $favoriteStories = DB::table('favorites')
-            ->select('stories.*', 'favorites.*','users.*')
+            ->select('stories.*', 'favorites.*', 'users.*')
             ->join('stories', 'stories.id_story', '=', 'favorites.id_story')
             ->join('users', 'users.id', '=', 'favorites.id_user')
             ->where('stories.id_user', $userId) // Hanya tampilkan cerita yang dimiliki oleh pengguna yang sedang login

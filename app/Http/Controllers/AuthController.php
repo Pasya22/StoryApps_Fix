@@ -117,13 +117,10 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
-
-
         ]);
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user(); // Mendapatkan objek pengguna setelah otentikasi berhasil
-
 
             // Periksa apakah ada URL sebelumnya yang tersimpan dalam session
             if (Session::has('previous_url')) {
@@ -131,19 +128,20 @@ class AuthController extends Controller
                 Session::forget('previous_url'); // Hapus URL sebelumnya dari session
                 return redirect()->to($previousUrl); // Arahkan pengguna kembali ke URL sebelumnya
             }
-            Session::put('previous_url', url()->current());
-            // Jika status pengguna aktif,  arahkan pengguna berdasarkan peran pengguna
 
+            // Jika status pengguna aktif, arahkan pengguna berdasarkan peran pengguna
             if ($user->id_role == 1) {
                 return redirect()->route('Dashboard');
             } elseif ($user->id_role == 2) {
                 return redirect()->route('writter');
             }
-
+           
         }
 
+        // Jika otentikasi gagal, kembalikan pengguna ke halaman login dengan pesan error
         return back()->with('error', 'Wrong email or password!');
     }
+
 
     public function logout(Request $request)
     {

@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
 }
+.container-cerita-terbaru {
+    min-height: 1320px;
+}
 
 .container-cerita-terbaru .cerita-terbaruNav {
     display: flex;
@@ -41,6 +44,7 @@
     justify-content: space-between;
     gap: 20px;
     padding: 0 20px;
+    min-height: 1184px;
 
 }
 
@@ -246,7 +250,7 @@
 .container-cerita-terbaru .garis {
     background-color: #005ac8;
     width: 1px;
-    height: 1095px;
+    height: -webkit-fill-available;
     margin-left: 390px;
     position: absolute;
 }

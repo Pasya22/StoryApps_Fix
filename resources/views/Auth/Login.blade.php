@@ -2,76 +2,33 @@
  @section('title', 'Login Story Apps')
 
  @section('content')
-     {{--
-     <section class="ftco-section">
-         <div class="container">
-             <div class="row justify-content-center">
-                 <div class="col-md-6 text-center mb-5">
 
-                 </div>
-             </div>
-             <div class="row justify-content-center">
-                 <div class="col-md-7 col-lg-5">
-                     <div class="login-wrap p-4 p-md-5">
-                         <a href="{{ route('StoryApps') }}"><i class="fa fa-arrow-left"></i></a>
-                         <div class="icon d-flex align-items-center justify-content-center">
-                             <span class="fa fa-user-o"></span>
-                         </div>
 
-                         <h3 class="text-center mb-4">Sign In</h3>
-                         <form action="{{ route('LoginUserPost') }}" class="login-form" method="post">
-                             @csrf
-                             <div class="form-group">
-                                 <input type="text" class="form-control rounded-left" placeholder="email" name="email"
-                                     required>
-                             </div>
-                             <div class="form-group d-flex">
-                                 <input type="password" class="form-control rounded-left" placeholder="Password"
-                                     name="password" required>
-                             </div>
-                             <div class="form-group">
-                                 <button type="submit" name="submit"
-                                     class="form-control btn btn-primary rounded submit px-3">Login</button>
-                             </div>
-                             <div class="form-group d-md-flex">
-                                 <div class="w-50">
-                                     <label class="checkbox-wrap checkbox-primary">Remember Me
-                                         <input type="checkbox" checked>
-                                         <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="w-50 text-md-right">
-                                     <a href="#">Forgot Password</a>
-                                 </div>
-                             </div>
-                             <div style="text-align: center;">
-                                 <a href="{{ route('registerUser') }}">Belum Punya Akun? Daftar</a>
-                             </div>
-                         </form>
-                     </div>
-                 </div>
-             </div>
+     <div class="popup" id="popup" style="display: {{ session('success') || session('error') ? 'block' : 'none' }}">
+         <span class="close" onclick="closePopup()">&times;</span>
+         <div class="popup-content">
+             @if (session('success'))
+                 success-notification
+             @elseif(session('error'))
+                 error-notification
+                 @endif">
          </div>
-     </section> --}}
+     </div>
 
-
-     @if (session('success'))
-         <div id="successMessage" class="alert alert-success mt-2">
-             {{ session('success') }}
-         </div>
-     @elseif (session('error'))
-         <div class="alert alert-danger mt-2">
-             Failed.
-         </div>
-     @endif
      <form action="{{ route('LoginUserPost') }}" id="login-form" class="login" method="post">
-        <a href="{{ route('StoryApps') }}"><i class="fa fa-arrow-left" style="color: white;"></i></a>
+         <a href="{{ route('StoryApps') }}"><i class="fa fa-arrow-left" style="color: white;"></i></a>
          @csrf
          <h2 class="title">Login</h2>
          <div class="input">
              <input type="email" id="username" name="email" placeholder="Email" required>
-             <input type="password" id="password" name="password" placeholder="Password" required>
+             <div class="password-container">
+                 <input type="password" name="password" id="password" placeholder="password">
+                 <button type="button" id="showHideBtn" onclick="togglePassword('password', 'showHideBtn')"><i
+                         class="fa-solid fa-eye"></i></button>
+             </div>
+
              <input type="hidden" id="active" name="active" placeholder="active" value="1">
+
              <div class="bawah">
                  <div class="check">
                      <input type="checkbox" id="remember-me" name="remember-me">

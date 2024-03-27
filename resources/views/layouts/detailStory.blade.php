@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/DetailStory.css') }}">
     <link rel="stylesheet" href="{{ asset('css/storyList.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
 
     <link rel="shortcut icon" href="{{ asset('/img/default.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="sweetalert2.min.css">
@@ -89,32 +90,15 @@
             </div>
 
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Cari Cerita Favorit Anda">
-
-                {{-- untuk membuka pencarian --}}
-
-                <button type="button" class="btn-serch" data-action="search" onclick="toggleSearch(this)" id="searchButton">
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
-                </button>
-                {{-- untuk mencari --}}
-                <button type="button" class="btn-serch2">
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
-                </button>
+                <form action="{{ route('searchStory') }}" method="GET">
+                    <input type="text" name="keyword" id="searchInput" placeholder="Cari Cerita Favorit Anda">
+                    <button type="submit" class="btn-serch">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </form>
             </div>
 
 
-            {{-- <div class="nav-menu-dekstop">
-                @if (Auth::check())
-                    <a href="{{ route('logoutUser') }}">Logout</a>
-                @else
-                    <a href="{{ route('registerUser') }}">Register</a>
-                    <a href="{{ route('loginUser') }}">Login</a>
-                @endif
-            </div> --}}
             <div class="nav-menu-dekstop">
                 @if (Auth::check())
                     <a href="{{ route('storyFavorite', Auth::user()->id) }}">
@@ -325,5 +309,22 @@
         }
 
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    });
+</script>
+<script>
+    function clearSearch() {
+        document.getElementById("searchInput").value = "";
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+        var query = document.getElementById("searchInput").value.trim();
+        if (query === "") {
+            event.preventDefault(); // Prevent form submission if query is empty
+            return;
+        }
+        var url = " "; // URL halaman pencarian cerita
+        url += "?query=" + encodeURIComponent(query); // Menambahkan query pencarian sebagai parameter GET
+        window.location.href = url; // Mengarahkan pengguna ke halaman pencarian cerita
+        event.preventDefault(); // Prevent default form submission
     });
 </script>
