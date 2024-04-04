@@ -9,7 +9,12 @@
                 success-notification
             @elseif(session('error'))
                 error-notification
-                @endif">
+            @elseif ($errors->any())
+                @foreach ($errors->all() as $error)
+                    error-notification
+                @endforeach
+            @endif
+
         </div>
     </div>
     <form action="{{ route('regisUser') }}" method="post" id="register-form" class="register">
@@ -19,44 +24,25 @@
         <h2>register</h2>
         <div class="input">
             <input type="text" id="full_name" name="full_name" placeholder="Full Name" required>
-            @error('full_name')
-                <span class="error">{{ $message }}</span>
-            @enderror
 
             <input type="email" id="email" name="email" placeholder="Email" required>
-            @error('email')
-                <span class="error">{{ $message }}</span>
-            @enderror
 
             <input type="text" id="username" name="username" placeholder="Username" required>
-            @error('username')
-                <span class="error">{{ $message }}</span>
-            @enderror
 
             <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number" required>
-            @error('phone_number')
-                <span class="error">{{ $message }}</span>
-            @enderror
 
             <div class="password-container">
-                <input type="password" id="password-regist" name="password" placeholder="Password" required>
-                <button type="button" id="showHideBtn-regist"
-                    onclick="togglePassword('password-regist', 'showHideBtn-regist')"><i
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="button" id="showHideBtn" onclick="togglePassword('password', 'showHideBtn')"><i
                         class="fa-solid fa-eye"></i></button>
-                @error('password')
-                    <span class="error">{{ $message }}</span>
-                @enderror
             </div>
 
             <div class="password-container">
                 <input type="password" id="password_confirmation" name="password_confirmation"
                     placeholder="Password Confirmation" required>
                 <button type="button" id="showHideBtn-confirmation"
-                    onclick="togglePassword('password_confirmation', 'showHideBtn-confirmation')"><i
+                    onclick="togglePassword2('password_confirmation', 'showHideBtn-confirmation')"><i
                         class="fa-solid fa-eye"></i></button>
-                @error('password_confirmation')
-                    <span class="error">{{ $message }}</span>
-                @enderror
             </div>
 
 

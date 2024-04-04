@@ -67,6 +67,7 @@
              stories.forEach(function(story) {
                  const title = story.querySelector('.text-title').textContent.toLowerCase();
                  if (title.includes(searchInput)) {
+
                      story.style.display = 'block';
                  } else {
                      story.style.display = 'none';
@@ -79,6 +80,53 @@
              filterStories('storyContainer');
              filterStories('popularStoryContainer');
              filterStories('recommendedStoryContainer');
+         });
+     </script>
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             // Function to show popup
+             function showPopup(message, isSuccess) {
+                 var popupContent = document.querySelector('.popup-content');
+                 if (popupContent) {
+                     popupContent.innerHTML = message;
+
+                     var popup = document.getElementById('popup');
+                     if (popup) {
+                         popup.className = 'popup'; // Remove previous classes
+
+                         if (isSuccess) {
+                             popup.classList.add('success'); // Add success class
+                         } else {
+                             popup.classList.add('error'); // Add error class
+                         }
+
+                         popup.style.display = 'block';
+
+                         setTimeout(function() {
+                             popup.style.display = 'none';
+                         }, 6000); // Hide popup after 6 seconds
+                     } else {
+                         console.error('Element with ID "popup" not found.');
+                     }
+                 } else {
+                     console.error('Element with class "popup-content" not found.');
+                 }
+             }
+
+             // Call showPopup with appropriate message and notification type, for example, after form submission
+             @if (session('success'))
+                 showPopup('<div class="success-notification">{{ session('success') }}</div>',
+                     true); // Success notification
+             @elseif (session('error'))
+                 showPopup('<div class="error-notification">{{ session('error') }}</div>',
+                     false); // Error notification
+             @elseif ($errors->any())
+                 var errorsHtml = '';
+                 @foreach ($errors->all() as $error)
+                     errorsHtml += '<div class="error-notification">{{ $error }}</div>';
+                 @endforeach
+                 showPopup(errorsHtml, false); // Display validation errors
+             @endif
          });
      </script>
      <script>

@@ -3,7 +3,21 @@
 
 
 @section('content')
+    <div class="popup" id="popup" style="display: {{ session('success') || session('error') ? 'block' : 'none' }}">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div class="popup-content">
+            @if (session('success'))
+                success-notification
+            @elseif(session('error'))
+                error-notification
+            @elseif ($errors->any())
+                @foreach ($errors->all() as $error)
+                    error-notification
+                @endforeach
+            @endif
 
+        </div>
+    </div>
     <div class="content" id="searchResults">
         {{-- {{asset('/img/konten/'.$user->image)}} --}}
 
@@ -308,7 +322,7 @@
 
                         @foreach ($data['RateStoryPopuler'] as $items)
                             @if ($items->book_status == 1 || $items->book_status == 3)
-                                <div class="card" >
+                                <div class="card">
                                     <a href="{{ route('detailStory', $items->id_story) }}">
                                         <figure>
                                             <img src="/upload/{{ $items->images }}" alt=""
@@ -525,7 +539,7 @@
 
                             @foreach ($data['RateRecomendationStory'] as $items)
                                 @if ($items->book_status == 1 || $items->book_status == 3)
-                                    <div class="card"  >
+                                    <div class="card">
                                         <a href="{{ route('detailStory', $items->id_story) }}">
                                             <figure>
                                                 <img src="/upload/{{ $items->images }}" alt=""
@@ -721,7 +735,7 @@
                         @else
                             @foreach ($data['RateRecomendationStory'] as $items)
                                 @if ($items->book_status == 1 || $items->book_status == 3)
-                                    <div class="card"  >
+                                    <div class="card">
                                         <a href="{{ route('detailStory', $items->id_story) }}">
                                             <figure>
                                                 <img src="/upload/{{ $items->images }}" alt=""

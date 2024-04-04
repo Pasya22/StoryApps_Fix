@@ -320,18 +320,26 @@ class HomeController extends Controller
             ->where('id_user', $userId)
             ->pluck('id_story')
             ->toArray();
+        $request->validate([
+            'keyword' => 'required'
+        ]);
 
 
         // $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
         $data['genre'] = adminModel::getData('genre');
         $query = $request->input('keyword');
 
-        // Memanggil fungsi pencarian dari model Story
+        // jika data tidak diisi maka muncul pesan ini
         $datas = adminModel::searchFounStory($query);
 
+        // Jika hasil pencarian tidak kosong, kembalikan tampilan dengan data pencarian
+        if ($datas->isNotEmpty()) {
+            return view('home.SearchStory.search', compact('data', 'datas'));
+        } else {
+            // Jika hasil pencarian kosong, kembalikan ke halaman sebelumnya dengan pesan error
+            return back()->with('error', 'Data Tidak Ditemukan')->withInput();
+        }
         // $data['stories'] = adminModel::CountDataRate();
-
-        return view('home.SearchStory.search', compact('data', 'datas'));
     }
 
 
@@ -436,97 +444,5 @@ class HomeController extends Controller
         $page = $request->input('page', 1);
         $dialogs = adminModel::joinData($idChapter, 10);
         return response()->json($dialogs->items(), 200);
-    }
-
-    // public function send(Request $request)
-    // {
-
-    //     $comment = [
-    //         'id_user' => $request->input('id_user'),
-    //         'id_story' => $request->input('id_story'),
-    //         'rate' => $request->input('rate'),
-    //         'status' => $request->input('status'),
-
-    //     ];
-    //     $execute = adminModel::CreateData('rates', $comment);
-    //     if ($execute == true) {
-    //         // session()->flash('notification', 'New comment received!');
-    //         return redirect('/')->with('success', "Comment Successfully");
-    //     } else {
-    //         return back()->withInput()->withErrors(['error', 'Please fill in all fields']);
-    //     }
-
-    // }
-
-
-    // public function sendRate(Request $request)
-    // {
-    //     $users = Auth::user()->id;
-    //     $validation = $request->validate([
-    //         'id_story' => 'required|numeric',
-    //         'rate' => 'required|numeric',
-    //     ]);
-
-
-    //     $data = array_merge($validation, [
-    //         'created_at' => now(),
-    //         'id' => $users,
-    //         'status' => 0
-    //     ]);
-    //     if (adminModel::CreateData('rates', $data)) {
-    //         return response()->json(['success' => true, 'message' => 'Berhasil Memberikan Rating']);
-    //         // return redirect()->route('DataRate')->with('success', 'Successfully added new Rate!');
-    //     } else {
-    //         return response()->json(['error' => 'Gagal Memberikan Rating']);
-    //         // return back()->withErrors(['failed to add new Rate']);
-    //     }
-
-    // }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

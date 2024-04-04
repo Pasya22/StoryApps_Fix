@@ -472,14 +472,11 @@ button {
     }
 }
 
-@media only screen and (min-width: 1168px) {
+@media only screen and (min-width: 1167px) {
     .nav-menu-2 {
         position: relative;
     }
 
-    .login-btn-Mobile {
-        display: none;
-    }
 
     .dropdown2 {
         position: relative;
@@ -556,7 +553,7 @@ button {
 }
 
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 991px) {
     .menu-nav-mb {
         display: block;
     }
@@ -592,13 +589,6 @@ button {
         position: relative;
     }
 
-    .nav-menu-dekstop {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
 
     .nav-menu a:nth-child(3),
     .nav-menu a:nth-child(4),
@@ -628,18 +618,11 @@ button {
 
 }
 
-@media screen and (max-width: 967px) {
-
-    /* Styles for screens with a width up to 767px (typical mobile screens) */
-    .search-box {
-        margin: 10px auto;
-        text-align: center;
-        width: 240px;
-    }
-
-    .search-box input {
-        margin: 10px auto;
-        width: 200px;
+@media screen and (max-width: 990px) {
+    .nav-menu.active {
+        position: relative;
+        padding-left: 32px;
+        top: 23px;
     }
 
     .nav-menu-1 {
@@ -650,20 +633,92 @@ button {
         display: block;
     }
 
+    .nav-menu .login-btn-Mobile {
+        display: block;
+    }
+
+    .nav-area .nav-menu-dekstop {
+        display: none;
+
+    }
+
+    .search-box {
+        margin: -2px 36%;
+        text-align: center;
+        width: 225px;
+        height: 45px;
+        position: absolute;
+        order: 2;
+        top: 17px;
+    }
+
+    .search-box input {
+        margin: 10px auto;
+        width: 226px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 18px;
+        position: relative;
+        left: 30px;
+        top: 10px;
+    }
+
+    .nav-burger {
+        position: relative;
+        top: 10px;
+        right: 12px;
+    }
+}
+
+
+
+@media only screen and (min-width: 991px) and (max-width: 1920px) {
+
+    .nav-area .nav-menu-dekstop {
+        display: flex;
+        align-items: center;
+        order: 2;
+    }
+
+    .search-box {
+        margin: 10px 6%;
+        text-align: center;
+        width: 196px;
+        order: 2;
+    }
+
+    .search-box input {
+        margin: 10px auto;
+        width: 200px;
+    }
+
+    .nav-menu-1 {
+        display: block;
+    }
+
+    .nav-menus-1 {
+        display: none;
+    }
+
     .nav-burger {
         order: 1;
-        /* Move the burger icon to the end */
+
         margin-top: 17px;
+    }
+
+    .nav-menu .login-btn-Mobile {
+        display: none;
     }
 
     .nav-menu {
         order: 2;
-        /* Move the navigation menu to the second position */
+        margin-left: 5%;
     }
 
     .nav-menu-3 {
         display: block;
-        /* Display the third menu item */
+
     }
 
     .social i {
@@ -676,7 +731,7 @@ button {
         justify-content: center;
         padding-top: 50px;
         color: rgba(238, 238, 238, 0.921);
-        /* padding-left: 70px; */
+
         font-size: 25px;
     }
 
@@ -684,9 +739,24 @@ button {
         padding: 0 30px;
 
     }
+
+    .nav-area .nav-menu-dekstop {
+        display: flex;
+        align-items: center;
+        order: 2;
+    }
+
 }
 
+@media only screen and (min-width: 991px) and (max-width: 991px) {
+    .search-box {
+        margin: 10px 1%;
+        text-align: center;
+        width: 196px;
+        order: 2;
+    }
 
+}
 
 
 
@@ -2203,9 +2273,40 @@ label {
 
 
 
-@media(max-width:1289px) {
+@media(max-width:1920px) {
+    .login-btn-Mobile {
+        display: none;
+    }
+}
+
+@media (max-width:1330px) {
+
+    .dropdown-content-custom {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        margin-left: -174%;
+        min-width: 160px;
+        z-index: 1;
+    }
+}
+
+@media (max-width:1280px) {
     .container-DetailStory {
         padding: 0 20px;
+    }
+
+    .dropdown-content-custom {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        margin-left: -174%;
+        min-width: 160px;
+        z-index: 1;
+    }
+
+    .login-btn-Mobile {
+        display: none;
     }
 
     .container-DetailStory .content-right .cerita-detail .isi-cerita .img-isi-cerita {
@@ -2308,6 +2409,12 @@ label {
     }
 }
 
+.heartswe {
+    position: relative;
+    top: -29px;
+    left: -33px;
+}
+
 @media screen and (max-width: 1019px) {
     .container-DetailStory .content-right .cerita-detail .isi-cerita .text-cerita .isi-text-cerita .bagian-detail-cerita {
         width: 50%;
@@ -2337,6 +2444,7 @@ label {
 
     }
 }
+
 
 @media screen and (max-width: 834px) {
     .content-DetailStory .content-left {
@@ -2464,77 +2572,162 @@ label {
 
 }
 
-@media screen and (max-width: 430px) {
-
+@media only screen and (min-width: 360px) and (max-width: 360px) {
 
     .search-box {
-        margin: 0 0;
-        border: none;
-        width: 70%;
+        margin: -2px 0%;
+        left: 113px;
+        top: 15px;
+        text-align: center;
+        width: 177px;
+        height: 45px;
+        position: absolute;
+        order: 2;
     }
 
     .search-box input {
         margin: 10px auto;
-        width: 0;
-        /* display: none; */
+        font-size: 11px;
+        width: 175px;
     }
 
-    .search-box .btn-serch {
-        display: block;
+    .nav-area .brand h3 {
+        font-size: 15px;
+        position: relative;
+        left: -6px;
+        top: 6px;
     }
 
-    .search-box .btn-serch2 {
-        display: none;
-    }
-
-    #searchInput {
-        width: 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: width 0.3s ease, opacity 0.3s ease;
-    }
-
-    .search-box.open {
-        width: 100%;
-        border: 1px solid #fff;
-    }
-
-    .search-box.open .btn-serch {
-        display: none;
-    }
-
-    .search-box.open .btn-serch2 {
-        display: block;
-    }
-
-    .search-box.open .closetel {
-        display: block;
-    }
-
-    .search-box.open #searchInput {
-        margin-right: 5px;
-        background: none;
-        border: none;
-        outline: none;
-        /* padding: 7px 20px; */
-        color: rgb(255, 255, 255);
-        width: 80%;
-        height: 8px;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .brand,
     .nav-burger {
-        transition: opacity 0.3s ease;
-        margin-top: 5px;
+        position: relative;
+        top: 10px;
+        right: -12px;
     }
 
-    .hidden {
+}
+
+@media only screen and (min-width: 375px) and (max-width: 375px) {
+
+    .search-box {
+        margin: -2px 0%;
+        left: 113px;
+        top: 15px;
+        text-align: center;
+        width: 177px;
+        height: 45px;
+        position: absolute;
+        order: 2;
+    }
+
+    .search-box input {
+        margin: 10px auto;
+        font-size: 11px;
+        width: 175px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 15px;
+        position: relative;
+        left: -6px;
+        top: 6px;
+    }
+
+    .nav-burger {
+        position: relative;
+        top: 10px;
+        right: -12px;
+    }
+
+}
+
+@media only screen and (min-width: 390px) and (max-width: 390px) {
+
+    .search-box {
+        margin: 0px 0%;
+        left: 129px;
+        top: 13px;
+        text-align: center;
+        width: 177px;
+        height: 45px;
+        position: absolute;
+        order: 2;
+    }
+
+    .search-box input {
+        margin: 10px auto;
+        font-size: 11px;
+        width: 175px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 15px;
+        position: relative;
+        left: -6px;
+        top: 6px;
+    }
+
+    .nav-burger {
+        position: relative;
+        top: 10px;
+        right: -12px;
+    }
+
+}
+
+@media screen and (min-width:430px) and (max-width: 430px) {
+    .nav-menu.active {
+        position: relative;
+        top: 25px;
+        padding-left: 11px;
+        font-size: small;
+    }
+
+    .nav-menu-1 {
         display: none;
-        opacity: 0;
     }
 
+    .nav-menus-1 {
+        display: block;
+    }
+
+    .nav-menu .login-btn-Mobile {
+        display: block;
+    }
+
+    .nav-area .nav-menu-dekstop {
+        display: none;
+
+    }
+
+    .search-box {
+        margin: 0px 0%;
+        top: 13px;
+        left: 140px;
+        text-align: center;
+        width: 177px;
+        height: 45px;
+        position: absolute;
+        order: 2;
+    }
+
+    .search-box input {
+        margin: 10px auto;
+        font-size: 11px;
+        width: 175px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 14px;
+        position: relative;
+        left: 10px;
+        top: 9px;
+    }
+
+    .nav-burger {
+        position: relative;
+        top: 9px;
+        right: 5px;
+    }
 
     .social a {
         display: flex;
@@ -3369,6 +3562,8 @@ footer .material-symbols-outlined {
     .nav-menu.active {
         z-index: 5;
     }
+
+
 }
 
 
@@ -3417,4 +3612,44 @@ footer .material-symbols-outlined {
 .checked {
     color: #ffd700;
     /* warna oranye, Anda bisa menyesuaikan sesuai keinginan */
+}
+
+
+
+.popup.error {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(248, 190, 190, 0.863);
+    color: #8b0000;
+    z-index: 99;
+    padding: 10px 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease forwards;
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popup.success {
+    background-color: #aaf7aced;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99;
+    color: rgb(4 159 68);
+    padding: 10px 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease forwards;
+    display: none;
 }

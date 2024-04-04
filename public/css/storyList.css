@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .container-cerita-terbaru {
     min-height: 1320px;
 }
@@ -14,8 +15,10 @@
     gap: 20px;
 }
 
+
 .container-cerita-terbaru .card {
     /* align-self: center; */
+
     display: flex;
     margin-top: 41px;
     width: 100%;
@@ -583,6 +586,69 @@ label {
     font-size: 12px;
 }
 
+
+@media only screen and (min-width: 1465px) and (max-width: 1465px) {
+    .container-cerita-terbaru .card {
+        margin-left: 9%;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 12px;
+        margin-left: 35px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        width: 95%;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+}
+
+@media only screen and (max-width: 1520px) {
+    .container-cerita-terbaru .card {
+        margin-left: 9%;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 12px;
+        margin-left: 35px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        width: 95%;
+    }
+
+    .heartswe {
+        position: relative;
+        top: -29px;
+        left: -33px;
+    }
+}
+
+@media screen and (max-width: 1360px) {
+    .container-cerita-terbaru .card {
+        margin-left: 6%;
+    }
+}
+
+@media screen and (max-width: 1273px) {
+    .container-cerita-terbaru .card {
+        margin-left: 3%;
+    }
+}
+
 @media screen and (max-width: 1330px) {
     .container-cerita-terbaru .container {
         background-color: #fff;
@@ -832,7 +898,7 @@ label {
     .container-cerita-terbaru .garis {
         background-color: #005ac8;
         width: 1px;
-        height: 1095px;
+        height: -webkit-fill-available;
         margin-left: 390px;
         position: absolute;
     }
@@ -1168,611 +1234,124 @@ label {
 }
 
 @media screen and (max-width: 1208px) {
-    .navs {
-        width: 105%;
-    }
-
-    .footer-col-1 {
-        width: 105%;
-    }
-
-    .footer-col-2 {
-        width: 105%;
-    }
-}
-
-@media screen and (max-width: 1119px) {}
-
-@media screen and (max-width: 1119px) {
-    .navs {
-        width: 100%;
-    }
-
-    .footer-col-1 {
-        width: 100%;
-    }
-
-    .footer-col-2 {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 835px) {
-    .container-cerita-terbaru .container {
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container-cerita-terbaru .cerita-terbaruNav {
-        display: flex;
-        margin-left: 46px;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
     .container-cerita-terbaru .card {
-        /* align-self: center; */
-        display: flex;
-        margin-top: 41px;
-        width: 100%;
-        margin-left: 3%;
-        max-width: 1198px;
-        flex-direction: column;
-        align-items: start;
+        margin-left: 0%;
     }
 
-    .container-cerita-terbaru .KeranjangNav {
-        color: #005ac8;
-        font: 600 18px Poppins, sans-serif;
+}
+
+@media screen and (max-width: 1130px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
     }
 
-    .container-cerita-terbaru .HomeNav {
-        color: #005ac8;
-        align-self: start;
-        font: 600 18px Poppins, sans-serif;
+    .container-cerita-terbaru .garis {
+        margin-left: 382px;
     }
 
-
-    .container-cerita-terbaru .card2 {
-        align-self: stretch;
-        display: flex;
-        margin-top: 67px;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 0 20px;
-
-    }
-
-    .container-cerita-terbaru .RekomLeft {
-        display: flex;
-        flex-grow: 1;
-        flex-basis: 0%;
-        flex-direction: column;
-    }
-
-    .container-cerita-terbaru .TitleLeft {
-        justify-content: center;
-        color: #fff;
-        border-radius: 10px;
-        background: linear-gradient(90deg, #06b4fc 0%, #1b81f0 100%);
-        align-items: start;
-        padding: 19px 60px 19px 28px;
-        font: 600 24px Poppins, sans-serif;
-    }
-
-    .container-cerita-terbaru .cardLeft1 {
-        border-radius: 10px;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        background-color: #fff;
-        margin-top: 8px;
-        padding: 21px 26px 21px 18px;
-    }
-
-    .container-cerita-terbaru .contentLeft1 {
-        gap: 0px;
-        display: flex;
-    }
-
-    .container-cerita-terbaru .column {
-        display: flex;
-        flex-direction: column;
-        line-height: normal;
-        width: 37%;
-        margin-left: 0px;
-    }
-
-    .container-cerita-terbaru .img-1 {
-        aspect-ratio: 0.96;
-        /* object-fit: contain; */
-        object-position: center;
-        width: 900px;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-        overflow: hidden;
-        max-width: 232%;
-        flex-grow: 1;
-    }
-
-    .container-cerita-terbaru .column-2 {
-        display: flex;
-        flex-direction: column;
-        line-height: normal;
-        width: 63%;
-        margin-left: 20px;
-        margin-top: 8px;
-    }
-
-    .container-cerita-terbaru .isicontentLeft1 {
-        padding: 18px 0px;
+    .container-cerita-terbaru .rate {
+        margin-right: 18px;
     }
 
     .container-cerita-terbaru .TextcontentLeft1 {
         justify-content: center;
         color: #000;
         align-self: stretch;
-        margin-top: -26px;
+        margin-top: -12px;
+        margin-left: -19px;
         font: 600 16px Poppins, sans-serif;
     }
 
-    .container-cerita-terbaru .TextcontentLeft1 span {
-        font-size: 15px;
-        font-weight: bold;
-        letter-spacing: 0px;
+    .container-cerita-terbaru .img-1 {
+
+        margin-top: 8px;
+        height: 123px;
+
+    }
+
+    .container-cerita-terbaru .titleright {
+        max-width: 100%;
+        margin-left: 0px;
+    }
+
+    .container-cerita-terbaru .ddropdown {
+        margin-top: 12px;
+        margin-left: 0px;
+        gap: 1px;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .ceritaterbaruRight {
+        margin-left: 56px;
+        width: 61.4%;
+    }
+}
+
+/* @media screen and (max-width: 1119px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+} */
+
+@media screen and (max-width: 1100px) {
+    .container-cerita-terbaru .card2 {
+        gap: 0px;
     }
 
     .container-cerita-terbaru .rate {
+        margin-right: 30px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        justify-content: center;
+        color: #000;
+        align-self: stretch;
+        margin-top: -12px;
+        font: 600 16px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        margin-top: 8px;
+        height: 123px;
+        width: 104px;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
         display: flex;
-        float: left;
-        height: 46px;
-        margin-right: 8px;
-        top: 20px;
-        position: relative;
-
-    }
-
-    .bin {
-        display: flex;
-        top: 3px;
-        left: 8px;
-        position: relative;
-    }
-
-    .bin .fa.fa-star {
-        margin-right: 5px;
-        /* Tambahkan margin-right untuk membuat renggang */
-    }
-
-
-    .container-cerita-terbaru .rate p {
-        margin-top: 10px;
-    }
-
-    .container-cerita-terbaru .rate .counts {
-        padding: 0px 3px;
-    }
-
-    .container-cerita-terbaru .rate:not(:checked)>input {
-        position: absolute;
-        top: -9999px;
-    }
-
-    .container-cerita-terbaru .rate:not(:checked)>label {
-        float: right;
-        width: 1em;
-        overflow: hidden;
-        white-space: nowrap;
-        cursor: pointer;
-        font-size: 28px;
-        color: #ccc;
-    }
-
-    .container-cerita-terbaru .rate:not(:checked)>label:before {
-        content: '★ ';
-    }
-
-    .container-cerita-terbaru .rate>input:checked~label {
-        color: #ffc700;
-    }
-
-    .container-cerita-terbaru .rate:not(:checked)>label:hover,
-    .container-cerita-terbaru .rate:not(:checked)>label:hover~label {
-        color: #deb217;
-    }
-
-    .container-cerita-terbaru .rate>input:checked+label:hover,
-    .container-cerita-terbaru .rate>input:checked+label:hover~label,
-    .container-cerita-terbaru .rate>input:checked~label:hover,
-    .container-cerita-terbaru .rate>input:checked~label:hover~label,
-    .container-cerita-terbaru .rate>label:hover~input:checked~label {
-        color: #c59b08;
-    }
-
-
-    .container-cerita-terbaru .dropbtn {
-        color: white;
-        padding: 0px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        margin-top: 10px;
-        margin-right: 0px;
-    }
-
-    .container-cerita-terbaru .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .container-cerita-terbaru .dropdown-content {
-        display: none;
-        position: absolute;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        background-color: rgb(189, 189, 189);
-        z-index: 1;
-    }
-
-    .container-cerita-terbaru .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .container-cerita-terbaru .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .container-cerita-terbaru .dropdown-content svg {
-        width: 20px;
-
-    }
-
-    .container-cerita-terbaru .cardcerita {
-        background-color: #fff;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        padding: 4px 21px;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        margin: 8px 15px;
-    }
-
-
-
-    .container-cerita-terbaru .garis {
-        background-color: #005ac8;
-        width: 1px;
-        height: 1095px;
-        margin-left: 390px;
-        position: absolute;
+        flex-grow: 1;
+        flex-basis: 0%;
+        margin-left: 8px;
+        flex-direction: column;
     }
 
     .container-cerita-terbaru .ceritaterbaruRight {
         display: flex;
         flex-grow: 1;
+        margin-left: 51px;
+        width: 60.4%;
         flex-basis: 0%;
         flex-direction: column;
     }
 
     .container-cerita-terbaru .titleright {
-        justify-content: center;
-        color: #fff;
-        text-align: center;
-        width: 730px;
-        border-radius: 10px 10px 0px 0px;
-        background: linear-gradient(90deg, #1a81ef 0%, #3243df 100%);
-        align-items: center;
-        padding: 19px 60px;
-        font: 600 24px Poppins, sans-serif;
+        max-width: 100%;
+        margin-left: 1px;
     }
-
-    .container-cerita-terbaru .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        /* Horizontally center the items */
-        padding: 10px 10px;
-        margin-left: 30px;
-        /* margin-right: -47px; */
-    }
-
-
-
-    .container-cerita-terbaru .gmbcrt {
-        width: 170px;
-        height: 160px;
-    }
-
-    .container-cerita-terbaru .textcerita .bagikan-cerita .dropdownshare {
-        padding: 5px 0;
-        float: right;
-    }
-
-    .container-cerita-terbaru .heart-card {
-        position: relative;
-        width: 18px;
-        height: 15px;
-        float: left;
-        /* Move the heart shape to the left */
-    }
-
-    .container-cerita-terbaru .heart-card:before,
-    .container-cerita-terbaru .heart-card:after {
-        position: absolute;
-        content: "";
-        left: 0;
-        /* Set left to 0 to align with the left edge */
-        top: 0px;
-        width: 8px;
-        /* Decrease the width to make it smaller */
-        height: 13px;
-        /* Decrease the height to make it smaller */
-        background: #ccc;
-        border-radius: 8px 8px 0 0;
-        /* Adjust border-radius accordingly */
-        transform: rotate(-45deg);
-        transform-origin: 0 100%;
-        transition: background 0.5s;
-    }
-
-    .container-cerita-terbaru .heart-card:after {
-        left: -8px;
-        /* Adjust left to overlap properly */
-        transform: rotate(45deg);
-        transform-origin: 100% 100%;
-    }
-
-    .container-cerita-terbaru .heart-card.checked:before,
-    .container-cerita-terbaru .heart-card.checked:after {
-        background: red;
-    }
-
-    .container-cerita-terbaru .heart-checkbox-card {
-        position: relative;
-        left: -5px;
-        display: none;
-    }
-
-    label {
-        cursor: pointer;
-    }
-
-    .container-cerita-terbaru .textcerita .bagikan-cerita svg {
-        cursor: pointer;
-        margin-bottom: 5px;
-        margin-left: 13px;
-    }
-
-    .container-cerita-terbaru .textcerita .bagikan-cerita .list-share {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        width: 30px;
-        height: auto;
-        background-color: #ccc;
-        padding: 10px 7px;
-        margin-left: 145px;
-        margin-top: 22px;
-        display: none;
-    }
-
-    .container-cerita-terbaru .storyList-share {
-        /* display: none; */
-        position: absolute;
-        width: 30px;
-        height: 0;
-        margin-left: 290px;
-        margin-top: -40px;
-        overflow: hidden;
-        background-color: #d8d5d5;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-        transition: height 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        z-index: 4;
-    }
-
-    .container-cerita-terbaru .storyList-share.open {
-        height: 130px;
-        padding: 10px 6px;
-        margin-top: -125px;
-    }
-
-    .container-cerita-terbaru .storyList-share figure a img {
-        /* margin-bottom: 22px; */
-        width: 15px;
-        margin-top: 18px;
-    }
-
-    .container-cerita-terbaru .textcerita .bagikan-cerita .list-share a {
-        padding: 10px 0px;
-
-        text-decoration: none;
-    }
-
-    .container-cerita-terbaru .textcerita .bagikan-cerita .list-share a img {
-        width: 15px;
-    }
-
-    .container-cerita-terbaru .textcerita .bagikan-cerita .list-share.show {
-        display: block;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        width: 30px;
-        height: auto;
-        background-color: #ccc;
-        padding: 10px 7px;
-        margin-left: 145px;
-        margin-top: 22px;
-    }
-
-    .container-cerita-terbaru .textcerita .judul-cerita {
-        padding-top: 20px;
-    }
-
-    .container-cerita-terbaru .textcerita .judul-cerita h3 {
-        font-weight: bold;
-    }
-
-    .container-cerita-terbaru .textcerita .judul-cerita p {
-        font-size: 15px;
-        letter-spacing: 1px;
-        font-weight: bold;
-    }
-
-    .bin2 {
-        display: flex;
-        top: 15px;
-        left: 0px;
-        position: relative;
-    }
-
-    .bin2 .fa.fa-star {
-        margin-right: 5px;
-        /* Tambahkan margin-right untuk membuat renggang */
-    }
-
-    .container-cerita-terbaru .rate-5 {
-        float: left;
-        height: 46px;
-        padding: 0;
-    }
-
-    .container-cerita-terbaru .rate-5 .span {
-        padding: 15px 3px;
-    }
-
-    .container-cerita-terbaru .rate-5 p {
-        margin-top: 10px;
-    }
-
-    .container-cerita-terbaru .rate-5:not(:checked)>input {
-        position: absolute;
-        top: -9999px;
-    }
-
-    .container-cerita-terbaru .rate-5:not(:checked)>label {
-        float: right;
-        width: 1em;
-        overflow: hidden;
-        white-space: nowrap;
-        cursor: pointer;
-        font-size: 28px;
-        color: #ccc;
-        margin-right: 2px;
-        /* Menambahkan margin antar bintang */
-    }
-
-    .container-cerita-terbaru .rate-5:not(:checked)>label:before {
-        content: '★ ';
-    }
-
-    .container-cerita-terbaru .rate-5>input:checked~label {
-        color: #ffc700;
-    }
-
-    .container-cerita-terbaru.rate-5:not(:checked)>label:hover,
-    .container-cerita-terbaru.rate-5:not(:checked)>label:hover~label {
-        color: #deb217;
-    }
-
-    .container-cerita-terbaru.rate-5>input:checked+label:hover,
-    .container-cerita-terbaru.rate-5>input:checked+label:hover~label,
-    .container-cerita-terbaru.rate-5>input:checked~label:hover,
-    .container-cerita-terbaru.rate-5>input:checked~label:hover~label,
-    .container-cerita-terbaru.rate-5>label:hover~input:checked~label {
-        color: #c59b08;
-    }
-
-
-    .container-cerita-terbaru .heart {
-        position: relative;
-        width: 20px;
-        height: 18px;
-        top: -6px;
-    }
-
-    .container-cerita-terbaru .hearts {
-        position: relative;
-        width: 20px;
-        height: 18px;
-        left: -17px;
-        top: -13px;
-    }
-
-    .container-cerita-terbaru .heart:before,
-    .container-cerita-terbaru .heart:after {
-        position: absolute;
-        content: "";
-        left: -10px;
-        /* Adjusted to 0px for shifting left */
-        top: -16px;
-        width: 10px;
-        height: 16px;
-        background: #ccc;
-        border-radius: 10px 10px 0 0;
-        transform: rotate(-45deg);
-        transform-origin: 0 100%;
-        transition: background 0.5s;
-    }
-
-    .container-cerita-terbaru .heart:after {
-        left: -20px;
-        /* Adjusted to -10px for shifting left */
-        transform: rotate(45deg);
-        transform-origin: 100% 100%;
-    }
-
-    .container-cerita-terbaru .heart.checked:before,
-    .container-cerita-terbaru .heart.checked:after {
-        background: red;
-    }
-
-    .container-cerita-terbaru .heart-checkbox {
-        display: none;
-    }
-
-
 
     .container-cerita-terbaru .ddropdown {
         display: flex;
         margin-top: 12px;
-        margin-left: 35px;
+        margin-left: 1px;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
-        width: 95%;
-    }
-
-    label {
-        cursor: pointer;
-    }
-
-    .container-cerita-terbaru select {
-        padding: 10px;
-        font-size: 16px;
-        border: 2px solid blue;
-        border-radius: 10px;
+        gap: 1px;
         width: 100%;
-        height: 95%;
-        font-size: 15px;
-        text-align: center;
     }
 
 
-
-    .container-cerita-terbaru .titleright {
-        max-width: 93%;
-        margin-left: 52px;
-    }
-
-
-    .container-cerita-terbaru .textcerita .judul-cerita strong {
-        font-size: 17px;
-        font-weight: bold;
-    }
-
-    .container-cerita-terbaru .textcerita .judul-cerita p {
-        font-size: 12px;
+    .container-cerita-terbaru .garis {
+        margin-left: 390px;
+        height: -webkit-fill-available;
     }
 }
 
@@ -1782,9 +1361,20 @@ label {
 
 
 @media screen and (max-width: 991px) {
-    .container-cerita-terbaru .ddropdown {
-        max-width: 100%;
-        flex-wrap: wrap;
+
+    .container-cerita-terbaru .hearts {
+        position: relative;
+        width: 20px;
+        height: 18px;
+        top: -14px;
+        left: -66px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: -10px;
+        left: 7%;
     }
 
     .container-cerita-terbaru .cardcerita {
@@ -1800,21 +1390,18 @@ label {
         margin-left: 50px;
     }
 
-    .container-cerita-terbaru .card {
-        max-width: 100%;
-        margin-top: 40px;
-    }
 
     .container-cerita-terbaru .TextcontentLeft1 {
         max-width: 100%;
-        margin-left: 166px;
+        margin-left: 30%;
         font-size: 20px;
-        margin-top: 5px;
+        line-height: 48px;
+        margin-top: -3%;
     }
 
     .container-cerita-terbaru .TextcontentLeft1 span {
         font-size: 20px;
-        margin-left: 15px;
+        margin-left: 32px;
     }
 
     .container-cerita-terbaru .TextcontentLeft1 strong {
@@ -1854,6 +1441,7 @@ label {
         width: 30%;
     }
 
+
     .container-cerita-terbaru .column-2 {
         width: 100%;
     }
@@ -1876,21 +1464,15 @@ label {
 
     .container-cerita-terbaru .ceritaterbaruRight {
         max-width: 100%;
-        margin-left: 10px;
+        width: 100%;
+        margin-left: 0px;
     }
 
     .container-cerita-terbaru .titleright {
         max-width: 100%;
         width: 100%;
         padding: 0 20px;
-        margin-left: 2px;
-    }
-
-    .container-cerita-terbaru .ddropdown {
-        max-width: 100%;
-        flex-wrap: wrap;
-        margin-left: 15px;
-        gap: 10px;
+        margin-left: 0px;
     }
 
     .dropdown {
@@ -1907,7 +1489,7 @@ label {
         margin-left: -98px;
     }
 
-    .container-cerita-terbaru .heart {
+    /* .container-cerita-terbaru .heart {
         position: relative;
         width: 20px;
         height: 18px;
@@ -1921,17 +1503,29 @@ label {
         height: 18px;
         top: -10px;
         left: -33px
-    }
+    } */
 
     .container-cerita-terbaru select {
         height: 23%;
-        width: 30%;
+        width: 50%;
     }
 }
 
-@media screen and (max-width: 700px) {
+
+@media only screen and (min-width: 360px) and (max-width: 768px) {
+    .container-cerita-terbaru select {
+        height: 23%;
+        width: 47%;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+
     .container-cerita-terbaru .ddropdown {
-        gap: 9px;
+        max-width: 1200px;
+        width: 102%;
+        margin-left: -2%;
     }
 
     .container-cerita-terbaru .row {
@@ -1987,9 +1581,7 @@ label {
 }
 
 @media screen and (max-width: 564px) {
-    .container-cerita-terbaru .ddropdown {
-        gap: 8px;
-    }
+
 
     .container-cerita-terbaru .TextcontentLeft1 {
         max-width: 100%;
@@ -2016,8 +1608,8 @@ label {
 
     .container-cerita-terbaru .isicontentLeft1 {
         margin-top: -110px;
-        margin-left: -39px;
-        width: 100%;
+        margin-left: 83px;
+        width: 72%;
     }
 
     .container-cerita-terbaru .cardLeft1 {
@@ -2031,7 +1623,703 @@ label {
     }
 }
 
-@media screen and (max-width: 560px) {
+
+@media only screen and (min-width: 360px) and (max-width: 360px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 30px;
+        left: 3px;
+        position: relative;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -7px;
+        left: -5px;
+        position: relative;
+        font-size: 10px;
+    }
+
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 45%;
+        margin-left: -8%;
+        margin-top: -3%;
+        height: 143px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 60px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: -24px;
+        left: -9%;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 100%;
+        margin-left: 1px;
+        margin-bottom: 15px;
+    }
+
+    .heartswe {
+        position: relative;
+        top: -42px;
+        left: -59px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 5%;
+        font-size: 17px;
+        line-height: 31px;
+        margin-top: -8%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        margin-left: 90px;
+    }
+
+    .bin {
+        display: flex;
+        top: 13px;
+        left: -75%;
+        position: relative;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 12%;
+        font-size: 14px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 12%;
+        font-size: 14px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 12%;
+        font-size: 14px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+        left: -5px;
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (min-width: 375px) {
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 108%;
+        margin-left: -7%;
+    }
+
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+
+
+
+    .container-cerita-terbaru .textcerita .judul-cerita {
+        padding-top: 20px;
+        line-height: 23px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita h3 {
+        font-weight: bold;
+        margin-left: 3px;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 9px;
+        margin-left: 4px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 30px;
+        left: 3px;
+        position: relative;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -7px;
+        left: -3px;
+        position: relative;
+        font-size: 10px;
+    }
+
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 45%;
+        margin-left: -8%;
+        margin-top: -3%;
+        height: 143px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 60px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: -24px;
+        left: -9%;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 100%;
+        margin-left: 1px;
+        margin-bottom: 15px;
+    }
+
+    .heartswe {
+        position: relative;
+        top: -42px;
+        left: -59px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 5%;
+        font-size: 17px;
+        line-height: 31px;
+        margin-top: -8%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        margin-left: 92px;
+    }
+
+    .bin {
+        display: flex;
+        top: 13px;
+        left: -75%;
+        position: relative;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 12%;
+        font-size: 14px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 12%;
+        font-size: 14px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 12%;
+        font-size: 14px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+        left: -5px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 390px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita .dropdownshare {
+        padding: 5px 6px;
+        float: right;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 30px;
+        left: 3px;
+        position: relative;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 12px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 12px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 12px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -7px;
+        position: relative;
+        font-size: 10px;
+    }
+
+
+
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 45%;
+        margin-left: -8%;
+        margin-top: -3%;
+        height: 143px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 60px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: -24px;
+        left: -9%;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 100%;
+        margin-left: 1px;
+        margin-bottom: 15px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 45px;
+        margin-left: 80px;
+    }
+
+    .bin {
+        display: flex;
+        top: 13px;
+        left: -114%;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: -42px;
+        left: -59px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 13%;
+        font-size: 17px;
+        line-height: 31px;
+        margin-top: -8%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 9%;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 9%;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 9%;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+        left: -5px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 410px) and (max-width: 414px) {
+
+    .bin2 {
+        display: flex;
+        top: 30px;
+        left: 3px;
+        position: relative;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 12px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 12px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 12px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -7px;
+        position: relative;
+        font-size: 10px;
+    }
+
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: cover;
+        width: 45%;
+        margin-left: -8%;
+        margin-top: -3%;
+        height: 143px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 60px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: -24px;
+        left: -9%;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 94%;
+        margin-left: 14px;
+        margin-bottom: 15px;
+    }
+
+    .bin {
+        display: flex;
+        top: 13px;
+        left: -114%;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: -42px;
+        left: -59px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: 0px;
+        position: relative;
+        top: -106px;
+        margin-left: 83px;
+        width: 72%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 0%;
+        position: relative;
+        left: 30px;
+        font-size: 17px;
+        line-height: 31px;
+        margin-top: -8%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 9%;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 9%;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 9%;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+        left: -5px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 430px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+
+
+
+    .bin2 {
+        display: flex;
+        top: 30px;
+        left: 3px;
+        position: relative;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 16%;
+        font-size: 14px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 16%;
+        font-size: 14px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 16%;
+        font-size: 14px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -7px;
+        position: relative;
+        font-size: 10px;
+    }
+
+
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 45%;
+        margin-left: -8%;
+        margin-top: -3%;
+        height: 143px;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 60px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: -24px;
+        left: -9%;
+    }
+
+    .container-cerita-terbaru .RekomLeft {
+        max-width: 100%;
+        margin-left: 1px;
+        margin-bottom: 15px;
+    }
+
+    .bin {
+        display: flex;
+        top: 13px;
+        left: -92%;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: -42px;
+        left: -59px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 16%;
+        font-size: 17px;
+        line-height: 31px;
+        margin-top: -8%;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 9%;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -2px;
+    }
+
+
+}
+
+@media only screen and (max-width: 430px) {
+    .container-cerita-terbaru .cardcerita {
+        padding: 4% 1%;
+        width: 46%;
+        margin: 3% -5%;
+        border-radius: 2%;
+        background: rgb(252, 252, 251);
+    }
+
+    #heart {
+        position: relative;
+        left: -19px;
+        margin-top: -4px;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 105%;
+        margin-left: -5%;
+    }
+
+    .container-cerita-terbaru .gmbcrt {
+        width: 95%;
+        margin-left: 3%;
+        object-fit: cover;
+        height: 150px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita {
+        padding-top: 20px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita h3 {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 9px;
+    }
+
+    .container-cerita-terbaru .rate-5 {
+        float: left;
+        height: 46px;
+        padding: 0;
+    }
+
+}
+
+@media only screen and (min-width: 440px) and (max-width: 560px) {
     .container-cerita-terbaru .row {
         display: flex;
         flex-wrap: wrap;
@@ -2045,65 +2333,30 @@ label {
         padding: 16px 7px;
         margin: 0px -20px;
     }
+
 }
 
-@media screen and (max-width: 511px) {
-    .container-cerita-terbaru .ddropdown {
-        gap: 7px;
-    }
-}
+
 
 @media screen and (max-width: 491px) {
-    .container-cerita-terbaru .titleright {
-        max-width: 97%;
-        width: 100%;
-        padding: 0 20px;
-        margin-left: 12px;
-    }
 
-    .container-cerita-terbaru .cardLeft1 {
-        max-width: 100%;
-        height: 165px;
-        margin-bottom: 0px;
-    }
 
     .container-cerita-terbaru select {
         font-size: 11px;
     }
 
-    .columns {
-        background: white;
-        border-radius: 5px;
-        padding: 10px;
-        flex: 1;
-        margin-right: -16px;
-    }
 }
 
-@media (max-width: 991px) {
-    .container-cerita-terbaru .row {
-        display: flex;
-        flex-wrap: wrap;
-        width: 98%;
-        justify-content: center;
-        gap: 33px 60px;
-        margin: 2px 6px;
-    }
-
-    .container-cerita-terbaru .garis {
-        display: none;
-    }
-
-}
-
-@media (max-width: 975px) {}
 
 
-@media screen and (max-width: 430px) {
+
+/* @media screen and (max-width: 430px) {
 
     .container-cerita-terbaru .ddropdown {
         gap: 6px;
+        margin-left: 4.3%;
     }
+
 
     .container-cerita-terbaru .card2 {
         max-width: 104%;
@@ -2172,9 +2425,9 @@ label {
         margin-right: -42px;
     }
 
-}
+} */
 
-@media screen and (max-width:360px) {
+/* @media only screen and (max-width:360px) {
     .nav-area .nav-burger span {
         font-size: 19px;
         margin-left: -4px;
@@ -2193,25 +2446,34 @@ label {
         width: 342px;
     }
 
-}
-
-@media screen and (max-width: 414px) {
-    .container-cerita-terbaru .gmbcrt {
-        width: 148px;
-        height: 136px;
+    .container-cerita-terbaru .ddropdown {
+        gap: 6px;
+        width: 97.2%;
+        margin-left: 0%;
     }
 
-    .container-cerita-terbaru .TextcontentLeft1 {
+    .container-cerita-terbaru .titleright {
+        max-width: 1200px;
+        width: 114%;
+        padding: 0 20px;
+        margin-left: -24px;
+    }
+
+    .container-cerita-terbaru .card {
         max-width: 100%;
-        margin-left: 138px;
-        font-size: 13px;
-        margin-top: 10px;
+        flex-wrap: wrap;
+        margin-left: 4%;
+        padding: 0 20px;
     }
 
-    .bin {
-        margin-left: -32px;
+    .container-cerita-terbaru .ceritaterbaruRight {
+        width: 100%;
     }
 
+} */
+
+
+/* @media screen and (max-width: 430px) {
     .nav-area {
         width: 342px;
     }
@@ -2230,30 +2492,10 @@ label {
         margin-left: -33px;
     }
 
-}
-@media screen and (max-width: 430px) {
-    .nav-area {
-        width: 342px;
-    }
-
-    .nav-area .nav-burger span {
-        font-size: 19px;
-        margin-left: -4px;
-    }
-
-    .nav-area .brand h3 {
-        font-size: 13px;
-    }
-
-    .search-box .btn-serch span {
-        font-size: 19px;
-        margin-left: -33px;
-    }
-
-}
+} */
 
 
-@media screen and (max-width: 394px) {
+/* @media screen and (max-width: 394px) {
     .container-cerita-terbaru .titleright {
         max-width: 110%;
         width: 114%;
@@ -2271,20 +2513,55 @@ label {
         width: 101%;
         margin-left: 12px;
     }
-}
+} */
 
-@media screen and (max-width: 361px) {
+/* @media screen and (max-width: 360px) {
     .container-cerita-terbaru .ceritaterbaruRight {
         margin-left: 0;
+    }
+
+    .container-cerita-terbaru .gmbcrt {
+        width: 100%;
+        object-fit: cover;
+        height: 136px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 10px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 15px 5px;
+        position: relative;
+        font-size: 13px;
+        top: -4px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-left: 0px;
+        margin-right: 4px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 26px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 {
+        float: left;
+        height: 46px;
+        padding: 0;
     }
 
     .container-cerita-terbaru .row {
         display: flex;
         flex-wrap: wrap;
-        width: 98%;
+        width: 93%;
         justify-content: center;
         gap: 33px 60px;
-        margin: 1px 14px;
+        margin: 1px 4px;
     }
 
     .container-cerita-terbaru .RekomLeft {
@@ -2293,12 +2570,7 @@ label {
         margin-left: -7px;
     }
 
-    .container-cerita-terbaru .titleright {
-        max-width: 118%;
-        width: 115%;
-        padding: 0 20px;
-        margin-left: -12px;
-    }
+
 
     .container-cerita-terbaru select {
         height: 23%;
@@ -2306,30 +2578,1764 @@ label {
         margin-right: -19px;
         margin-left: -67px;
     }
-}
-
+} */
+/*
 @media screen and (max-width: 361px) {
-    .container-cerita-terbaru .cardcerita {
-        width: 57%;
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 9px;
     }
-}
 
-@media (max-width: 991px) {
+    .container-cerita-terbaru .textcerita .judul-cerita h3 {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 30px;
+        left: 3px;
+        position: relative;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru select {
+        height: 23%;
+        width: 47%;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -6px;
+        margin-left: -13%;
+        position: relative;
+        font-size: 10px;
+    }
+} */
+
+
+@media only screen and (min-width: 768px) and (max-width: 768px) {
     .container-cerita-terbaru .card {
-        max-width: 100%;
+        max-width: 74%;
+        margin-top: 40px;
+        margin-left: 6%;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 1200px;
+        width: 120%;
         flex-wrap: wrap;
-        margin-left: 0%;
-        padding: 0 20px;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 103%;
+        margin-left: -3%;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+    #heart {
+        position: relative;
+        left: -21px;
+        margin-top: -4px;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 25%;
+        position: relative;
+        height: 160px;
+        left: 11%;
+        top: 14px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        padding: 0px 5px;
+        margin-top: -2px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 25px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -4px;
+        position: relative;
+        font-size: 15px;
+    }
+
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 18px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 13%;
+    }
+
+
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 0;
+        margin-left: 0;
     }
 
     .bin {
         display: flex;
-        top: -10px;
-        left: 41px;
+        top: -11px;
+        left: 210px;
         position: relative;
     }
 
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -33px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 36%;
+        font-size: 20px;
+        line-height: 39px;
+        margin-top: 2%;
+    }
+
     .bin .fa.fa-star {
-        margin-right: 12px;
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+
+}
+
+@media only screen and (min-width: 800px) and (max-width: 990px) {
+
+    .container-cerita-terbaru .card {
+        max-width: 95%;
+        margin-top: 40px;
+        margin-left: 3%;
+    }
+
+    .container-cerita-terbaru .ddropdown {
+        max-width: 1200px;
+        width: 102%;
+        margin-left: -2%;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 25%;
+        height: 100%;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 25px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -4px;
+        position: relative;
+        font-size: 15px;
+    }
+
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+
+    .container-cerita-terbaru select {
+        height: 23%;
+        width: 47%;
     }
 }
+
+@media only screen and (min-width: 800px) and (max-width: 800px) {
+    .container-cerita-terbaru .card {
+        max-width: 90%;
+        margin-top: 40px;
+        margin-left: 5%;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 103%;
+        margin-left: -3%;
+    }
+
+    #heart {
+        position: relative;
+        left: -21px;
+        margin-top: -4px;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 25%;
+        position: relative;
+        height: 160px;
+        left: 11%;
+        top: 14px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        padding: 0px 5px;
+        margin-top: -2px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 25px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -4px;
+        position: relative;
+        font-size: 15px;
+    }
+
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 18px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 13%;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 0;
+        margin-left: 0;
+    }
+
+    .bin {
+        display: flex;
+        top: -11px;
+        left: 210px;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -33px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -158px;
+        margin-left: -3%;
+        width: 100%;
+    }
+
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 49%;
+        margin-left: 34%;
+        line-height: 39px;
+        margin-top: 2%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 835px)and (max-width: 835px) {
+    .container-cerita-terbaru .card {
+        max-width: 90%;
+        margin-top: 40px;
+        margin-left: 5%;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 103%;
+        margin-left: -3%;
+    }
+
+    #heart {
+        position: relative;
+        left: -21px;
+        margin-top: -4px;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 25%;
+        position: relative;
+        height: 160px;
+        left: 11%;
+        top: 14px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        padding: 0px 5px;
+        margin-top: -2px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 25px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -4px;
+        position: relative;
+        font-size: 15px;
+    }
+
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 18px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 13%;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 0;
+        margin-left: 0;
+    }
+
+    .bin {
+        display: flex;
+        top: -11px;
+        left: 220px;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -33px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -158px;
+        margin-left: -3%;
+        width: 100%;
+    }
+
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 49%;
+        margin-left: 34%;
+        line-height: 39px;
+        margin-top: 2%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 990px) {
+    .container-cerita-terbaru .card {
+        max-width: 90%;
+        margin-top: 40px;
+        margin-left: 5%;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 102.2%;
+        margin-left: -2.1%;
+    }
+
+    #heart {
+        position: relative;
+        left: -21px;
+        margin-top: -4px;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 25%;
+        position: relative;
+        height: 160px;
+        left: 11%;
+        top: 14px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        padding: 0px 5px;
+        margin-top: -2px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 25px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -4px;
+        position: relative;
+        font-size: 15px;
+    }
+
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 18px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 12%;
+    }
+
+
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 0;
+        margin-left: 0;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+
+    .bin {
+        display: flex;
+        top: -11px;
+        left: 268px;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -24px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -158px;
+        margin-left: -3%;
+        width: 100%;
+    }
+
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 49%;
+        margin-left: 34%;
+        line-height: 39px;
+        margin-top: 2%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 991px) {
+    .container-cerita-terbaru .card {
+        max-width: 90%;
+        margin-top: 40px;
+        margin-left: 5%;
+    }
+
+    .container-cerita-terbaru .card2 {
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        flex-direction: column-reverse;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        max-width: 1200px;
+        margin-top: 1%;
+        width: 102.6%;
+        margin-left: -2.6%;
+    }
+
+    #heart {
+        position: relative;
+        left: -21px;
+        margin-top: -4px;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: fill;
+        width: 25%;
+        position: relative;
+        height: 160px;
+        left: 11%;
+        top: 14px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        padding: 0px 5px;
+        margin-top: -2px;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 11px;
+        font-size: 16px;
+        position: relative;
+        left: 1px;
+    }
+
+    .bin2 {
+        display: flex;
+        top: 25px;
+        left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -4px;
+        position: relative;
+        font-size: 15px;
+    }
+
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 18px;
+        margin: 2px 6px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 12%;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 0;
+        margin-left: 0;
+    }
+
+    .bin {
+        display: flex;
+        top: -11px;
+        left: 268px;
+        position: relative;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -24px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -158px;
+        margin-left: -3%;
+        width: 100%;
+    }
+
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 49%;
+        margin-left: 34%;
+        line-height: 39px;
+        margin-top: 2%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 18px;
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+
+    .container-cerita-terbaru .garis {
+        display: none;
+    }
+}
+
+/*
+@media only screen and (min-width: 1024px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 12px;
+        margin-left: 35px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        width: 95%;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -10px;
+        margin-left: -13%;
+        position: relative;
+        font-size: 14px;
+    }
+
+} */
+
+@media only screen and (min-width: 1280px) {
+    .container-cerita-terbaru .card {
+        margin-left: 3%;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 12px;
+        margin-left: 35px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        width: 95%;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita svg {
+        cursor: pointer;
+        margin-bottom: 5px;
+        margin-left: 13px;
+        position: relative;
+        left: 13px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -10px;
+        margin-left: -13%;
+        position: relative;
+        font-size: 14px;
+    }
+
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 45px;
+        margin-left: 0px;
+    }
+
+    .bin {
+        display: flex;
+        top: 16px;
+        left: 43%;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: cover;
+        width: auto;
+        margin-left: -32%;
+        margin-top: -3%;
+        top: 3px;
+        position: relative;
+        height: auto;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 9%;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -24px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -24%;
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 0%;
+        left: 21px;
+        line-height: 39px;
+        position: relative;
+        top: 29px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+}
+
+
+@media only screen and (min-width: 1440px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+        position: relative;
+        left: 8%;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 12px;
+        margin-left: 35px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        width: 95%;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita svg {
+        cursor: pointer;
+        margin-bottom: 5px;
+        margin-left: 13px;
+        position: relative;
+        left: 13px;
+    }
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -10px;
+        margin-left: -13%;
+        position: relative;
+        font-size: 14px;
+    }
+
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 45px;
+        margin-left: 0px;
+    }
+
+    .bin {
+        display: flex;
+        top: 16px;
+        left: 43%;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: cover;
+        width: auto;
+        margin-left: -32%;
+        margin-top: -3%;
+        top: 3px;
+        position: relative;
+        height: auto;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 9%;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -24px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: -24%;
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 0%;
+        left: 21px;
+        line-height: 39px;
+        position: relative;
+        top: 29px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 1728px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+        max-width: 84%;
+        position: relative;
+        left: 8%;
+    }
+
+    .container-cerita-terbaru .cardLeft1 {
+        border-radius: 10px;
+        width: 144%;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
+        margin-top: 8px;
+        padding: 21px 26px 21px 18px;
+    }
+
+    .container-cerita-terbaru .TitleLeft {
+        color: #fff;
+        width: 144%;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #06b4fc 0%, #1b81f0 100%);
+        padding: 19px 60px 19px 28px;
+        font: 600 24px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .card2 {
+        align-self: stretch;
+        display: flex;
+        margin-top: 67px;
+        max-width: 22%;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0 20px;
+        min-height: 1184px;
+    }
+
+    .container-cerita-terbaru select {
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid blue;
+        border-radius: 10px;
+        max-width: 1200px;
+        width: 28.8pc;
+        height: 95%;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .container-cerita-terbaru .ceritaterbaruRight {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0%;
+        position: relative;
+        flex-direction: column;
+        left: 50%;
+    }
+
+    .container-cerita-terbaru .titleright {
+        max-width: 1200px;
+        width: 60pc;
+        margin-left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 0px;
+        margin: 0;
+    }
+
+    .container-cerita-terbaru .cardcerita {
+        background-color: #159ddb;
+        box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 48%);
+        padding: 4px 13px;
+        border-radius: 6px;
+        margin: 8px 20px;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 0px;
+        margin-left: 0px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        position: relative;
+        left: -21px;
+        top: 10px;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .garis {
+        background-color: #005ac8;
+        width: 1px;
+        height: auto;
+        margin-left: 0px;
+        left: 2%;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita svg {
+        cursor: pointer;
+        margin-bottom: 5px;
+        margin-left: 13px;
+        position: relative;
+        left: 13px;
+    }
+
+
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -10px;
+        margin-left: -13%;
+        position: relative;
+        font-size: 14px;
+    }
+
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 45px;
+        margin-left: 0px;
+    }
+
+    .bin {
+        display: flex;
+        top: 16px;
+        left: 43%;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: cover;
+        width: 110px;
+        margin-left: 0;
+        margin-top: 0;
+        top: 3px;
+        position: relative;
+        height: 150px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 9%;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -24px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: 0;
+        position: relative;
+        margin-left: 0%;
+        width: 100%;
+        top: -30px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 0%;
+        left: 21px;
+        line-height: 39px;
+        position: relative;
+        top: 29px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+}
+
+@media only screen and (min-width: 1880px) and (max-width: 2000px) {
+    .container-cerita-terbaru .card {
+        margin-left: 0%;
+        max-width: 84%;
+        position: relative;
+        left: 8%;
+    }
+
+    .container-cerita-terbaru .cardLeft1 {
+        border-radius: 10px;
+        width: 144%;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
+        margin-top: 8px;
+        padding: 21px 26px 21px 18px;
+    }
+
+    .container-cerita-terbaru .TitleLeft {
+        color: #fff;
+        width: 144%;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #06b4fc 0%, #1b81f0 100%);
+        padding: 19px 60px 19px 28px;
+        font: 600 24px Poppins, sans-serif;
+    }
+
+    .container-cerita-terbaru .card2 {
+        align-self: stretch;
+        display: flex;
+        margin-top: 67px;
+        max-width: 22%;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0 20px;
+        min-height: 1184px;
+    }
+
+    .container-cerita-terbaru select {
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid blue;
+        border-radius: 10px;
+        max-width: 1200px;
+        width: 28.8pc;
+        height: 95%;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .container-cerita-terbaru .ceritaterbaruRight {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0%;
+        position: relative;
+        flex-direction: column;
+        left: 50%;
+    }
+
+    .container-cerita-terbaru .titleright {
+        max-width: 1200px;
+        width: 60pc;
+        margin-left: 0px;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 98%;
+        justify-content: center;
+        gap: 33px 0px;
+        margin: 0;
+    }
+
+    .container-cerita-terbaru .cardcerita {
+        background-color: #159ddb;
+        box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 48%);
+        padding: 4px 13px;
+        border-radius: 6px;
+        margin: 8px 20px;
+    }
+
+    .container-cerita-terbaru .ddropdownaa {
+        display: flex;
+        margin-top: 0px;
+        margin-left: 0px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        position: relative;
+        left: -21px;
+        top: 10px;
+        width: 100%;
+    }
+
+    .container-cerita-terbaru .garis {
+        background-color: #005ac8;
+        width: 1px;
+        height: auto;
+        margin-left: 0px;
+        left: 2%;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .textcerita .bagikan-cerita svg {
+        cursor: pointer;
+        margin-bottom: 5px;
+        margin-left: 13px;
+        position: relative;
+        left: 13px;
+    }
+
+
+
+    .bin2 .fa.fa-star.checked {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .bin2 .fa.fa-star-half.checked-half {
+        margin-right: 15%;
+        font-size: 15px;
+        margin-top: -4%;
+    }
+
+    .container-cerita-terbaru .rate-5 .span {
+        padding: 0px 0px;
+        top: -10px;
+        margin-left: -13%;
+        position: relative;
+        font-size: 14px;
+    }
+
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+    .container-cerita-terbaru .rate {
+        margin-right: auto;
+        width: 45px;
+        margin-left: 0px;
+    }
+
+    .bin {
+        display: flex;
+        top: 16px;
+        left: 43%;
+        position: relative;
+    }
+
+    .container-cerita-terbaru .img-1 {
+        object-fit: cover;
+        width: 110px;
+        margin-left: 0;
+        margin-top: 0;
+        top: 3px;
+        position: relative;
+        height: 150px;
+    }
+
+    .container-cerita-terbaru .dropdown {
+        position: relative;
+        display: flex;
+        top: 18px;
+        left: 9%;
+    }
+
+    .heartswe {
+        position: relative;
+        top: 0px;
+        left: -24px;
+    }
+
+    .container-cerita-terbaru .isicontentLeft1 {
+        margin-top: 0;
+        position: relative;
+        margin-left: 0%;
+        width: 100%;
+        top: -30px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 {
+        max-width: 100%;
+        margin-left: 0%;
+        left: 21px;
+        line-height: 39px;
+        position: relative;
+        top: 29px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 .text-title {
+        font-size: 18px;
+        width: 0px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 strong {
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .TextcontentLeft1 span {
+        font-size: 15px;
+    }
+
+    .bin .fa.fa-star {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star.checked {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .bin .fa.fa-star-half.checked-half {
+        margin-right: 12%;
+        font-size: 18px;
+
+    }
+
+    .container-cerita-terbaru .rate .counts {
+        position: relative;
+        top: -1px;
+    }
+}
+

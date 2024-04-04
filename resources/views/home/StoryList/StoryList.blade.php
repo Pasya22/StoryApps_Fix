@@ -18,9 +18,9 @@
                     <p>/</p>
                     <a href="#" class="Cerita-Terbaru KeranjangNav">Story List</a>
                 </div>
-                <div class="Cerita-Terbaru card2" >
+                <div class="Cerita-Terbaru card2">
                     <div class="Cerita-Terbaru RekomLeft">
-                        <div class="Cerita-Terbaru TitleLeft" >Recomendation</div>
+                        <div class="Cerita-Terbaru TitleLeft">Recomendation</div>
 
                         @foreach ($data['RateRecomendationStory'] as $items)
                             @if ($items->book_status == 1 || $items->book_status == 3)
@@ -86,11 +86,14 @@
                                                             id="heart hearts"></label>
                                                     </form>
                                                 @else
-                                                    <a href="#">
-                                                        <label for="heart-checkbox" class="heart" id="heart"></label>
-                                                        <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                            id="heart-checkbox">
-                                                    </a>
+                                                    <div class="heartswe">
+                                                        <a href="#">
+                                                            <label for="heart-checkbox" class="heart"
+                                                                id="heart"></label>
+                                                            <input type="checkbox" name="favorit" class="heart-checkbox"
+                                                                id="heart-checkbox">
+                                                        </a>
+                                                    </div>
                                                 @endif
 
 
@@ -145,7 +148,8 @@
                                             <a href="00"><img src="{{ asset('/img/img/instagram.png') }}"
                                                     alt=""></a>
                                             <a href="11"><img src="{{ asset('/img/img/wa.png') }}" alt=""></a>
-                                            <a href="22"><img src="{{ asset('/img/img/tw.png') }}" alt=""></a>
+                                            <a href="22"><img src="{{ asset('/img/img/tw.png') }}"
+                                                    alt=""></a>
                                             {{-- <a href="33"><img src="{{ asset('/img/detailstory/tw.png')}}" alt=""></a> --}}
                                         </figure>
                                     </div>
@@ -155,9 +159,9 @@
                     </div>
                     <div class="Cerita-Terbaru garis"></div>
 
-                    <div class="Cerita-Terbaru ceritaterbaruRight" >
+                    <div class="Cerita-Terbaru ceritaterbaruRight">
                         <div class="Cerita-Terbaru titleright">Story List</div>
-                        <div class="Cerita-Terbaru ddropdown">
+                        <div class="Cerita-Terbaru ddropdownaa">
                             <!-- Dropdown pertama -->
                             <label for="dropdown1"></label>
                             <select id="dropdown1">
@@ -174,14 +178,7 @@
                                 <option value="pilihan5">Pilihan Status 2</option>
                                 <option value="pilihan6">Pilihan Status 3</option>
                             </select>
-                            <!-- Dropdown ketiga -->
-                            <label for="dropdown3"></label>
-                            <select id="dropdown3">
-                                <option value="" disabled selected>Pilih Order</option>
-                                <option value="pilihan7">Pilihan Order 1</option>
-                                <option value="pilihan8">Pilihan Order 2</option>
-                                <option value="pilihan9">Pilihan Order 3</option>
-                            </select>
+
                         </div>
 
                         <div class="row">

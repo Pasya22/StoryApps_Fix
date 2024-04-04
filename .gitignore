@@ -6,3 +6,4 @@ public/default.php
 composer-setup.php
 composer.phar
 public/vendor
+INSERT INTO chapters (id_chapter, id_sto

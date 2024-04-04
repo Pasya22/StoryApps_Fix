@@ -1,6 +1,13 @@
 @extends('layouts.chatStoryLayout')
 @section('title', 'Chat Story')
 @section('content')
+    <style>
+        .chatstory .card-body .container-body {
+            padding: 20px 30px;
+            background-image: url('{{ asset('img/whatsappa_back.jpeg') }}');
+        }
+    </style>
+
     <div class="chatstory">
         <div class="popup" id="popup">
             <strong> Untuk membaca anda dapat mengklik scroll atau tombol Next Halaman</strong>
@@ -51,8 +58,8 @@
                             </ul>
                         </div>
                         {{-- <div id="listhalamanBtn" class="button2 buttonpage"> --}}
-                            {{-- {{ $data['datah']->currentPage() }}/{{ $data['datah']->Count() }} --}}
-                            {{-- {{ $data['datah']->currentPage() }}/{{ $data['datah']->lastPage() }} --}}
+                        {{-- {{ $data['datah']->currentPage() }}/{{ $data['datah']->Count() }} --}}
+                        {{-- {{ $data['datah']->currentPage() }}/{{ $data['datah']->lastPage() }} --}}
 
                         {{-- </div> --}}
                     </div>

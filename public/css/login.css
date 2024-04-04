@@ -228,7 +228,7 @@ label {
     top: 20px;
     right: 20px;
     background-color: rgba(248, 190, 190, 0.863);
-    color: #ee4a4a;
+    color: #8b0000;
     padding: 10px 20px;
     border-radius: 5px;
     animation: slideIn 0.5s ease forwards;
@@ -247,13 +247,12 @@ label {
     }
 }
 
-/* Gaya untuk notifikasi berhasil (hijau) */
 .popup.success {
-    background-color: #4caf50;
+    background-color: #aaf7aced;
     position: fixed;
     top: 20px;
     right: 20px;
-    color: rgb(0, 252, 105);
+    color: rgb(4 159 68);
     padding: 10px 20px;
     border-radius: 5px;
     animation: slideIn 0.5s ease forwards;

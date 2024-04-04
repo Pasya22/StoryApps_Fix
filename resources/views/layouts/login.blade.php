@@ -60,31 +60,44 @@
             showHideBtn.innerHTML = '<i class="fa-solid fa-eye"></i>';
         }
     }
+
+    function togglePassword2() {
+        var passField2 = document.getElementById("password_confirmation");
+        var showHideBtn2 = document.getElementById("showHideBtn-confirmation");
+
+        if (passField2.type === "password") {
+            passField2.type = "text";
+            showHideBtn2.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        } else {
+            passField2.type = "password";
+            showHideBtn2.innerHTML = '<i class="fa-solid fa-eye"></i>';
+        }
+    }
 </script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Fungsi untuk menampilkan pop-up
+        // Function to show popup
         function showPopup(message, isSuccess) {
             var popupContent = document.querySelector('.popup-content');
             if (popupContent) {
-                popupContent.textContent = message;
+                popupContent.innerHTML = message;
 
                 var popup = document.getElementById('popup');
                 if (popup) {
-                    popup.className = 'popup'; // Menghapus kelas sebelumnya
+                    popup.className = 'popup'; // Remove previous classes
 
                     if (isSuccess) {
-                        popup.classList.add('success'); // Tambahkan kelas untuk notifikasi berhasil
+                        popup.classList.add('success'); // Add success class
                     } else {
-                        popup.classList.add('error'); // Tambahkan kelas untuk notifikasi gagal
+                        popup.classList.add('error'); // Add error class
                     }
 
                     popup.style.display = 'block';
 
                     setTimeout(function() {
                         popup.style.display = 'none';
-                    }, 6000); // Setelah 6 detik, sembunyikan pop-up
+                    }, 6000); // Hide popup after 6 seconds
                 } else {
                     console.error('Element with ID "popup" not found.');
                 }
@@ -93,11 +106,19 @@
             }
         }
 
-        // Panggil showPopup dengan pesan dan jenis notifikasi sesuai kebutuhan, misalnya setelah login
+        // Call showPopup with appropriate message and notification type, for example, after form submission
         @if (session('success'))
-            showPopup("{{ session('success') }}", true); // Berhasil
+            showPopup('<div class="success-notification">{{ session('success') }}</div>',
+            true); // Success notification
         @elseif (session('error'))
-            showPopup("{{ session('error') }}", false); // Gagal
+            showPopup('<div class="error-notification">{{ session('error') }}</div>',
+            false); // Error notification
+        @elseif ($errors->any())
+            var errorsHtml = '';
+            @foreach ($errors->all() as $error)
+                errorsHtml += '<div class="error-notification">{{ $error }}</div>';
+            @endforeach
+            showPopup(errorsHtml, false); // Display validation errors
         @endif
     });
 </script>

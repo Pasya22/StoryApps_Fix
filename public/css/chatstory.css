@@ -107,9 +107,6 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.chatstory .card-body .container-body {
-    padding: 20px 30px;
-}
 
 .chatstory .card-body .page {
     display: flex;
