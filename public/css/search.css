@@ -144,7 +144,40 @@
     position: absolute;
 }
 
-.heart-checkbox
-{
+.heart-checkbox {
     display: none;
+}
+
+
+
+@media only screen and (min-width:360px) and (max-width:360px) {
+    .search .card-conten {
+        width: 61%;
+        height: 450px;
+        border-radius: 7px;
+        background-color: #005ac8;
+        margin: auto;
+        padding: 13px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search .card-conten-search {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search .card-conten img {
+        width: 122px;
+        height: 132px;
+        object-fit: cover;
+    }
+
+    .search .card-body .container-card {
+        padding: 10px 2%;
+        width: 100%;
+        max-height: 900px;
+        min-height: 900px;
+    }
 }

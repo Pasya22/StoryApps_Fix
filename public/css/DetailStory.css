@@ -2604,6 +2604,16 @@ label {
         right: -12px;
     }
 
+    .nav-menu.active {
+        z-index: 5;
+        position: relative;
+        left: -6px;
+        padding-left: 0px;
+        font-size: small;
+    }
+
+
+
 }
 
 @media only screen and (min-width: 375px) and (max-width: 375px) {
@@ -2638,6 +2648,14 @@ label {
         right: -12px;
     }
 
+    .nav-menu.active {
+        z-index: 5;
+        position: relative;
+        left: -6px;
+        padding-left: 0px;
+        font-size: small;
+    }
+
 }
 
 @media only screen and (min-width: 390px) and (max-width: 390px) {
@@ -2670,6 +2688,14 @@ label {
         position: relative;
         top: 10px;
         right: -12px;
+    }
+
+    .nav-menu.active {
+        z-index: 5;
+        position: relative;
+        left: -6px;
+        padding-left: 0px;
+        font-size: small;
     }
 
 }
@@ -3208,6 +3234,14 @@ label {
         display: flex;
         justify-content: center;
     }
+
+    .nav-menu.active {
+        z-index: 5;
+        position: relative;
+        left: -6px;
+        padding-left: 0px;
+        font-size: small;
+    }
 }
 
 @media screen and (max-width: 414px) {
@@ -3505,7 +3539,7 @@ footer .material-symbols-outlined {
 }
 
 
-@media (min-width: 0px) and (max-width: 767px) {
+@media only screen and (min-width: 0px) and (max-width: 767px) {
     .pic-cont {
         display: none;
     }
@@ -3559,9 +3593,7 @@ footer .material-symbols-outlined {
         padding: 10px 20px;
     }
 
-    .nav-menu.active {
-        z-index: 5;
-    }
+
 
 
 }
