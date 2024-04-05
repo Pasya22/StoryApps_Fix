@@ -2703,9 +2703,12 @@ label {
 
 @media only screen and (min-width:414px) and (max-width: 430px) {
     .nav-menu.active {
+        z-index: 5;
         position: relative;
-        top: 25px;
-        padding-left: 11px;
+        left: -5px;
+        margin-top: 0px;
+        top: 7px;
+        padding-left: 0px;
         font-size: small;
     }
 
@@ -2725,11 +2728,10 @@ label {
         display: none;
 
     }
-
     .search-box {
         margin: 0px 0%;
         top: 13px;
-        left: 140px;
+        left: 137px;
         text-align: center;
         width: 177px;
         height: 45px;
@@ -2746,14 +2748,13 @@ label {
     .nav-area .brand h3 {
         font-size: 14px;
         position: relative;
-        left: 10px;
+        left: -6px;
         top: 9px;
     }
-
     .nav-burger {
         position: relative;
         top: 9px;
-        right: 5px;
+        right: -7px;
     }
 
     .social a {
