@@ -618,7 +618,7 @@ button {
 
 }
 
-@media screen and (max-width: 990px) {
+@media only screen and (min-width: 768px) and (max-width: 990px) {
     .nav-menu.active {
         position: relative;
         padding-left: 32px;
@@ -2700,7 +2700,8 @@ label {
 
 }
 
-@media screen and (min-width:430px) and (max-width: 430px) {
+
+@media only screen and (min-width:414px) and (max-width: 430px) {
     .nav-menu.active {
         position: relative;
         top: 25px;
