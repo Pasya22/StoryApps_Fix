@@ -1808,7 +1808,7 @@ label {
     .container-cerita-terbaru .isicontentLeft1 {
         margin-top: 0px;
         margin-left: 0;
-        width: 100%;
+        width: 93%;
         position: relative;
         top: -147px;
         left: 11px;
@@ -1945,13 +1945,13 @@ label {
     }
 
     .container-cerita-terbaru .TextcontentLeft1 {
-        max-width: 81%;
+        max-width: 70%;
         position: relative;
         margin-left: 0%;
         font-size: 17px;
         line-height: 31px;
         margin-top: 0;
-        left: 100px;
+        left: 87px;
         top: 22px;
     }
 
