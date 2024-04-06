@@ -1744,7 +1744,7 @@ label {
 
     .bin {
         display: flex;
-        top: 13px;
+        top: -1px;
         left: -75%;
         position: relative;
     }
@@ -1917,7 +1917,7 @@ label {
 
     .bin {
         display: flex;
-        top: 13px;
+        top: 2px;
         left: -75%;
         position: relative;
     }
@@ -2060,14 +2060,16 @@ label {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 5ch;
+        max-width: 15ch;
         /* Maksimum lima karakter */
     }
 
     .container-cerita-terbaru .TextcontentLeft1 strong {
         font-size: 15px;
         position: relative;
-        top: -20px;
+        top: -1px;
+        width: 57px;
+        display: inline-block;
     }
 
     .container-cerita-terbaru .TextcontentLeft1 span {
@@ -2075,8 +2077,10 @@ label {
         display: inline-block;
         white-space: nowrap;
         overflow: hidden;
+        position: relative;
         text-overflow: ellipsis;
         max-width: 10ch;
+        top: 9px;
     }
 
 
