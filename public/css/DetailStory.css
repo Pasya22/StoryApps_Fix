@@ -2573,7 +2573,12 @@ label {
 }
 
 @media only screen and (min-width: 360px) and (max-width: 360px) {
-
+    .nav-menu-1 {
+        display: none;
+    }
+    .menu-nav-mb {
+        display: block;
+    }
     .search-box {
         margin: -2px 0%;
         left: 113px;
@@ -2617,7 +2622,12 @@ label {
 }
 
 @media only screen and (min-width: 375px) and (max-width: 375px) {
-
+    .nav-menu-1 {
+        display: none;
+    }
+    .menu-nav-mb {
+        display: block;
+    }
     .search-box {
         margin: -2px 0%;
         left: 113px;
@@ -2658,8 +2668,61 @@ label {
 
 }
 
-@media only screen and (min-width: 390px) and (max-width: 390px) {
+@media only screen and (min-width: 374px) and (max-width: 374px) {
 
+    .search-box {
+        margin: -2px 0%;
+        left: 113px;
+        top: 15px;
+        text-align: center;
+        width: 177px;
+        height: 45px;
+        position: absolute;
+        order: 2;
+    }
+
+    .search-box input {
+        margin: 10px auto;
+        font-size: 11px;
+        width: 175px;
+    }
+
+    .nav-area .brand h3 {
+        font-size: 15px;
+        position: relative;
+        left: -6px;
+        top: 6px;
+    }
+
+    .nav-burger {
+        position: relative;
+        top: 10px;
+        right: -12px;
+    }
+
+    .nav-menu-1 {
+        display: none;
+    }
+    .menu-nav-mb {
+        display: block;
+    }
+    .nav-menu.active {
+        z-index: 5;
+        position: relative;
+        left: -6px;
+        padding-left: 0px;
+        font-size: small;
+    }
+
+}
+
+@media only screen and (min-width: 390px) and (max-width: 390px) {
+    .nav-menu-1 {
+        display: none;
+    }
+    .menu-nav-mb {
+        display: block;
+    }
     .search-box {
         margin: 0px 0%;
         left: 129px;
@@ -2702,6 +2765,7 @@ label {
 
 
 @media only screen and (min-width:414px) and (max-width: 430px) {
+
     .nav-menu.active {
         z-index: 5;
         position: relative;
@@ -2728,6 +2792,7 @@ label {
         display: none;
 
     }
+
     .search-box {
         margin: 0px 0%;
         top: 13px;
@@ -2751,6 +2816,7 @@ label {
         left: -6px;
         top: 9px;
     }
+
     .nav-burger {
         position: relative;
         top: 9px;
