@@ -265,7 +265,7 @@
                                             <div class="judul-cerita">
                                                 <h3 class="text-title">{{ $story->title }}</h3>
                                                 <p>Writer &nbsp;&nbsp;: {{ $story->full_name }}</p>
-                                                <p>Genre : {{ $story->genre }}</p>
+                                                <p>Genre &nbsp;&nbsp;: {{ $story->genre }}</p>
                                             </div>
                                             <div class="rate-5">
 
