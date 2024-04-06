@@ -1718,6 +1718,7 @@ label {
 
     .container-cerita-terbaru .TextcontentLeft1 .text-title {
         font-size: 15px;
+
     }
 
     .container-cerita-terbaru .TextcontentLeft1 strong {
@@ -1733,8 +1734,8 @@ label {
         position: relative;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 9ch;
-        left: -30px;
+        max-width: 10ch;
+        left: -4px;
     }
 
     .container-cerita-terbaru .rate {
@@ -1773,7 +1774,7 @@ label {
 }
 
 
-@media only screen and (min-width: 375px) {
+@media only screen and (min-width: 375px) and (max-width: 375px) {
     .container-cerita-terbaru .ddropdownaa {
         max-width: 1200px;
         margin-top: 1%;
@@ -1812,6 +1813,14 @@ label {
     .container-cerita-terbaru .textcerita .judul-cerita p {
         font-size: 9px;
         margin-left: 4px;
+
+        display: inline-block;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 9ch;
+        left: -30px;
     }
 
     .bin2 {
@@ -1898,7 +1907,6 @@ label {
         position: relative;
         top: -10px;
     }
-
     .container-cerita-terbaru .TextcontentLeft1 span {
         font-size: 15px;
         display: inline-block;
@@ -1907,9 +1915,8 @@ label {
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 10ch;
-        left: -20px;
+        left: -2px;
     }
-
     .container-cerita-terbaru .rate {
         margin-right: auto;
         margin-left: 92px;
@@ -2105,7 +2112,18 @@ label {
 }
 
 @media only screen and (min-width: 410px) and (max-width: 414px) {
-
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 10px;
+        margin-left: 0px;
+        display: inline-block;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 19ch;
+        left: 4px;
+        top: 13px;
+    }
     .bin2 {
         display: flex;
         top: 30px;
@@ -2223,8 +2241,14 @@ label {
 
     .container-cerita-terbaru .TextcontentLeft1 span {
         font-size: 15px;
+        display: inline-block;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 10ch;
+        left: -4px;
     }
-
     .bin .fa.fa-star {
         margin-right: 9%;
     }
@@ -2358,7 +2382,36 @@ label {
         top: -2px;
     }
 
+    .container-cerita-terbaru .textcerita .judul-cerita {
+        padding-top: 20px;
+        line-height: 23px;
+    }
 
+    .container-cerita-terbaru .textcerita .judul-cerita h3 {
+        font-weight: bold;
+        margin-left: 3px;
+        font-size: 15px;
+    }
+
+    .container-cerita-terbaru .textcerita .judul-cerita p {
+        font-size: 10px;
+        margin-left: 0px;
+        display: inline-block;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 19ch;
+        left: 4px;
+        top: 13px;
+    }
+
+
+    .container-cerita-terbaru .rate-5 {
+        float: left;
+        height: 46px;
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 430px) {
@@ -2390,24 +2443,36 @@ label {
         height: 150px;
     }
 
-    .container-cerita-terbaru .textcerita .judul-cerita {
+    /* .container-cerita-terbaru .textcerita .judul-cerita {
         padding-top: 20px;
+        line-height: 23px;
     }
 
     .container-cerita-terbaru .textcerita .judul-cerita h3 {
         font-weight: bold;
+        margin-left: 3px;
         font-size: 15px;
     }
 
     .container-cerita-terbaru .textcerita .judul-cerita p {
-        font-size: 11px;
+        font-size: 10px;
+        margin-left: 0px;
+        display: inline-block;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 19ch;
+        left: 4px;
+        top: 13px;
     }
+
 
     .container-cerita-terbaru .rate-5 {
         float: left;
         height: 46px;
         padding: 0;
-    }
+    } */
 
 }
 

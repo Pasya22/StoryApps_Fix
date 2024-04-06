@@ -263,9 +263,9 @@
 
                                             </div>
                                             <div class="judul-cerita">
-                                                <h3 class="text-title">{{ Str::limit($story->title, 8) }}</h3>
-                                                <p>Penulis &nbsp;&nbsp;: {{ Str::limit($story->full_name, 8) }}</p>
-                                                <p>Kategori : {{ Str::limit($story->genre, 8) }}</p>
+                                                <h3 class="text-title">{{ $story->title }}</h3>
+                                                <p>Writer &nbsp;&nbsp;: {{ $story->full_name }}</p>
+                                                <p>Genre : {{ $story->genre }}</p>
                                             </div>
                                             <div class="rate-5">
 
