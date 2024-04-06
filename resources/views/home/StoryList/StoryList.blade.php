@@ -99,13 +99,11 @@
 
 
                                                 <div class="Cerita-Terbaru TextcontentLeft1">
-
-                                                    <p class="text-title">{{ Str::limit('Title', 8) }}</p>
-                                                    <strong style="width: 65px; display: inline-block;">Writter</strong>
-                                                    <span>: {{ Str::limit('Title', 8) }}</span><br>
+                                                    <p class="text-title" >pangestu septian</p>
+                                                    <strong style="width: 65px; display: inline-block;">Writer</strong>
+                                                    <span>: {{ $items->full_name }}</span><br>
                                                     <strong style="width: 65px; display: inline-block;">Genre</strong>
-                                                    <span>: {{ Str::limit('Komedi', 8) }}</span>
-
+                                                    <span>: {{ $items->genre }}</span>
                                                 </div>
                                                 <div class="rate">
 
@@ -147,7 +145,8 @@
                                         <figure>
                                             <a href="00"><img src="{{ asset('/img/img/instagram.png') }}"
                                                     alt=""></a>
-                                            <a href="11"><img src="{{ asset('/img/img/wa.png') }}" alt=""></a>
+                                            <a href="11"><img src="{{ asset('/img/img/wa.png') }}"
+                                                    alt=""></a>
                                             <a href="22"><img src="{{ asset('/img/img/tw.png') }}"
                                                     alt=""></a>
                                             {{-- <a href="33"><img src="{{ asset('/img/detailstory/tw.png')}}" alt=""></a> --}}

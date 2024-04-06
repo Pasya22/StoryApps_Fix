@@ -1694,6 +1694,7 @@ footer .material-symbols-outlined {
 
 /* Styles for screens between 430px and 560px */
 @media only screen and (min-width: 429px) and (max-width: 560px) {
+
     .social a {
         display: flex;
         /* Change links to block elements */
@@ -1798,7 +1799,7 @@ footer .material-symbols-outlined {
         top: 9px;
         right: 5px;
     }
-
+ 
 }
 
 @media only screen and (min-width: 768px) and (max-width: 990px) {
