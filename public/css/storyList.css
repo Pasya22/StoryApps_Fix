@@ -1800,7 +1800,7 @@ label {
 }
 
 
-@media only screen and (min-width: 374px) and (max-width: 374px) {
+@media only screen and (min-width: 372px) and (max-width: 374px) {
     .container-cerita-terbaru .column-2 {
         width: 100%;
     }
