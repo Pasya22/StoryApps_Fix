@@ -234,7 +234,7 @@
                                                     @endif
 
 
-                                                    <svg class="share-icon" id="share-icon" width="13"
+                                                    <svg class="share-icon" id="share-icon" width=""
                                                         height="14" viewBox="0 0 13 14" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path

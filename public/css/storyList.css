@@ -1697,6 +1697,19 @@ label {
         left: -9%;
     }
 
+    .container-cerita-terbaru .dropbtn {
+        color: white;
+        padding: 0px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin-top: 0;
+        margin-left: 0;
+        position: relative;
+        left: 22px;
+        top: 41px;
+    }
+
     .container-cerita-terbaru .RekomLeft {
         max-width: 100%;
         margin-left: 1px;
@@ -1705,22 +1718,38 @@ label {
 
     .heartswe {
         position: relative;
-        top: -42px;
-        left: -59px;
+        top: -2px;
+        left: -33px;
     }
 
     .container-cerita-terbaru .TextcontentLeft1 {
-        max-width: 100%;
-        margin-left: 5%;
+        max-width: 70%;
+        margin-left: 0%;
+        position: relative;
         font-size: 17px;
-        line-height: 31px;
-        margin-top: -8%;
+        line-height: 32px;
+        top: 14px;
+        left: 36%;
+        margin-top: 0;
+    }
+
+    .container-cerita-terbaru .cardLeft1 {
+        max-width: 100%;
+        margin-bottom: 15px;
+        height: 190px;
     }
 
     .container-cerita-terbaru .TextcontentLeft1 .text-title {
         font-size: 15px;
-
+        margin-bottom: 5px;
     }
+
+    #heart {
+        position: relative;
+        left: -19px;
+        margin-top: -4px;
+    }
+
 
     .container-cerita-terbaru .TextcontentLeft1 strong {
         font-size: 15px;
@@ -1741,12 +1770,14 @@ label {
 
     .container-cerita-terbaru .rate {
         margin-right: auto;
-        margin-left: 90px;
+        position: relative;
+        left: 43px;
+        top: 12px;
     }
 
     .bin {
         display: flex;
-        top: -1px;
+        top: 10px;
         left: -75%;
         position: relative;
     }
