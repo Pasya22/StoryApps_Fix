@@ -1,7 +1,7 @@
 @extends('layouts.detailStory')
 @section('title', 'foundStory')
 @section('content')
- <div class="popup" id="popup" style="display: {{ session('success') || session('error') ? 'block' : 'none' }}">
+    <div class="popup" id="popup" style="display: {{ session('success') || session('error') ? 'block' : 'none' }}">
         <span class="close" onclick="closePopup()">&times;</span>
         <div class="popup-content">
             @if (session('success'))
@@ -102,9 +102,9 @@
                                                                     data-story-id="{{ $items->id_story }}"
                                                                     data-story-action="{{ route('favorite') }}"
                                                                     style="color: red;"
-                                                                    {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}>
+                                                                    {{ $favoritItem ? 'checked' : '' }}>
                                                                 <label for="heart-checkbox-{{ $items->id_story }}"
-                                                                    class="heart  {{ $favoritItem && $favoritItem->favorit == 1 ? 'checked' : '' }}"
+                                                                    class="heart {{ $favoritItem ? 'checked' : '' }}"
                                                                     id="heart"></label>
                                                             </form>
                                                         @else

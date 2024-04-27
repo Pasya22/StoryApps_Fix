@@ -28,7 +28,8 @@ use App\Http\Controllers\DetailStory\DetailStoryController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('StoryApps');
-Route::get('/StoriesList', [HomeController::class, 'searchStory'])->name('searchStory');
+// Route::get('/StoriesList/{encryptedTitle}', [HomeController::class, 'searchStory'])->name('searchStory');
+Route::POST('/StoriesList', [HomeController::class, 'searchStory'])->name('searchStory');
 
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 

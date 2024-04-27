@@ -15,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -314,6 +315,7 @@ class HomeController extends Controller
     public function searchStory(Request $request)
     {
         $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang masuk
+        // $title = decrypt($encryptedTitle);
 
         // Mendapatkan daftar cerita favorit berdasarkan pengguna yang sedang login
         $data['favorit'] = DB::table('favorites')
@@ -353,7 +355,7 @@ class HomeController extends Controller
             ->toArray();
 
         $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
-        $data['genre'] = adminModel::getData('genre');
+        // $data['genre'] = adminModel::getData('genre');
         $data['stories'] = adminModel::getStoryDetail($id);
 
         // $data['favorit'] = adminModel::getData('favorites');

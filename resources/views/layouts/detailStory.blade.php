@@ -89,8 +89,15 @@
 
             </div>
 
-            <div class="search-box">
-                <form action="{{ route('searchStory') }}" method="GET">
+           <div style="display: none;">
+                {{-- @foreach ($data['story'] as $item)
+
+                @endforeach --}}
+             </div>
+             <div class="search-box">
+                {{-- <form action="{{ route('searchStory', encrypt($item->title)) }}" method="GET"> --}}
+                <form action="{{ route('searchStory') }}" method="POST">
+                    @csrf
                     <input type="text" name="keyword" id="searchInput" placeholder="Cari Cerita Favorit Anda">
                     <button type="submit" class="btn-serch">
                         <span class="material-symbols-outlined">search</span>

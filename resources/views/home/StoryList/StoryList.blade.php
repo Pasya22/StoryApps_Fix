@@ -204,7 +204,7 @@
                                                         <form action="{{ route('favorite') }}" method="post"
                                                             class="favorite-form">
                                                             @csrf
-                                                            @method('POST')
+                                                        @method('POST')
                                                             <input type="hidden" name="id_story"
                                                                 value="{{ $story->id_story }}">
                                                             @php
