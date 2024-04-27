@@ -555,8 +555,8 @@ class adminModel extends Model
 
     public static function CountDataRate()
     {
-        $counts = DB::table('rates')
-            ->join('stories', 'stories.id_story', '=', 'rates.id_story')
+        $counts = DB::table('stories')
+        ->leftJoin('rates', 'stories.id_story', '=', 'rates.id_story')
             ->join('genre', 'genre.id_genre', '=', 'stories.id_genre')
             // ->leftJoin('categories', 'categories.id_category', '=', 'stories.id_category')
             ->join('users', 'users.id', '=', 'stories.id_user')
@@ -580,7 +580,7 @@ class adminModel extends Model
                 IF(COUNT(*) > 0, SUM(rate) / COUNT(*), 0) as average_rating
             ')
             )
-
+            ->havingRaw('total_ratings > 0')
             ->groupBy('stories.id_story', 'stories.title', 'stories.sinopsis', 'stories.book_status', 'stories.images', 'genre.genre', 'users.id_role', 'users.full_name')
             ->orderBy('stories.id_story', 'desc') // Order by story ID in descending order
             ->get();
@@ -721,7 +721,7 @@ class adminModel extends Model
                     DB::raw('AVG(rates.rate) as average_rating')
                 )
                 ->groupBy('stories.id_story', 'stories.title', 'stories.sinopsis', 'users.username', 'users.full_name', 'stories.book_status', 'stories.images', 'genre.genre', 'users.id_role')
-                ->havingRaw('average_rating >= 4 OR average_rating IS NULL') // Include cerita tanpa peringkat
+                ->havingRaw('average_rating > 4 OR average_rating IS NULL') // Include cerita tanpa peringkat
                 ->orderBy('average_rating', 'desc') // Urutkan berdasarkan peringkat rata-rata dari tertinggi ke terendah
                 ->limit(10) // Batasi jumlah cerita yang ditampilkan menjadi 10
                 ->get();

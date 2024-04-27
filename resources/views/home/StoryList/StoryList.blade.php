@@ -75,15 +75,16 @@
                                                             // Memeriksa apakah cerita adalah favorit pengguna saat ini
                                                             $isFavorite = in_array($items->id_story, $data['favorit']);
                                                         @endphp
-
-                                                        <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                            id="heart-checkbox-{{ $items->id_story }}"
-                                                            data-story-id="{{ $items->id_story }}"
-                                                            data-story-action="{{ route('favorite') }}" style="color: red;"
-                                                            {{ $isFavorite ? 'checked' : '' }}>
-                                                        <label for="heart-checkbox-{{ $items->id_story }}"
-                                                            class="heart  {{ $isFavorite ? 'checked' : '' }} hearts"
-                                                            id="heart hearts"></label>
+                                                        <div class="heartswes">
+                                                            <input type="checkbox" name="favorit" class="heart-checkbox"
+                                                                id="heart-checkbox-{{ $items->id_story }}"
+                                                                data-story-id="{{ $items->id_story }}"
+                                                                data-story-action="{{ route('favorite') }}"
+                                                                style="color: red;" {{ $isFavorite ? 'checked' : '' }}>
+                                                            <label for="heart-checkbox-{{ $items->id_story }}"
+                                                                class="heart  {{ $isFavorite ? 'checked' : '' }} hearts"
+                                                                id="heart hearts"></label>
+                                                        </div>
                                                     </form>
                                                 @else
                                                     <div class="heartswe">
@@ -146,7 +147,8 @@
                                             <a href="00"><img src="{{ asset('/img/img/instagram.png') }}"
                                                     alt=""></a>
                                             <a href="11"><img src="{{ asset('/img/img/wa.png') }}" alt=""></a>
-                                            <a href="22"><img src="{{ asset('/img/img/tw.png') }}" alt=""></a>
+                                            <a href="22"><img src="{{ asset('/img/img/tw.png') }}"
+                                                    alt=""></a>
                                             {{-- <a href="33"><img src="{{ asset('/img/detailstory/tw.png')}}" alt=""></a> --}}
                                         </figure>
                                     </div>
@@ -212,25 +214,29 @@
                                                                 );
 
                                                             @endphp
-
-                                                            <!-- Menampilkan checkbox dan ikon hati sesuai dengan status cerita -->
-                                                            <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                                id="heart-checkbox-{{ $story->id_story }}"
-                                                                data-story-id="{{ $story->id_story }}"
-                                                                data-story-action="{{ route('favorite') }}"
-                                                                style="color: red;" {{ $favoritItem ? 'checked' : '' }}>
-                                                            <label for="heart-checkbox-{{ $story->id_story }}"
-                                                                class="heart {{ $favoritItem ? 'checked' : '' }}"
-                                                                id="heart"></label>
-
+                                                            <div class="heart-news">
+                                                                <!-- Menampilkan checkbox dan ikon hati sesuai dengan status cerita -->
+                                                                <input type="checkbox" name="favorit"
+                                                                    class="heart-checkbox"
+                                                                    id="heart-checkbox-{{ $story->id_story }}"
+                                                                    data-story-id="{{ $story->id_story }}"
+                                                                    data-story-action="{{ route('favorite') }}"
+                                                                    style="color: red;"
+                                                                    {{ $favoritItem ? 'checked' : '' }}>
+                                                                <label for="heart-checkbox-{{ $story->id_story }}"
+                                                                    class="heart {{ $favoritItem ? 'checked' : '' }}"
+                                                                    id="heart"></label>
+                                                            </div>
                                                         </form>
                                                     @else
-                                                        <a href="#">
-                                                            <label for="heart-checkbox" class="heart"
-                                                                id="heart"></label>
-                                                            <input type="checkbox" name="favorit" class="heart-checkbox"
-                                                                id="heart-checkbox">
-                                                        </a>
+                                                        <div class="heart-new">
+                                                            <a href="#">
+                                                                <label for="heart-checkbox" class="heart"
+                                                                    id="heart"></label>
+                                                                <input type="checkbox" name="favorit"
+                                                                    class="heart-checkbox" id="heart-checkbox">
+                                                            </a>
+                                                        </div>
                                                     @endif
 
 

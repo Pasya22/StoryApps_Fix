@@ -264,7 +264,7 @@
                                         </li>
                                         <li class="tabel-isi-cerita">
                                             <p>Writter</p>
-                                            <p>: {{ Str::limit($data['stories']->full_name, 20) }}</p>
+                                            <p class="nameWr">: {{  $data['stories']->full_name  }}</p>
                                         </li>
                                         <li class="tabel-isi-cerita garis-kiri garis-bawah">
                                             <p>Rilis</p>

@@ -1188,9 +1188,21 @@ button {
     float: left;
     padding-top: 4px;
     margin-right: 60px;
+    position: relative;
+    left: 6px;
 }
 
 .bintang999 .fa-star {
+    margin-right: 10px;
+
+}
+
+.bintang999 .fa.fa-star.checked {
+    margin-right: 10px;
+
+}
+
+.bintang999 .fa.fa-star-half.checked-half {
     margin-right: 10px;
 
 }
@@ -2279,6 +2291,7 @@ label {
     }
 }
 
+
 @media (max-width:1330px) {
 
     .dropdown-content-custom {
@@ -2291,7 +2304,17 @@ label {
     }
 }
 
+
 @media (max-width:1280px) {
+    .container-DetailStory .content-right .cerita-detail .isi-cerita .text-cerita .bottom-isi-cerita ul li .nameWr {
+        display: table-cell;
+        padding-right: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 11ch;
+    }
+
     .container-DetailStory {
         padding: 0 20px;
     }
@@ -2355,6 +2378,17 @@ label {
     .social i {
         padding: 0 30px;
 
+    }
+}
+
+@media (max-width:1024px) {
+    .container-DetailStory .content-right .cerita-detail .isi-cerita .text-cerita .bottom-isi-cerita ul li .nameWr {
+        display: table-cell;
+        padding-right: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 11ch;
     }
 }
 
@@ -2576,13 +2610,15 @@ label {
     .nav-menu-1 {
         display: none;
     }
+
     .menu-nav-mb {
         display: block;
     }
+
     .search-box {
-        margin: -2px 0%;
-        left: 113px;
-        top: 15px;
+        margin: 0px 0%;
+        top: 13px;
+        left: 106px;
         text-align: center;
         width: 177px;
         height: 45px;
@@ -2625,9 +2661,11 @@ label {
     .nav-menu-1 {
         display: none;
     }
+
     .menu-nav-mb {
         display: block;
     }
+
     .search-box {
         margin: -2px 0%;
         left: 113px;
@@ -2703,9 +2741,11 @@ label {
     .nav-menu-1 {
         display: none;
     }
+
     .menu-nav-mb {
         display: block;
     }
+
     .nav-menu.active {
         z-index: 5;
         position: relative;
@@ -2720,9 +2760,11 @@ label {
     .nav-menu-1 {
         display: none;
     }
+
     .menu-nav-mb {
         display: block;
     }
+
     .search-box {
         margin: 0px 0%;
         left: 129px;
@@ -2764,7 +2806,7 @@ label {
 }
 
 
-@media only screen and (min-width:414px) and (max-width: 430px) {
+@media only screen and (min-width:360px) and (max-width: 430px) {
 
     .nav-menu.active {
         z-index: 5;
@@ -2796,14 +2838,13 @@ label {
     .search-box {
         margin: 0px 0%;
         top: 13px;
-        left: 137px;
+        left: 106px;
         text-align: center;
         width: 177px;
         height: 45px;
         position: absolute;
         order: 2;
     }
-
     .search-box input {
         margin: 10px auto;
         font-size: 11px;
@@ -3101,6 +3142,28 @@ label {
         color: #ccc;
     }
 
+    .bintang999 {
+        width: 70%;
+        float: left;
+        padding-top: 4px;
+        margin-right: 60px;
+    }
+
+    .bintang999 .fa.fa-star {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    .bintang999 .fa.fa-star.checked {
+        margin-right: 10px;
+
+    }
+
+    .bintang999 .fa.fa-star-half.checked-half {
+        margin-right: 10px;
+
+    }
+
     /* love */
     .Love:not(:checked)>label {
         float: right;
@@ -3313,10 +3376,9 @@ label {
 }
 
 @media screen and (max-width: 414px) {
-    .container-DetailStory .content-right .cerita-detail .judul-cerita {
+    /* .container-DetailStory .content-right .cerita-detail .judul-cerita {
         position: absolute;
         margin-bottom: 20px;
-        /* margin-top: 135px; */
     }
 
     .social a {
@@ -3324,7 +3386,6 @@ label {
         justify-content: center;
         padding-top: 50px;
         color: rgba(238, 238, 238, 0.921);
-        /* padding-left: 70px; */
         font-size: 25px;
     }
 
@@ -3335,7 +3396,7 @@ label {
 
     .container-DetailStory .content-right .cerita-detail .isi-cerita .text-cerita .bottom-isi-cerita {
         margin-top: 140px;
-    }
+    } */
 
     /* .grub-tipecerita {
         margin-top: 90px;
