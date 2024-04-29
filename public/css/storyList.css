@@ -5594,9 +5594,9 @@ label {
     }
 
     .bin2 .fa.fa-star.checked {
-        margin-right: 15%;
+        margin-right: 10%;
         font-size: 15px;
-        margin-top: -4%;
+        margin-top: 0%;
     }
 
     .bin2 .fa.fa-star {
