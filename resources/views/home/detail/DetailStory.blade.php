@@ -83,30 +83,33 @@
 
 
                                     <div class="rate-5">
-                                        <div class="bin2">
-                                            @if ($recomend->average_rating >= 0.5 && $recomend->average_rating <= 5)
-                                                @for ($i = 0.5; $i <= 5; $i++)
-                                                    @if ($i <= $recomend->average_rating)
-                                                        <span class="fa fa-star checked" style="cursor: pointer;"></span>
-                                                    @else
-                                                        @if ($i - 0.5 <= $recomend->average_rating)
-                                                            <span class="fa fa-star-half checked-half"
-                                                                style="cursor: pointer; "></span>
+                                        <div class="rateGroups"> 
+                                            <div class="bin2">
+                                                @if ($recomend->average_rating >= 0.5 && $recomend->average_rating <= 5)
+                                                    @for ($i = 0.5; $i <= 5; $i++)
+                                                        @if ($i <= $recomend->average_rating)
+                                                            <span class="fa fa-star checked"
+                                                                style="cursor: pointer;"></span>
                                                         @else
-                                                            <span class="fa fa-star" style="cursor: pointer;"></span>
+                                                            @if ($i - 0.5 <= $recomend->average_rating)
+                                                                <span class="fa fa-star-half checked-half"
+                                                                    style="cursor: pointer; "></span>
+                                                            @else
+                                                                <span class="fa fa-star" style="cursor: pointer;"></span>
+                                                            @endif
                                                         @endif
-                                                    @endif
-                                                @endfor
-                                            @else
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                            @endif
-                                            <div class="counts">
-                                                <span class="spans">
-                                                    {{ '(' . number_format($recomend->average_rating, 1) . ')' }}</span>
+                                                    @endfor
+                                                @else
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @endif
+                                                <div class="counts">
+                                                    <span class="spans">
+                                                        {{ '(' . number_format($recomend->average_rating, 1) . ')' }}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -171,11 +174,11 @@
                                                         data-story-id="{{ $data['stories']->id_story }}"
                                                         data-story-action="{{ route('favorite') }}" style="color: red;"
                                                         {{ $favoritItem ? 'checked' : '' }}>
-                                            <div class="heartL">
-                                                <label for="heart-checkbox-{{ $data['stories']->id_story }}"
-                                                class="heart  {{ $favoritItem ? 'checked' : '' }}"
-                                                id="heart"></label> 
-                                            </div>
+                                                    <div class="heartL">
+                                                        <label for="heart-checkbox-{{ $data['stories']->id_story }}"
+                                                            class="heart  {{ $favoritItem ? 'checked' : '' }}"
+                                                            id="heart"></label>
+                                                    </div>
                                                 </form>
                                             @else
                                                 <a href="#">
@@ -266,7 +269,7 @@
                                         </li>
                                         <li class="tabel-isi-cerita">
                                             <p>Writter</p>
-                                            <p class="nameWr">: {{  $data['stories']->full_name  }}</p>
+                                            <p class="nameWr">: {{ $data['stories']->full_name }}</p>
                                         </li>
                                         <li class="tabel-isi-cerita garis-kiri garis-bawah">
                                             <p>Rilis</p>

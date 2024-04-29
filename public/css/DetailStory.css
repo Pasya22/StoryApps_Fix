@@ -2652,14 +2652,38 @@ label {
         padding-left: 0px;
         font-size: small;
     }
-    .heartL {
+
+    .container-DetailStory .content-right .cerita-detail .isi-cerita .favorit-detail .Love123 {
+        width: 0;
+        margin-right: 0;
         position: relative;
-        left: -11px;
-        margin-top: 0;
-        top: -2px;
+        left: 23px;
+        top: -3px;
     }
 
+    .Love {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        position: relative;
+        top: -13px;
+        left: 21px;
+    }
 
+    .dropdown2 {
+        float: left;
+        margin-top: 0px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        left: -29px;
+    }
+
+    .rateGroups {
+        position: relative;
+        top: -13px;
+        left: -2px;
+    }
 }
 
 @media only screen and (min-width: 375px) and (max-width: 375px) {
@@ -2709,6 +2733,37 @@ label {
         font-size: small;
     }
 
+    .container-DetailStory .content-right .cerita-detail .isi-cerita .favorit-detail .Love123 {
+        width: 0;
+        margin-right: 0;
+        position: relative;
+        left: -2px;
+        top: -3px;
+    }
+
+    .Love {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        position: relative;
+        top: -13px;
+        left: 0px;
+    }
+
+    .dropdown2 {
+        float: left;
+        margin-top: 0px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        left: -6px;
+    }
+
+    .rateGroups {
+        position: relative;
+        top: -13px;
+        left: -2px;
+    }
 }
 
 @media only screen and (min-width: 374px) and (max-width: 374px) {
@@ -2808,6 +2863,7 @@ label {
         font-size: small;
     }
 
+
 }
 
 
@@ -2850,6 +2906,7 @@ label {
         position: absolute;
         order: 2;
     }
+
     .search-box input {
         margin: 10px auto;
         font-size: 11px;
@@ -3362,8 +3419,10 @@ label {
 
     .bintang999 {
         width: 70%;
-        padding-top: 4px;
-        padding-left: 18px;
+        padding-top: 0;
+        padding-left: 0;
+        position: relative;
+        left: 11px;
     }
 
     .tempat-rate {
