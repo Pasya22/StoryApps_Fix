@@ -93,7 +93,7 @@ class HomeController extends Controller
         // Check if the user exists
         if ($user) {
             // Check if the user has already requested to be a writer
-            $existingRequest = adminModel::getDataById('requestwriter', 'id_user', $user->id);
+            $existingRequest = adminModel::getDataById('requestWriter', 'id_user', $user->id);
 
             if ($existingRequest) {
                 return response()->json(['error' => false, 'message' => 'Ask to be a writer just once!']);
@@ -106,7 +106,7 @@ class HomeController extends Controller
                 'status_approve' => 0,
             ];
 
-            if (adminModel::CreateData('requestwriter', $data)) {
+            if (adminModel::CreateData('requestWriter', $data)) {
                 $notif = [
                     'id_user' => $data['id_user'], // Sesuaikan dengan ID pengguna yang sesuai
                     "message" => 'User ' . $user->username . ' has requested to become a writer',
