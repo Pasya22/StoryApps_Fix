@@ -172,7 +172,7 @@
                                                         data-story-action="{{ route('favorite') }}" style="color: red;"
                                                         {{ $favoritItem ? 'checked' : '' }}>
                                                     <label for="heart-checkbox-{{ $data['stories']->id_story }}"
-                                                        class="heart  {{ $favoritItem ? 'checked' : '' }}"
+                                                        class="heart  {{ $favoritItem ? 'checked' : '' }} heartL"
                                                         id="heart"></label>
                                                 </form>
                                             @else

@@ -2652,7 +2652,12 @@ label {
         padding-left: 0px;
         font-size: small;
     }
-
+    .heartL {
+        position: relative;
+        left: -11px;
+        margin-top: 0;
+        top: -2px;
+    }
 
 
 }
