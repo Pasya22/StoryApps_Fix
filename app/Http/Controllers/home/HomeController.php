@@ -355,7 +355,7 @@ class HomeController extends Controller
             ->toArray();
 
         $data['RateRecomendationStory'] = adminModel::RateRecomendationStory($userId);
-        // $data['genre'] = adminModel::getData('genre');
+        $data['genre'] = adminModel::getData('genre');
         $data['stories'] = adminModel::getStoryDetail($id);
 
         // $data['favorit'] = adminModel::getData('favorites');
